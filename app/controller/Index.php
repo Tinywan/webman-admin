@@ -7,17 +7,12 @@ class Index
 {
     public function index(Request $request)
     {
-        return response('hello webman');
+        return json(['code' => 0, 'msg' => 'hello webman-admin']);
     }
 
-    public function view(Request $request)
+    public function event(Request $request)
     {
-        return view('index/view', ['name' => 'webman']);
-    }
-
-    public function json(Request $request)
-    {
-        return json(['code' => 0, 'msg' => 'ok']);
+        return json(['code' => 0, 'msg' => 'event']);
     }
 
 }

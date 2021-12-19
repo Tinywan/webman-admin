@@ -16,22 +16,24 @@
 
 ## webman-admin 部署
 
-### 克隆项目
+#### 克隆项目
 
-> 到D:盘：`/dnmp/www/` 目录下，即：`D:\dnmp\www`
+> 克隆目录：`D:\dnmp\www`
 
 ```sh
 git clone git@github.com:Tinywan/webman-admin.git
 ```
 
-### Docker 运行服务
+#### Docker 运行服务
 
 ```sh
 docker run --rm -it -p 8888:8888 -v d:/dnmp/www/webman-admin:/app tinywan/docker-php-webman
 ```
-> 以上表示挂载项目 `webman-admin`数据卷到容器`app`。同时映射宿主机和容器端口 `8888:8888` 
 
-运行后如下所示
+以上表示挂载项目 `webman-admin`数据卷到容器`app`。同时映射宿主机和容器端口 `8888:8888` 
+
+**运行后如下所示**
+
 ![docker](docker.png)
 
 ## webman-admin-ui 部署
@@ -50,8 +52,8 @@ npm i
 npm run serve
 ```
 
-运行后如下所示
+**运行后如下所示**
 
 ![ui](ui.png)
 
-> 启动完成后浏览器访问 http://localhost:2800
+启动完成后浏览器访问 http://localhost:2800

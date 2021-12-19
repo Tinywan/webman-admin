@@ -1,15 +1,25 @@
 <?php
+declare(strict_types=1);
+
 namespace app\controller;
 
 use extend\event\LogErrorWriteEvent;
 use support\Request;
+use support\Response;
 use webman\event\EventManager;
 
 class Index
 {
-    public function index(Request $request)
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function issueToken(Request $request):Response
     {
-        return json(['code' => 0, 'msg' => 'hello webman-admin']);
+        $data = [
+            'access_token' => time()
+        ];
+        return json(['code' => 0, 'msg' => 'success','data'=>$data]);
     }
 
     public function event(Request $request)

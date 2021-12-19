@@ -13,6 +13,28 @@
  */
 
 use Webman\Route;
+use app\controller\Authentication;
+use app\controller\System;
+
+Route::options('[{path:.+}]', function (){
+    return response('');
+});
+
+// 1.0 身份认证
+Route::group('/oauth', function () {
+    Route::post('/issue-token', [Authentication::class, 'issueToken']); // 1.1 发行令牌
+});
+
+// 2.0 系统管理
+Route::group('/system', function () {
+    Route::get('/menu', [System::class, 'menu']); // 菜单
+});
+
+Route::fallback(function () {
+    return response('');
+});
+
+Route::disableDefaultRoute();
 
 
 

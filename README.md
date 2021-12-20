@@ -22,6 +22,14 @@
 git clone git@github.com:Tinywan/webman-admin.git
 ```
 
+#### 安装依赖
+
+```sh
+cd /d/dnmp/www/webman-admin
+
+composer install
+```
+
 #### Docker 运行服务
 
 ```sh

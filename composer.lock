@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce8a85aa3f23e2c2ef8f76bbcdd0d5dc",
+    "content-hash": "72e29e06bab4af3d64001c4cb5547d75",
     "packages": [
         {
             "name": "monolog/monolog",
@@ -724,16 +724,16 @@
         },
         {
             "name": "tinywan/webman-validate",
-            "version": "v0.0.1",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-validate.git",
-                "reference": "281b6ff623c0b0020fa2acd3a26cc481c204d8a7"
+                "reference": "b47c000afe0b6b5c6099ec65cecc11cead70f7ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-validate/zipball/281b6ff623c0b0020fa2acd3a26cc481c204d8a7",
-                "reference": "281b6ff623c0b0020fa2acd3a26cc481c204d8a7",
+                "url": "https://api.github.com/repos/Tinywan/webman-validate/zipball/b47c000afe0b6b5c6099ec65cecc11cead70f7ce",
+                "reference": "b47c000afe0b6b5c6099ec65cecc11cead70f7ce",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -745,11 +745,19 @@
             "require": {
                 "php": ">=7.4"
             },
+            "require-dev": {
+                "phpunit/phpunit": "~7.0|~8.0|~9.0",
+                "topthink/think-orm": "^2.0",
+                "workerman/webman": "^1.0"
+            },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "webman\\": "src/"
-                }
+                },
+                "files": [
+                    "src/helper.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -764,9 +772,9 @@
             "description": "Use validate in webman Framework",
             "support": {
                 "issues": "https://github.com/Tinywan/webman-validate/issues",
-                "source": "https://github.com/Tinywan/webman-validate/tree/v0.0.1"
+                "source": "https://github.com/Tinywan/webman-validate/tree/v0.0.3"
             },
-            "time": "2021-12-27T12:39:31+00:00"
+            "time": "2021-12-29T08:02:39+00:00"
         },
         {
             "name": "workerman/webman-framework",
@@ -832,16 +840,16 @@
         },
         {
             "name": "workerman/workerman",
-            "version": "v4.0.25",
+            "version": "v4.0.26",
             "source": {
                 "type": "git",
-                "url": "https://github.com/walkor/Workerman.git",
-                "reference": "d6af94dc565876ee5be30ba21b778dfee9759267"
+                "url": "https://github.com/walkor/workerman.git",
+                "reference": "27573e9f985f9ec0665b1f9924308d359bd0fdaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/Workerman/zipball/d6af94dc565876ee5be30ba21b778dfee9759267",
-                "reference": "d6af94dc565876ee5be30ba21b778dfee9759267",
+                "url": "https://api.github.com/repos/walkor/workerman/zipball/27573e9f985f9ec0665b1f9924308d359bd0fdaa",
+                "reference": "27573e9f985f9ec0665b1f9924308d359bd0fdaa",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -887,7 +895,17 @@
                 "source": "https://github.com/walkor/workerman",
                 "wiki": "http://doc.workerman.net/"
             },
-            "time": "2021-12-10T04:06:33+00:00"
+            "funding": [
+                {
+                    "url": "https://opencollective.com/walkor",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/walkor",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-12-21T03:39:14+00:00"
         }
     ],
     "packages-dev": [],

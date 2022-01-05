@@ -13,6 +13,10 @@
  */
 namespace support\exception;
 
+use extend\event\LogErrorWriteEvent;
+use think\db\exception\DbException;
+use webman\event\EventManager;
+use webman\exception\ValidateException;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use Throwable;
@@ -33,9 +37,58 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
-    public function render(Request $request, Throwable $exception) : Response
+    public function render(Request $request, Throwable $e) : Response
     {
-        return parent::render($request, $exception);
+        $responseData = [
+            'request_url' => $request->method() . ' ' . $request->fullUrl(),
+            'timestamp' => date('Y-m-d H:i:s'),
+            'client_ip' => $request->getRealIp(),
+            'request_param' => $request->all(),
+        ];
+        $errorCode = 0;
+        $errorSql = '';
+        $header = [];
+        if ($e instanceof BaseException) {
+            $statusCode = $e->statusCode;
+            $header = $e->header;
+            $errorMessage = $e->errorMessage;
+            $errorCode = $e->errorCode;
+            if ($e->data) {
+                $responseData = array_merge($responseData, $e->data);
+            }
+        } else {
+            $errorMessage = $e->getMessage();
+            if ($e instanceof ValidateException) {
+                $statusCode = 400;
+            } elseif ($e instanceof \InvalidArgumentException) { // 当参数不是预期的类型时
+                $statusCode = 415;
+                $errorMessage = '预期参数配置异常：' . $e->getMessage();
+            } else {
+                $statusCode = 500;
+                $errorMessage = $e->getMessage();
+                $errorCode = 500000;
+            }
+            // 触发日志
+            if ($statusCode == 500) {
+                EventManager::trigger(new LogErrorWriteEvent([
+                    'request_url' => $responseData['request_url'],
+                    'client_ip' => $responseData['client_ip'],
+                    'request_param' => $responseData['request_param'],
+                    'message' => $errorMessage,
+                    'code' => $errorCode,
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine(),
+                    'error_sql' => $errorSql,
+                    'trace' => (string) $e->getTraceAsString(),
+                ]), LogErrorWriteEvent::NAME);
+            }
+        }
+        if (config('app.debug')) {
+            $responseData['error_message'] = $errorMessage;
+            $responseData['error_trace'] = (string) $e->getTraceAsString();
+        }
+
+        return response_json($errorCode, $errorMessage, $responseData, $statusCode, $header);
     }
 
 }

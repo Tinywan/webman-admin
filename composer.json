@@ -30,9 +30,8 @@
     "tinywan/webman-event": "^0.0.2",
     "tinywan/webman-validate": "^0.0.3",
     "webman/console": "^1.0",
-    "tinywan/casbin": "^0.0.4",
-    "php-di/php-di": "^6.3",
-    "doctrine/annotations": "^1.13"
+    "topthink/think-orm": "^2.0",
+    "tinywan/casbin": "^0.0.5"
   },
   "suggest": {
     "ext-event": "For better performance. "

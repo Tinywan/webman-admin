@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace app\controller;
 
 use support\Request;
-use think\facade\Db;
 use Tinywan\Casbin\Permission;
 
 class Test

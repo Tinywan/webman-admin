@@ -32,4 +32,10 @@ class Index
         return json(['code' => 0, 'msg' => 'event']);
     }
 
+    public function casbin(Request $request)
+    {
+        var_dump(22222222);
+        return json(['code' => 0, 'msg' => 'event']);
+    }
+
 }

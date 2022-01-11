@@ -15,6 +15,7 @@
 use Webman\Route;
 use app\controller\Authentication;
 use app\controller\System;
+use app\controller\Test;
 
 Route::options('[{path:.+}]', function (){
     return response('');
@@ -28,6 +29,11 @@ Route::group('/oauth', function () {
 // 2.0 系统管理
 Route::group('/system', function () {
     Route::get('/menu', [System::class, 'menu']); // 菜单
+});
+
+// test
+Route::group('/test', function () {
+    Route::get('/casbin', [Test::class, 'casbin']); // 菜单
 });
 
 Route::fallback(function () {

@@ -7,9 +7,8 @@
 
 namespace app\common\validate;
 
-use webman\Validate;
 
-class UnauthorizedValidate extends Validate
+class UnauthorizedValidate extends BaseValidate
 {
     /**
      * 验证规则定义.

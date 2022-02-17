@@ -27,11 +27,11 @@
     "php": ">=7.2",
     "workerman/webman-framework": "^1.2",
     "monolog/monolog": "^2.0",
-    "tinywan/webman-event": "^0.0.2",
-    "tinywan/webman-validate": "^0.0.3",
-    "webman/console": "^1.0",
     "topthink/think-orm": "^2.0",
-    "tinywan/casbin": "^0.0.5"
+    "webman/console": "^1.0",
+    "tinywan/webman-event": "^0.0.2",
+    "tinywan/casbin": "^0.0.5",
+    "tinywan/validate": "^0.0.2"
   },
   "suggest": {
     "ext-event": "For better performance. "

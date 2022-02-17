@@ -9,7 +9,7 @@
 
 基于 [webman](https://www.workerman.net/doc/webman/) + [vue3](https://v3.vuejs.org/) + [element-plus](https://element-plus.gitee.io/zh-CN/) 的前后端分离管理系统。
 
-# [在线文档](http://github.tinywan.com/webman-admin-document/)
+# [在线文档](https://github.tinywan.com/webman-admin-document/)
 
 # 快速开始
 

@@ -11,6 +11,7 @@ namespace app\controller;
 
 
 use app\common\controller\BaseController;
+use app\common\model\UserModel;
 use app\common\validate\UnauthorizedValidate;
 use support\Request;
 use support\Response;
@@ -21,6 +22,23 @@ class Authentication extends BaseController
     {
         $params = $request->post();
         $this->validate($params, UnauthorizedValidate::class . '.issue');
+        $model = UserModel::field('id,username,mobile,email,avatar,password,is_enabled,create_time');
+        if (is_mobile((string) $params['username'])) {
+            $model->where('mobile', $params['username']);
+        } elseif (filter_var(trim($params['username']), FILTER_VALIDATE_EMAIL)) {
+            $model->where('email', $params['username']);
+        } else {
+            $model->where('username', $params['username']);
+        }
+        $userInfo = $model->findOrEmpty();
+        if ($userInfo->isEmpty()) {
+            return response_json(400,'账号或密码错误');
+        }
+
+        if (!password_verify(trim($params['password']), $userInfo->password)) {
+            return response_json(400,'账号或密码错误');
+        }
+
         $data = [
             'access_token' => time(),
             'user_info' => [

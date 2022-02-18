@@ -15,7 +15,7 @@
  * @return \support\Response
  * @author Tinywan(ShaoBo Wan)
  */
-function response_json($code = 0, string $msg = 'ok', array $data = [], int $http_code = 200, array $header = [], bool $is_object = true)
+function response_json($code = 0, string $msg = 'ok', array $data = [], int $http_code = 200, array $header = [], bool $is_object = true): \support\Response
 {
     if (empty($data) && $is_object) {
         $data = (object) $data;
@@ -24,4 +24,15 @@ function response_json($code = 0, string $msg = 'ok', array $data = [], int $htt
     $header = array_merge(['Content-Type' => 'application/json;charset=UTF-8'], $header);
 
     return new \support\Response($http_code, $header, json_encode($result));
+}
+
+/**
+ * @desc: 是否是手机号码
+ * @param string $mobile
+ * @return bool
+ * @author Tinywan(ShaoBo Wan)
+ */
+function is_mobile(string $mobile): bool
+{
+    return preg_match('/^1[3-9]\d{9}$/', $mobile) ? true : false;
 }

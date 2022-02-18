@@ -14,9 +14,8 @@
 namespace support\exception;
 
 use extend\event\LogErrorWriteEvent;
-use think\db\exception\DbException;
+use Tinywan\Validate\Exception\ValidateException;
 use webman\event\EventManager;
-use webman\exception\ValidateException;
 use Webman\Http\Request;
 use Webman\Http\Response;
 use Throwable;

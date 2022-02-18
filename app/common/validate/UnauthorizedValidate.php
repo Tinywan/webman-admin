@@ -5,8 +5,9 @@
  * @date 2022/1/5 13:27
  */
 
-namespace app\common\validate;
+declare(strict_types=1);
 
+namespace app\common\validate;
 
 class UnauthorizedValidate extends BaseValidate
 {

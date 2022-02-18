@@ -5,10 +5,15 @@
  * @date 2022/1/5 13:25
  */
 
+declare(strict_types=1);
+
 namespace app\common\controller;
 
-use webman\exception\ValidateException;
-use webman\Validate;
+use Tinywan\Validate\Exception\ValidateException;
+use Tinywan\Validate\Facade\Validate;
+use function strpos;
+use function is_array;
+use function explode;
 
 class BaseController
 {
@@ -38,7 +43,6 @@ class BaseController
             $v->rule($validate);
         } else {
             if (strpos($validate, '.')) {
-                // 支持场景
                 list($validate, $scene) = explode('.', $validate);
             }
             $class = false !== strpos($validate, '\\') ? $validate : $validate;

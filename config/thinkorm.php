@@ -11,7 +11,7 @@ return [
         'mysql' => [
             'type' => 'mysql',
             'hostname' => 'dnmp-mysql',
-            'database' => 'webman',
+            'database' => 'webman-admin',
             'username' => 'root',
             'password' => '123456',
             'hostport' => '3306',

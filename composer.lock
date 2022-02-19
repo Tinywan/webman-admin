@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "229c9f17c749a02478074fe45bef9c5e",
+    "content-hash": "bfddd7f56b0e624b4243aee8e9c39197",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2285,23 +2285,17 @@
         },
         {
             "name": "tinywan/validate",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/validate.git",
-                "reference": "0950f0143aef411d54866dde751d937970aa1f14"
+                "reference": "241665983a802d77d9cec5745c5e6331a72f96d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/validate/zipball/0950f0143aef411d54866dde751d937970aa1f14",
-                "reference": "0950f0143aef411d54866dde751d937970aa1f14",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "url": "https://api.github.com/repos/Tinywan/validate/zipball/241665983a802d77d9cec5745c5e6331a72f96d8",
+                "reference": "241665983a802d77d9cec5745c5e6331a72f96d8",
+                "shasum": ""
             },
             "require": {
                 "php": ">=7.4"
@@ -2322,9 +2316,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Tinywan/validate/issues",
-                "source": "https://github.com/Tinywan/validate/tree/v0.0.2"
+                "source": "https://github.com/Tinywan/validate/tree/v0.03"
             },
-            "time": "2022-02-17T10:31:34+00:00"
+            "time": "2022-02-19T14:33:52+00:00"
         },
         {
             "name": "tinywan/webman-event",
@@ -2695,7 +2689,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2"
+        "php": ">=7.2",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

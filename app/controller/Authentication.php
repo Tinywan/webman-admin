@@ -21,7 +21,7 @@ class Authentication extends BaseController
     public function issueToken(Request $request): Response
     {
         $params = $request->post();
-        $this->validate($params, UnauthorizedValidate::class . '.issue');
+        validate($params, UnauthorizedValidate::class . '.issue');
         $model = UserModel::field('id,username,mobile,email,avatar,password,is_enabled,create_time');
         if (is_mobile((string) $params['username'])) {
             $model->where('mobile', $params['username']);
@@ -32,11 +32,11 @@ class Authentication extends BaseController
         }
         $userInfo = $model->findOrEmpty();
         if ($userInfo->isEmpty()) {
-            return response_json(400,'账号或密码错误');
+            return response_json(0,'账号或密码错误',[],400);
         }
 
         if (!password_verify(trim($params['password']), $userInfo->password)) {
-            return response_json(400,'账号或密码错误');
+            return response_json(0,'账号或密码错误',[],400);
         }
 
         $data = [

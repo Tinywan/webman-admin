@@ -36,3 +36,31 @@ function is_mobile(string $mobile): bool
 {
     return preg_match('/^1[3-9]\d{9}$/', $mobile) ? true : false;
 }
+
+/**
+ * @desc 验证器助手函数
+ * @param array $data 数据
+ * @param string|array $validate 验证器类名或者验证规则数组
+ * @param array $message 错误提示信息
+ * @param bool $batch 是否批量验证
+ * @param bool $failException 是否抛出异常
+ * @return bool
+ * @author Tinywan(ShaoBo Wan)
+ */
+function validate(array $data, $validate = '', array $message = [], bool $batch = false, bool $failException = true)
+{
+    if (is_array($validate)) {
+        $v = new \Tinywan\Validate\Validate();
+        $v->rule($validate);
+    } else {
+        if (strpos($validate, '.')) {
+            [$validate, $scene] = explode('.', $validate);
+        }
+        $class = false !== strpos($validate, '\\') ? $validate : $validate;
+        $v = new $class();
+        if (!empty($scene)) {
+            $v->scene($scene);
+        }
+    }
+    return $v->message($message)->batch($batch)->failException($failException)->check($data);
+}

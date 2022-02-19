@@ -31,8 +31,8 @@
     "webman/console": "^1.0",
     "tinywan/webman-event": "^0.0.2",
     "tinywan/casbin": "^0.0.5",
-    "tinywan/validate": "^0.0.2",
-    "ext-json": "*"
+    "ext-json": "*",
+    "tinywan/validate": "^0.0.3"
   },
   "suggest": {
     "ext-event": "For better performance. "

@@ -36,6 +36,11 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
+    /**
+     * @param Request $request
+     * @param Throwable $e
+     * @return Response
+     */
     public function render(Request $request, Throwable $e) : Response
     {
         $responseData = [

@@ -33,7 +33,7 @@ Route::group('/system', function () {
 
 // test
 Route::group('/test', function () {
-    Route::get('/casbin', [Test::class, 'casbin']); // 菜单
+    Route::get('/validate', [Test::class, 'validate']); // validate
 });
 
 Route::fallback(function () {

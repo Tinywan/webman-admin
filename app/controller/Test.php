@@ -10,24 +10,24 @@ declare(strict_types=1);
 namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
+use app\common\validate\UserValidate;
 use support\Request;
 
 class Test
 {
-    public function casbin(Request $request)
+    public function validate(Request $request)
     {
         $data = [
             'name'  => 'Tinywan',
             'age'  => 24,
-            'email' => 'Tinywan@163.com'
+//            'email' => 'Tinywan@163.com'
         ];
-        validate($data,UnauthorizedValidate::class. '.issue');
-//        if (Permission::enforce("eve", "articles", "edit")) {
-//            echo '恭喜你！通过权限认证';
-//        } else {
-//            echo '对不起，您没有该资源访问权限';
+        validate($data, UserValidate::class . '.issue');
+//        $validate = new UserValidate();
+//        if (false === $validate->check($data)) {
+//            return 'fail, '.$validate->getError();
 //        }
-        return json(['code' => 0, 'msg' => 'event']);
+        return 'success';
     }
 
 }

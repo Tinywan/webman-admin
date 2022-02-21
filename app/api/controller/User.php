@@ -12,6 +12,7 @@ namespace app\api\controller;
 
 
 use app\common\model\UserModel;
+use support\exception\BadRequestHttpException;
 use support\Request;
 use support\Response;
 
@@ -21,6 +22,7 @@ class User
      * @desc: 列表
      * @param Request $request
      * @return Response
+     * @throws BadRequestHttpException
      * @author Tinywan(ShaoBo Wan)
      */
     public function getList(Request $request): Response

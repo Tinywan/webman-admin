@@ -3,6 +3,9 @@
  * Here is your custom functions.
  */
 
+use support\exception\BadRequestHttpException;
+use support\Response;
+
 /**
  * @desc: json 请求响应数据
  *
@@ -12,10 +15,10 @@
  * @param int $http_code http 状态码
  * @param array $header    头部
  * @param bool $is_object 是否是对象
- * @return \support\Response
+ * @return Response
  * @author Tinywan(ShaoBo Wan)
  */
-function response_json($code = 0, string $msg = 'ok', array $data = [], int $http_code = 200, array $header = [], bool $is_object = true): \support\Response
+function response_json($code = 0, string $msg = 'ok', array $data = [], int $http_code = 200, array $header = [], bool $is_object = true): Response
 {
     if (empty($data) && $is_object) {
         $data = (object) $data;
@@ -23,7 +26,7 @@ function response_json($code = 0, string $msg = 'ok', array $data = [], int $htt
     $result = ['code' => $code, 'msg' => $msg, 'data' => $data];
     $header = array_merge(['Content-Type' => 'application/json;charset=UTF-8'], $header);
 
-    return new \support\Response($http_code, $header, json_encode($result));
+    return new Response($http_code, $header, json_encode($result));
 }
 
 /**
@@ -34,7 +37,7 @@ function response_json($code = 0, string $msg = 'ok', array $data = [], int $htt
  */
 function is_mobile(string $mobile): bool
 {
-    return preg_match('/^1[3-9]\d{9}$/', $mobile) ? true : false;
+    return (bool) preg_match('/^1[3-9]\d{9}$/', $mobile);
 }
 
 /**
@@ -47,7 +50,7 @@ function is_mobile(string $mobile): bool
  * @return bool
  * @author Tinywan(ShaoBo Wan)
  */
-function validate(array $data, $validate = '', array $message = [], bool $batch = false, bool $failException = true)
+function validate(array $data, $validate = '', array $message = [], bool $batch = false, bool $failException = true): bool
 {
     if (is_array($validate)) {
         $v = new \Tinywan\Validate\Validate();
@@ -68,15 +71,15 @@ function validate(array $data, $validate = '', array $message = [], bool $batch 
 /**
  * @desc: 返回分页查询时需要的参数
  * @return array
- * @throws \support\exception\BadRequestHttpException
+ * @throws BadRequestHttpException
  * @author Tinywan(ShaoBo Wan)
  */
-function paginate()
+function paginate(): array
 {
     $page = intval(request()->get('page', 1));
     $per_page = intval(request()->get('per_page', 10));
     if ($page < 0 || $per_page < 0) {
-        throw new \support\exception\BadRequestHttpException();
+        throw new BadRequestHttpException();
     }
     $per_page = $per_page > 10 ? 100 : $per_page;
 

@@ -35,6 +35,7 @@ Route::group('/system', function () {
 Route::group('/test', function () {
     Route::get('/validate', [Test::class, 'validate']); // validate
     Route::get('/jwt', [Test::class, 'jwt']); // jwt
+    Route::get('/refresh-token', [Test::class, 'refreshToken']); // jwt
 });
 
 Route::fallback(function () {

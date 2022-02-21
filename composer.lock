@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "11b7b3f426cb5f807eb56f693495db8d",
+    "content-hash": "282316ff18fb63ffb689349a861c1815",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2348,16 +2348,16 @@
         },
         {
             "name": "tinywan/jwt",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/jwt.git",
-                "reference": "4fa9365994b96f2f4dbeea13ad2a0f84c084508b"
+                "reference": "e8b2d7f6ced367fc060df60f14c59ce3807a9eef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/jwt/zipball/4fa9365994b96f2f4dbeea13ad2a0f84c084508b",
-                "reference": "4fa9365994b96f2f4dbeea13ad2a0f84c084508b",
+                "url": "https://api.github.com/repos/Tinywan/jwt/zipball/e8b2d7f6ced367fc060df60f14c59ce3807a9eef",
+                "reference": "e8b2d7f6ced367fc060df60f14c59ce3807a9eef",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2386,9 +2386,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Tinywan/jwt/issues",
-                "source": "https://github.com/Tinywan/jwt/tree/v0.0.2"
+                "source": "https://github.com/Tinywan/jwt/tree/v0.0.3"
             },
-            "time": "2022-02-21T06:58:52+00:00"
+            "time": "2022-02-21T07:20:54+00:00"
         },
         {
             "name": "tinywan/validate",

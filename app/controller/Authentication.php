@@ -15,6 +15,7 @@ use app\common\model\UserModel;
 use app\common\validate\UnauthorizedValidate;
 use support\Request;
 use support\Response;
+use Tinywan\Jwt\JwtToken;
 
 class Authentication extends BaseController
 {
@@ -39,15 +40,15 @@ class Authentication extends BaseController
             return response_json(0,'账号或密码错误',[],400);
         }
 
-        $data = [
-            'access_token' => time(),
+        $user = [
             'user_info' => [
-                'userId' => 10086,
-                'userName' => 'Tinywan',
+                'userId' => $userInfo['id'],
+                'userName' => $userInfo['username'],
                 'dashboard' => 0,
                 'role' => ["SA","admin","Auditor"],
             ]
         ];
-        return json(['code' => 0, 'msg' => 'success','data'=>$data]);
+        $res = array_merge(JwtToken::generateToken($userInfo->toArray()),$user);
+        return response_json(0,'success',$res);
     }
 }

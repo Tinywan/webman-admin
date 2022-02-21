@@ -64,3 +64,21 @@ function validate(array $data, $validate = '', array $message = [], bool $batch 
     }
     return $v->message($message)->batch($batch)->failException($failException)->check($data);
 }
+
+/**
+ * @desc: 返回分页查询时需要的参数
+ * @return array
+ * @throws \support\exception\BadRequestHttpException
+ * @author Tinywan(ShaoBo Wan)
+ */
+function paginate()
+{
+    $page = intval(request()->get('page', 1));
+    $per_page = intval(request()->get('per_page', 10));
+    if ($page < 0 || $per_page < 0) {
+        throw new \support\exception\BadRequestHttpException();
+    }
+    $per_page = $per_page > 10 ? 100 : $per_page;
+
+    return [$page, $per_page];
+}

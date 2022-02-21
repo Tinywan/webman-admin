@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcecd83ead2c129ddd308faf5fdcce28",
+    "content-hash": "11b7b3f426cb5f807eb56f693495db8d",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2348,16 +2348,16 @@
         },
         {
             "name": "tinywan/jwt",
-            "version": "v0.0.1",
+            "version": "v0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/jwt.git",
-                "reference": "47527524f31d086f0eb3f4b51f0b9a771d61b5f4"
+                "reference": "4fa9365994b96f2f4dbeea13ad2a0f84c084508b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/jwt/zipball/47527524f31d086f0eb3f4b51f0b9a771d61b5f4",
-                "reference": "47527524f31d086f0eb3f4b51f0b9a771d61b5f4",
+                "url": "https://api.github.com/repos/Tinywan/jwt/zipball/4fa9365994b96f2f4dbeea13ad2a0f84c084508b",
+                "reference": "4fa9365994b96f2f4dbeea13ad2a0f84c084508b",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2368,7 +2368,6 @@
             },
             "require": {
                 "firebase/php-jwt": "^5.5",
-                "php": ">=7.4",
                 "workerman/webman-framework": "^1.2.1"
             },
             "require-dev": {
@@ -2387,9 +2386,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Tinywan/jwt/issues",
-                "source": "https://github.com/Tinywan/jwt/tree/v0.0.1"
+                "source": "https://github.com/Tinywan/jwt/tree/v0.0.2"
             },
-            "time": "2022-02-21T02:30:24+00:00"
+            "time": "2022-02-21T06:58:52+00:00"
         },
         {
             "name": "tinywan/validate",

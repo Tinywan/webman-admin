@@ -39,12 +39,12 @@ class Test
             'email' => 'Tinywan@163.com'
         ];
         $token = JwtToken::generateToken($user);
-        var_dump(json_encode($token));
-
-        $uid = JwtToken::getCurrentId();
-        $email = JwtToken::getExtendVal('email');
-        // 刷新令牌
-        $refreshToken = JwtToken::refreshToken();
+//        var_dump(json_encode($token));
+//
+//        $uid = JwtToken::getCurrentId();
+//        $email = JwtToken::getExtendVal('email');
+//        // 刷新令牌
+//        $refreshToken = JwtToken::refreshToken();
         return response_json(0,'success',$token);
     }
 

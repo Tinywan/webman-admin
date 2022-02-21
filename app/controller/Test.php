@@ -12,6 +12,7 @@ namespace app\controller;
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
 use support\Request;
+use Tinywan\Jwt\JwtToken;
 
 class Test
 {
@@ -28,6 +29,23 @@ class Test
 //            return 'fail, '.$validate->getError();
 //        }
         return 'success';
+    }
+
+    public function jwt(Request $request)
+    {
+        $user = [
+            'uid'  => 2022,
+            'name'  => 'Tinywan',
+            'email' => 'Tinywan@163.com'
+        ];
+        $token = JwtToken::generateToken($user);
+        var_dump(json_encode($token));
+
+        $uid = JwtToken::getCurrentId();
+        $email = JwtToken::getExtendVal('email');
+        // 刷新令牌
+        $refreshToken = JwtToken::refreshToken();
+        return response_json(0,'success',$token);
     }
 
 }

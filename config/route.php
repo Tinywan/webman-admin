@@ -34,6 +34,7 @@ Route::group('/system', function () {
 // test
 Route::group('/test', function () {
     Route::get('/validate', [Test::class, 'validate']); // validate
+    Route::get('/jwt', [Test::class, 'jwt']); // jwt
 });
 
 Route::fallback(function () {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "282316ff18fb63ffb689349a861c1815",
+    "content-hash": "8620985e7e30b0fd4bc83d495e471caf",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -77,16 +77,16 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v5.5.1",
+            "version": "v6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "83b609028194aa042ea33b5af2d41a7427de80e6"
+                "reference": "0541cba75ab108ef901985e68055a92646c73534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/83b609028194aa042ea33b5af2d41a7427de80e6",
-                "reference": "83b609028194aa042ea33b5af2d41a7427de80e6",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/0541cba75ab108ef901985e68055a92646c73534",
+                "reference": "0541cba75ab108ef901985e68055a92646c73534",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -134,9 +134,9 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v5.5.1"
+                "source": "https://github.com/firebase/php-jwt/tree/v6.0.0"
             },
-            "time": "2021-11-08T20:18:51+00:00"
+            "time": "2022-01-24T15:18:34+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2348,16 +2348,16 @@
         },
         {
             "name": "tinywan/jwt",
-            "version": "v0.0.3",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/jwt.git",
-                "reference": "e8b2d7f6ced367fc060df60f14c59ce3807a9eef"
+                "reference": "1c41e36f282509fa3f270211ec02399aef63a1dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/jwt/zipball/e8b2d7f6ced367fc060df60f14c59ce3807a9eef",
-                "reference": "e8b2d7f6ced367fc060df60f14c59ce3807a9eef",
+                "url": "https://api.github.com/repos/Tinywan/jwt/zipball/1c41e36f282509fa3f270211ec02399aef63a1dc",
+                "reference": "1c41e36f282509fa3f270211ec02399aef63a1dc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -2367,7 +2367,7 @@
                 ]
             },
             "require": {
-                "firebase/php-jwt": "^5.5",
+                "firebase/php-jwt": "^6.0",
                 "workerman/webman-framework": "^1.2.1"
             },
             "require-dev": {
@@ -2386,9 +2386,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Tinywan/jwt/issues",
-                "source": "https://github.com/Tinywan/jwt/tree/v0.0.3"
+                "source": "https://github.com/Tinywan/jwt/tree/v1.0.0"
             },
-            "time": "2022-02-21T07:20:54+00:00"
+            "time": "2022-02-24T03:47:41+00:00"
         },
         {
             "name": "tinywan/validate",
@@ -2796,7 +2796,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "ext-json": "*"
     },
     "platform-dev": [],

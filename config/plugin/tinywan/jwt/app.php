@@ -21,24 +21,38 @@ return [
          * access令牌 RS256 私钥
          * 生成RSA私钥(Linux系统)：openssl genrsa -out access_private_key.key 1024 (2048)
          */
-        'access_private_key' => '',
-
+        'access_private_key' => <<<EOD
+-----BEGIN RSA PRIVATE KEY-----
+...
+-----END RSA PRIVATE KEY-----
+EOD,
         /**
          * access令牌 RS256 公钥
          * 生成RSA公钥(Linux系统)：openssl rsa -in access_private_key.key -pubout -out access_public_key.key
          */
-        'access_public_key' => '',
+        'access_public_key' => <<<EOD
+-----BEGIN PUBLIC KEY-----
+...
+-----END PUBLIC KEY-----
+EOD,
 
         /**
          * refresh令牌 RS256 私钥
          * 生成RSA私钥(Linux系统)：openssl genrsa -out refresh_private_key.key 1024 (2048)
          */
-        'refresh_private_key' => '',
-
+        'refresh_private_key' => <<<EOD
+-----BEGIN RSA PRIVATE KEY-----
+...
+-----END RSA PRIVATE KEY-----
+EOD,
         /**
          * refresh令牌 RS256 公钥
          * 生成RSA公钥(Linux系统)：openssl rsa -in refresh_private_key.key -pubout -out refresh_public_key.key
          */
-        'refresh_public_key' => '',
+        'refresh_public_key' => <<<EOD
+-----BEGIN PUBLIC KEY-----
+...
+-----END PUBLIC KEY-----
+EOD,
     ],
 ];

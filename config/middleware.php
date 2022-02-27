@@ -16,4 +16,7 @@ return [
     '' => [
         \app\middleware\AccessControlMiddleware::class,
     ],
+    'api' => [
+        \app\middleware\AuthorizationMiddleware::class,
+    ],
 ];

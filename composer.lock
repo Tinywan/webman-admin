@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8620985e7e30b0fd4bc83d495e471caf",
+    "content-hash": "8abc0eb174b61199d71eae31aecb851d",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2345,6 +2345,54 @@
                 "source": "https://github.com/Tinywan/casbin/tree/v0.0.5"
             },
             "time": "2022-01-11T08:31:17+00:00"
+        },
+        {
+            "name": "tinywan/exception-handler",
+            "version": "v0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/exception-handler.git",
+                "reference": "027efa9876f9b44d1981c347a7af11d49be2c10a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/exception-handler/zipball/027efa9876f9b44d1981c347a7af11d49be2c10a",
+                "reference": "027efa9876f9b44d1981c347a7af11d49be2c10a",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=7.4",
+                "workerman/webman-framework": "^1.2.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "tinywan/jwt": "^1.0",
+                "tinywan/validate": "^0.0.3",
+                "workerman/webman": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\ExceptionHandler\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "webman exception handler plugin",
+            "support": {
+                "issues": "https://github.com/Tinywan/exception-handler/issues",
+                "source": "https://github.com/Tinywan/exception-handler/tree/v0.0.2"
+            },
+            "time": "2022-03-06T07:59:45+00:00"
         },
         {
             "name": "tinywan/jwt",

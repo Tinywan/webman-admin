@@ -13,6 +13,6 @@
  */
 
 return [
-    'debug' => true,
+    'debug' => false,
     'default_timezone' => 'Asia/Shanghai',
 ];

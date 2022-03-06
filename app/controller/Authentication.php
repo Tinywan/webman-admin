@@ -15,6 +15,7 @@ use app\common\model\UserModel;
 use app\common\validate\UnauthorizedValidate;
 use support\Request;
 use support\Response;
+use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 use Tinywan\Jwt\JwtToken;
 
 class Authentication extends BaseController
@@ -33,11 +34,11 @@ class Authentication extends BaseController
         }
         $userInfo = $model->findOrEmpty();
         if ($userInfo->isEmpty()) {
-            return response_json(0,'账号或密码错误',[],400);
+            throw new BadRequestHttpException('账号或密码错误');
         }
-
+        
         if (!password_verify(trim($params['password']), $userInfo->password)) {
-            return response_json(0,'账号或密码错误',[],400);
+            throw new BadRequestHttpException('账号或密码错误');
         }
 
         $user = [

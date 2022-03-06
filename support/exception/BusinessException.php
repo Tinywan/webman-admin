@@ -13,32 +13,13 @@
  */
 namespace support\exception;
 
-use Tinywan\ExceptionHandler\Exception\BaseException;
+use Exception;
 
 /**
  * Class BusinessException
  * @package support\exception
  */
-class BusinessException extends BaseException
+class BusinessException extends Exception
 {
-    /**
-     * @var int
-     */
-    public int $statusCode = 403;
 
-    /**
-     * @link 解决跨域问题
-     * @var array
-     */
-    public array $header = [
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Allow-Credentials' => 'true',
-        'Access-Control-Allow-Headers' => 'Authorization,Content-Type,If-Match,If-Modified-Since,If-None-Match,If-Unmodified-Since,X-Requested-With,Origin',
-        'Access-Control-Allow-Methods' => 'GET,POST,PUT,DELETE,OPTIONS',
-    ];
-
-    /**
-     * @var string
-     */
-    public string $errorMessage = '对不起，您没有该接口访问权限，请联系管理员';
 }

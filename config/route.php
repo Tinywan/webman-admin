@@ -17,6 +17,7 @@ use app\controller\Authentication;
 use app\controller\System;
 use app\controller\Test;
 use \app\api\controller\User as ApiUser;
+use Tinywan\ExceptionHandler\Exception\RouteNotFoundException;
 
 Route::options('[{path:.+}]', function (){
     return response('');
@@ -45,10 +46,11 @@ Route::group('/test', function () {
     Route::get('/validate', [Test::class, 'validate']); // validate
     Route::get('/jwt', [Test::class, 'jwt']); // jwt
     Route::get('/refresh-token', [Test::class, 'refreshToken']); // jwt
+    Route::get('/exception-handler', [Test::class, 'exceptionHandler']); // jwt
 });
 
 Route::fallback(function () {
-    throw new \support\exception\RouteNotFoundException();
+    throw new RouteNotFoundException();
 });
 
 Route::disableDefaultRoute();

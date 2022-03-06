@@ -11,7 +11,10 @@ namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
+use support\exception\BusinessException;
+use support\exception\MethodNotAllowedException;
 use support\Request;
+use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 use Tinywan\Jwt\JwtToken;
 
 class Test
@@ -44,6 +47,17 @@ class Test
     {
         $accessToken = JwtToken::refreshToken();
         return response_json(0,'success',$accessToken);
+    }
+
+    /**
+     * 异常测试
+     * @param Request $request
+     */
+    public function exceptionHandler(Request $request)
+    {
+        $param = $request->get();
+        validate($param, UnauthorizedValidate::class . '.issue');
+        return response_json(0,'success');
     }
 
 }

@@ -13,7 +13,7 @@
 
 # 快速开始
 
-## webman-admin 部署
+## 后端安装
 
 #### 克隆项目
 
@@ -29,28 +29,17 @@ git clone git@github.com:Tinywan/webman-admin.git
 cd /d/dnmp/www/webman-admin
 
 composer install
+
+php start.php start
 ```
 
-#### Docker 运行服务
+启动完成后浏览器访问 `http://127.0.0.1:8888/`
+
+## 前端安装
 
 ```sh
-docker run --rm -it -p 8888:8888 -v d:/dnmp/www/webman-admin:/app tinywan/docker-php-webman
-```
-
-以上表示挂载项目 `webman-admin`数据卷到容器`app`。同时映射宿主机和容器端口 `8888:8888` 
-
-**运行后如下所示**
-
-![docker](docker.png)
-
-## webman-admin-ui 部署
-
-```sh
-# 克隆项目
-git clone git@github.com:Tinywan/webman-admin-ui.git
-
-# 进入项目目录
-cd webman-admin-ui
+# 进入web目录
+cd web
 
 # 安装依赖
 npm i
@@ -63,4 +52,16 @@ npm run serve
 
 ![ui](ui.png)
 
-启动完成后浏览器访问 http://localhost:2800
+启动完成后浏览器访问 http://127.0.0.1:2800
+
+#### 使用 Docker 运行服务（可选）
+
+```sh
+docker run --rm -it -p 8888:8888 -v d:/dnmp/www/webman-admin:/app tinywan/docker-php-webman
+```
+
+以上表示挂载项目 `webman-admin`数据卷到容器`app`。同时映射宿主机和容器端口 `8888:8888` 
+
+**运行后如下所示**
+
+![docker](docker.png)

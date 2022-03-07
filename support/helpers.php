@@ -25,15 +25,26 @@ use Webman\App;
 use Webman\Config;
 use Webman\Route;
 
-define('BASE_PATH', realpath(__DIR__ . '/../'));
-define('WEBMAN_VERSION', '1.2.0');
+// Phar support.
+if (is_phar()) {
+    define('BASE_PATH', dirname(__DIR__));
+} else {
+    define('BASE_PATH', realpath(__DIR__ . '/../'));
+}
+define('WEBMAN_VERSION', '1.2.5');
+
 
 /**
- * @return string
+ * @param $return_phar
+ * @return false|string
  */
-function base_path()
+function base_path($return_phar = true)
 {
-    return BASE_PATH;
+    static $real_path = '';
+    if (!$real_path) {
+        $real_path = is_phar() ? dirname(Phar::running(false)) : BASE_PATH;
+    }
+    return $return_phar ? BASE_PATH : $real_path;
 }
 
 /**
@@ -49,7 +60,11 @@ function app_path()
  */
 function public_path()
 {
-    return BASE_PATH . DIRECTORY_SEPARATOR . 'public';
+    static $path = '';
+    if (!$path) {
+        $path = get_realpath(config('app.public_path', BASE_PATH . DIRECTORY_SEPARATOR . 'public'));
+    }
+    return $path;
 }
 
 /**
@@ -61,11 +76,18 @@ function config_path()
 }
 
 /**
+ * Phar support.
+ * Compatible with the 'realpath' function in the phar file.
+ *
  * @return string
  */
 function runtime_path()
 {
-    return BASE_PATH . DIRECTORY_SEPARATOR . 'runtime';
+    static $path = '';
+    if (!$path) {
+        $path = get_realpath(config('app.runtime_path', BASE_PATH . DIRECTORY_SEPARATOR . 'runtime'));
+    }
+    return $path;
 }
 
 /**
@@ -263,7 +285,14 @@ function locale(string $locale = null)
     Translation::setLocale($locale);
 }
 
-function copy_dir($source, $dest)
+/**
+ * Copy dir.
+ * @param $source
+ * @param $dest
+ * @param bool $overwrite
+ * @return void
+ */
+function copy_dir($source, $dest, $overwrite = false)
 {
     if (is_dir($source)) {
         if (!is_dir($dest)) {
@@ -275,13 +304,22 @@ function copy_dir($source, $dest)
                 copy_dir("$source/$file", "$dest/$file");
             }
         }
-    } else if (file_exists($source)) {
+    } else if (file_exists($source) && ($overwrite || !file_exists($dest))) {
         copy($source, $dest);
     }
 }
 
-function remove_dir($dir) {
-    $files = array_diff(scandir($dir), array('.','..'));
+/**
+ * Remove dir.
+ * @param $dir
+ * @return bool
+ */
+function remove_dir($dir)
+{
+    if (is_link($dir) || is_file($dir)) {
+        return unlink($dir);
+    }
+    $files = array_diff(scandir($dir), array('.', '..'));
     foreach ($files as $file) {
         (is_dir("$dir/$file") && !is_link($dir)) ? remove_dir("$dir/$file") : unlink("$dir/$file");
     }
@@ -292,7 +330,8 @@ function remove_dir($dir) {
  * @param $worker
  * @param $class
  */
-function worker_bind($worker, $class) {
+function worker_bind($worker, $class)
+{
     $callback_map = [
         'onConnect',
         'onMessage',
@@ -313,7 +352,13 @@ function worker_bind($worker, $class) {
     }
 }
 
-function worker_start($process_name, $config) {
+/**
+ * @param $process_name
+ * @param $config
+ * @return void
+ */
+function worker_start($process_name, $config)
+{
     $worker = new Worker($config['listen'] ?? null, $config['context'] ?? []);
     $property_map = [
         'count',
@@ -362,9 +407,34 @@ function worker_start($process_name, $config) {
 }
 
 /**
+ * Phar support.
+ * Compatible with the 'realpath' function in the phar file.
+ *
+ * @param string $file_path
+ * @return string
+ */
+function get_realpath(string $file_path): string
+{
+    if (is_phar()) {
+        return $file_path;
+    } else {
+        return realpath($file_path);
+    }
+}
+
+/**
+ * @return bool
+ */
+function is_phar()
+{
+    return class_exists(\Phar::class, false) && Phar::running();
+}
+
+/**
  * @return int
  */
-function cpu_count() {
+function cpu_count()
+{
     // Windows does not support the number of processes setting.
     if (\DIRECTORY_SEPARATOR === '\\') {
         return 1;

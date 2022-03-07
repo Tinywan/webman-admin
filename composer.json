@@ -34,7 +34,7 @@
     "tinywan/casbin": "^0.0.5",
     "tinywan/validate": "^0.0.3",
     "tinywan/jwt": "^1.0",
-    "tinywan/exception-handler": "^0.0.2"
+    "tinywan/exception-handler": "^0.0.3"
   },
   "suggest": {
     "ext-event": "For better performance. "

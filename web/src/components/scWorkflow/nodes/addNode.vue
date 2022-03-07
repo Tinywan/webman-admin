@@ -1,7 +1,7 @@
 <template>
 	 <div class="add-node-btn-box">
 	 	<div class="add-node-btn">
-			<el-popover placement="right-start" :width="270" v-model:visible="visible" :hide-after="0" :show-after="0">
+			<el-popover placement="right-start" :width="270" trigger="click" :hide-after="0" :show-after="0">
 				<template #reference>
 					<el-button type="primary" icon="el-icon-plus" circle></el-button>
 				</template>
@@ -33,7 +33,7 @@
 		},
 		data() {
 			return {
-				visible: false
+				
 			}
 		},
 		mounted() {
@@ -93,7 +93,6 @@
 
 				}
 				this.$emit("update:modelValue", node)
-				this.visible = false
 			}
 		}
 	}

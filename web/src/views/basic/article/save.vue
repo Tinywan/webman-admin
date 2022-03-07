@@ -146,7 +146,7 @@
 						this.isSaveing = true;
 						var res = await this.$API.demo.post.post(this.form);
 						this.isSaveing = false;
-						if(res.code == 200){
+						if(res.code == 0){
 							this.$emit('success', this.form, this.mode)
 							this.visible = false;
 							this.$message.success("操作成功")

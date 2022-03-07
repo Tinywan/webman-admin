@@ -30,7 +30,7 @@
 		</el-main>
 	</el-container>
 	
-	<!-- <save-dialog v-if="dialog.save" ref="saveDialog" @success="handleSuccess" @closed="dialog.save=false"></save-dialog> -->
+	<save-dialog v-if="dialog.save" ref="saveDialog" @success="handleSuccess" @closed="dialog.save=false"></save-dialog>
 </template>
 
 <script>
@@ -72,7 +72,7 @@
 			async table_del(row, index){
 				var reqData = {id: row.id}
 				var res = await this.$API.demo.post.post(reqData);
-				if(res.code == 200){
+				if(res.code == 0){
 					//这里选择刷新整个表格 OR 插入/编辑现有表格数据
 					this.$refs.table.tableData.splice(index, 1);
 					this.$message.success("删除成功")

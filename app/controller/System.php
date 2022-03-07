@@ -17,9 +17,10 @@ use support\Response;
 class System
 {
     /**
-     * 菜单列表
+     * @desc: 菜单列表
      * @param Request $request
      * @return Response
+     * @author Tinywan(ShaoBo Wan)
      */
     public function menu(Request $request): Response
     {
@@ -91,36 +92,31 @@ class System
         return json(['code' => 0, 'msg' => 'success','data'=>$data]);
     }
 
+    /**
+     * @desc: 方法描述
+     * @param Request $request
+     * @return Response
+     * @author Tinywan(ShaoBo Wan)
+     */
     public function tableList(Request $request): Response
     {
         $data = UserModel::getPaginateList($request->get());
-        // $data = [
-        //     'total' => 2,
-        //     'page' => 1,
-        //     'pageSize' => 20,
-        //     'rows' => [
-        //         [
-        //             'id' => 1,
-        //             'name' => '列表',
-        //             'code' => 'userList',
-        //         ],
-        //         [
-        //             'id' => 1,
-        //             'name' => '列表',
-        //             'code' => 'userList',
-        //         ],
-        //         [
-        //             'id' => 1,
-        //             'name' => '列表',
-        //             'code' => 'userList',
-        //         ],
-        //         [
-        //             'id' => 1,
-        //             'name' => '列表',
-        //             'code' => 'userList',
-        //         ]
-        //     ]
-        // ];
         return response_json(200,'success',$data);
+    }
+
+    /**
+     * @desc: 方法描述
+     * @param Request $request
+     * @return Response
+     * @author Tinywan(ShaoBo Wan)
+     */
+    public function tableInfo(Request $request): Response
+    {
+        $id = $request->get('id');
+        $info = UserModel::where('id',$id)->findOrEmpty();
+        if ($info->isEmpty()) {
+            return response_json(200,'success');
+        }
+        return response_json(200,'success',$info->toArray());
     }
 }

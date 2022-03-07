@@ -40,6 +40,7 @@ Route::group('/api', function () {
 Route::group('/system', function () {
     Route::get('/menu', [System::class, 'menu']); // 菜单
     Route::get('/table/list', [System::class, 'tableList']); // 菜单
+    Route::get('/table/info', [System::class, 'tableInfo']); // 菜单
 });
 
 // test

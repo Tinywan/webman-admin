@@ -103,7 +103,7 @@
 			</div>
 			<div class="adminui-header-right">
 				<div v-if="!ismobile" class="adminui-header-menu">
-					<el-menu mode="horizontal" :default-active="active" router>
+					<el-menu mode="horizontal" :default-active="active" router background-color="#222b45" text-color="#fff" active-text-color="var(--el-color-primary)">
 						<NavMenu :navMenus="menu"></NavMenu>
 					</el-menu>
 				</div>
@@ -113,6 +113,7 @@
 		</header>
 		<section class="aminui-wrapper">
 			<div class="aminui-body el-container">
+				<Tags v-if="!ismobile && layoutTags"></Tags>
 				<div class="adminui-main" id="adminui-main">
 					<router-view v-slot="{ Component }">
 					    <keep-alive :include="this.$store.state.keepAlive.keepLiveRoute">
@@ -254,12 +255,7 @@
 				this.settingDialog = true;
 			},
 			onLayoutResize(){
-				const clientWidth = document.body.clientWidth;
-				if(clientWidth < 992){
-					this.$store.commit("SET_ismobile", true)
-				}else{
-					this.$store.commit("SET_ismobile", false)
-				}
+				this.$store.commit("SET_ismobile", document.body.clientWidth < 992)
 			},
 			//路由监听高亮
 			showThis(){

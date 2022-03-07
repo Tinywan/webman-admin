@@ -33,8 +33,8 @@
 						</el-scrollbar>
 					</el-main>
 					<el-footer>
-						<el-button type="primary" size="small">消息中心</el-button>
-						<el-button size="small" @click="markRead">全部设为已读</el-button>
+						<el-button type="primary">消息中心</el-button>
+						<el-button @click="markRead">全部设为已读</el-button>
 					</el-footer>
 				</el-container>
 			</el-drawer>
@@ -86,7 +86,7 @@
 						id: 3,
 						type: 'system',
 						avatar: "img/logo.png",
-						title: "感谢登录Webman Admin",
+						title: "感谢登录SCUI Admin",
 						describe: "Vue 3.0 + Vue-Router 4.0 + ElementPlus + Axios 后台管理系统。",
 						link: "https://gitee.com/lolicode/scui",
 						time: "2020年7月24日"

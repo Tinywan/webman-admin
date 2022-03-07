@@ -19,9 +19,6 @@ const routes_404 = {
 }
 let routes_404_r = ()=>{}
 
-// 路由模式
-// （1）createWebHistory路由模式路径不带#号（需要后端支持,需要nginx转发） http://localhost:2800/dashboard
-// （2）createWebHashHistory路由模式路径带#号（全兼容的，不需要任何配置的） http://localhost:2800/#/dashboard
 const router = createRouter({
 	history: createWebHashHistory(),
 	routes: routes
@@ -51,7 +48,6 @@ router.beforeEach(async (to, from, next) => {
 		return false;
 	}
 
-	// 如果没有登录，跳转到登录页面
 	if(!token){
 		next({
 			path: '/login'
@@ -135,7 +131,6 @@ function filterAsyncRouter(routerMap) {
 }
 function loadComponent(component){
 	if(component){
-		// 采用延迟加载
 		return () => import(/* webpackChunkName: "[request]" */ `@/views/${component}`)
 	}else{
 		return () => import(`@/layout/other/empty`)

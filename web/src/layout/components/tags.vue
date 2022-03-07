@@ -1,13 +1,21 @@
 <template>
 	<div class="adminui-tags">
-		<ul ref="tags">
-			<li v-for="tag in tagList" v-bind:key="tag" :class="[isActive(tag)?'active':'',tag.meta.affix?'affix':'' ]" @contextmenu.prevent="openContextMenu($event, tag)">
-				<router-link :to="tag">
-				<span>{{ tag.meta.title }}</span>
-				<el-icon v-if="!tag.meta.affix" @click.prevent.stop='closeSelectedTag(tag)'><el-icon-close/></el-icon>
-				</router-link>
-			</li>
-		</ul>
+		<el-tooltip v-model:visible="tipVisible" placement="bottom-end" effect="light">
+			<ul ref="tags">
+				<li v-for="tag in tagList" v-bind:key="tag" :class="[isActive(tag)?'active':'',tag.meta.affix?'affix':'' ]" @contextmenu.prevent="openContextMenu($event, tag)">
+					<router-link :to="tag">
+					<span>{{ tag.meta.title }}</span>
+					<el-icon v-if="!tag.meta.affix" @click.prevent.stop='closeSelectedTag(tag)'><el-icon-close/></el-icon>
+					</router-link>
+				</li>
+			</ul>
+			<template #content>
+				<div class="tags-tip">
+					<p>当前标签过多，可通过鼠标滚轴滚动</p>
+					<el-button size="small" type="primary" plain @click="hideTip">知道了</el-button>
+				</div>
+			</template>
+		</el-tooltip>
 	</div>
 
 	<transition name="el-zoom-in-top">
@@ -34,7 +42,9 @@
 				contextMenuItem: null,
 				left: 0,
 				top: 0,
-				tagList: this.$store.state.viewTags.viewTags
+				tagList: this.$store.state.viewTags.viewTags,
+				tipVisible: false,
+				tipDisplayed: false
 			}
 		},
 		props: {},
@@ -48,6 +58,10 @@
 						//确保当前标签在可视范围内
 						let targetTag = tags.querySelector(".active")
 						targetTag.scrollIntoView()
+						//显示提示
+						if(!this.tipDisplayed){
+							this.tipVisible = true
+						}
 					}
 				})
 			},
@@ -236,6 +250,10 @@
 					scrollDiv.scrollLeft += step;
 				}
 			},
+			hideTip(){
+				this.tipVisible = false
+				this.tipDisplayed = true
+			}
 		}
 	}
 </script>
@@ -282,4 +300,7 @@
 		color: #bbb;
 		background: transparent;
 	}
+
+	.tags-tip {padding:5px;}
+	.tags-tip p {margin-bottom: 10px;}
 </style>

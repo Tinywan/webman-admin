@@ -17,8 +17,6 @@
 
 #### 克隆项目
 
-> 克隆目录：`D:\dnmp\www`
-
 ```sh
 git clone git@github.com:Tinywan/webman-admin.git
 ```
@@ -47,11 +45,6 @@ npm i
 # 启动项目(开发模式)
 npm run serve
 ```
-
-**运行后如下所示**
-
-![ui](ui.png)
-
 启动完成后浏览器访问 http://127.0.0.1:2800
 
 #### 使用 Docker 运行服务（可选）

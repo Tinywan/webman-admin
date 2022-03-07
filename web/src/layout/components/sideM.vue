@@ -57,11 +57,12 @@
 			},
 			//转换外部链接的路由
 			filterUrl(map){
-				map.forEach((item,index) => {
+				var newMap = []
+				map && map.forEach(item => {
 					item.meta = item.meta?item.meta:{};
 					//处理隐藏
 					if(item.meta.hidden){
-						map.splice(index, 1);
+						return false
 					}
 					//处理http
 					if(item.meta.type=='iframe'){
@@ -71,9 +72,9 @@
 					if(item.children&&item.children.length > 0){
 						item.children = this.filterUrl(item.children);
 					}
-
+					newMap.push(item)
 				})
-				return map;
+				return newMap;
 			}
 		},
 		directives: {

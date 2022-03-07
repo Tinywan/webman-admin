@@ -3,16 +3,16 @@
 		<el-table :data="data" ref="table" :key="toggleIndex" border stripe>
 			<el-table-column type="index" width="50" fixed="left">
 				<template #header>
-					<el-button type="primary" icon="el-icon-plus" size="mini" circle @click="rowAdd"></el-button>
+					<el-button type="primary" icon="el-icon-plus" size="small" circle @click="rowAdd"></el-button>
 				</template>
 				<template #default="scope">
 					<div class="sc-form-table-handle">
 						<span>{{scope.$index + 1}}</span>
-						<el-button type="danger" icon="el-icon-delete" size="mini" plain circle @click="rowDel(scope.row, scope.$index)"></el-button>
+						<el-button type="danger" icon="el-icon-delete" size="small" plain circle @click="rowDel(scope.row, scope.$index)"></el-button>
 					</div>
 				</template>
 			</el-table-column>
-			<el-table-column label="" width="51" v-if="dragSort">
+			<el-table-column label="" width="58" v-if="dragSort">
 				<template #default>
 					<el-tag class="move" style="cursor: move;"><el-icon-d-caret style="width: 1em; height: 1em;"/></el-tag>
 				</template>

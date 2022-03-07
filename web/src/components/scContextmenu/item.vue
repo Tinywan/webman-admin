@@ -1,17 +1,17 @@
 <!--
  * @Descripttion: scContextmenuItem组件
- * @version: 1.1
+ * @version: 1.2
  * @Author: sakuya
  * @Date: 2021年7月23日16:29:36
  * @LastEditors: sakuya
- * @LastEditTime: 2021年11月26日23:13:57
+ * @LastEditTime: 2022年2月8日15:51:07
 -->
 
 <template>
 	<hr v-if="divided">
 	<li :class="disabled?'disabled':''" @click.stop="liClick" @mouseenter="openSubmenu($event)" @mouseleave="closeSubmenu($event)">
 		<span class="title">
-			<el-icon class="sc-contextmenu__icon"><component :is="icon" /></el-icon>
+			<el-icon class="sc-contextmenu__icon"><component v-if="icon" :is="icon" /></el-icon>
 			{{title}}
 		</span>
 		<span class="sc-contextmenu__suffix">

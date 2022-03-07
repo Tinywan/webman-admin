@@ -83,9 +83,9 @@
 										<el-input v-model="scope.row.value" placeholder="值"></el-input>
 									</template>
 								</el-table-column>
-								<el-table-column prop="value" label="移除" width="50">
+								<el-table-column prop="value" label="移除" width="55">
 									<template #default="scope">
-										<el-button size="mini" type="text" @click="deleteConditionList(scope.$index)">移除</el-button>
+										<el-button size="small" type="text" @click="deleteConditionList(scope.$index)">移除</el-button>
 									</template>
 								</el-table-column>
 							</el-table>

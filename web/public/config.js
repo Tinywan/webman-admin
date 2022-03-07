@@ -4,7 +4,7 @@
 
 const APP_CONFIG = {
 	//标题
-	APP_NAME: "基于 webamn + vue3 + element-plus 前后端解决方案",
+	APP_NAME: "WebmanAdmin",
 
 	//接口地址，如遇跨域需使用nginx代理
 	// API_URL: "https://www.fastmock.site/mock/5039c4361c39a7e3252c5b55971f1bd3/api"

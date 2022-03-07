@@ -1,17 +1,17 @@
 <!--
  * @Descripttion: 过滤器V2
- * @version: 2.2
+ * @version: 2.4
  * @Author: sakuya
  * @Date: 2021年7月30日14:48:41
  * @LastEditors: sakuya
- * @LastEditTime: 2021年11月5日09:33:07
+ * @LastEditTime: 2022年2月8日15:28:24
 -->
 
 <template>
 	<div class="sc-filterBar">
 		<slot :filterLength="filterObjLength" :openFilter="openFilter">
 			<el-badge :value="filterObjLength" type="danger" :hidden="filterObjLength<=0">
-				<el-button size="small" icon="el-icon-filter" @click="openFilter"></el-button>
+				<el-button icon="el-icon-filter" @click="openFilter"></el-button>
 			</el-badge>
 		</slot>
 
@@ -39,7 +39,7 @@
 										</colgroup>
 										<tr v-for="(item,index) in filter" :key="index">
 											<td>
-												<el-tag size="medium">{{index+1}}</el-tag>
+												<el-tag>{{index+1}}</el-tag>
 											</td>
 											<td>
 												<py-select v-model="item.field" :options="fields" placeholder="过滤字段" filterable @change="fieldChange(item)">
@@ -61,7 +61,7 @@
 												<!-- 日期 -->
 												<el-date-picker v-if="item.field.type=='date'" v-model="item.value" type="date" value-format="YYYY-MM-DD" :placeholder="item.field.placeholder||'请选择日期'" style="width: 100%;"></el-date-picker>
 												<!-- 日期范围 -->
-												<el-date-picker v-if="item.field.type=='daterange'" v-model="item.value" type="daterange" value-format="YYYY-MM-DD HH:mm:ss"  start-placeholder="开始日期" end-placeholder="结束日期" style="width: 100%;"></el-date-picker>
+												<el-date-picker v-if="item.field.type=='daterange'" v-model="item.value" type="daterange" value-format="YYYY-MM-DD"  start-placeholder="开始日期" end-placeholder="结束日期" style="width: 100%;"></el-date-picker>
 												<!-- 日期时间 -->
 												<el-date-picker v-if="item.field.type=='datetime'" v-model="item.value" type="datetime" value-format="YYYY-MM-DD HH:mm:ss" :placeholder="item.field.placeholder||'请选择日期'" style="width: 100%;"></el-date-picker>
 												<!-- 日期时间范围 -->

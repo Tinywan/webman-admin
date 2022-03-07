@@ -1,10 +1,10 @@
 <!--
  * @Descripttion: 数据表格组件
- * @version: 1.6
+ * @version: 1.7
  * @Author: sakuya
  * @Date: 2021年11月29日21:51:15
  * @LastEditors: sakuya
- * @LastEditTime: 2021年12月12日12:49:50
+ * @LastEditTime: 2022年2月9日09:59:37
 -->
 
 <template>
@@ -45,11 +45,10 @@
 					</template>
 					<el-form label-width="80px" label-position="left">
 						<el-form-item label="表格尺寸">
-							<el-radio-group v-model="config.size" size="mini" @change="configSizeChange">
+							<el-radio-group v-model="config.size" size="small" @change="configSizeChange">
 								<el-radio-button label="large">大</el-radio-button>
-								<el-radio-button label="medium">中</el-radio-button>
-								<el-radio-button label="small">正常</el-radio-button>
-								<el-radio-button label="mini">小</el-radio-button>
+								<el-radio-button label="default">正常</el-radio-button>
+								<el-radio-button label="small">小</el-radio-button>
 							</el-radio-group>
 						</el-form-item>
 						<el-form-item label="样式">
@@ -78,7 +77,7 @@
 			params: { type: Object, default: () => ({}) },
 			data: { type: Object, default: () => {} },
 			height: { type: [String,Number], default: "100%" },
-			size: { type: String, default: "small" },
+			size: { type: String, default: "default" },
 			border: { type: Boolean, default: false },
 			stripe: { type: Boolean, default: false },
 			pageSize: { type: Number, default: config.pageSize },

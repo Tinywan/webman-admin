@@ -1,10 +1,10 @@
 <!--
  * @Descripttion: 表格选择器组件
- * @version: 1.1
+ * @version: 1.2
  * @Author: sakuya
  * @Date: 2021年6月10日10:04:07
  * @LastEditors: sakuya
- * @LastEditTime: 2021年11月4日16:09:05
+ * @LastEditTime: 2022年2月28日09:39:03
 -->
 
 <template>
@@ -154,6 +154,7 @@
 				}
 				this.autoCurrentLabel()
 				this.$emit('update:modelValue', this.defaultValue);
+				this.$emit('change', this.defaultValue);
 			},
 			//表格全选事件
 			selectAll(rows){
@@ -175,6 +176,7 @@
 				}
 				this.autoCurrentLabel()
 				this.$emit('update:modelValue', this.defaultValue);
+				this.$emit('change', this.defaultValue);
 			},
 			click(row){
 				if(this.multiple){
@@ -184,6 +186,7 @@
 					this.$refs.select.blur()
 					this.autoCurrentLabel()
 					this.$emit('update:modelValue', this.defaultValue);
+					this.$emit('change', this.defaultValue);
 				}
 			},
 			//tags删除后回调
@@ -207,8 +210,15 @@
 				}
 				this.keyword = keyword;
 				this.getData()
+			},
+			// 触发select隐藏
+			blur(){
+				this.$refs.select.blur();
+			},
+			// 触发select显示
+			focus(){
+				this.$refs.select.focus();
 			}
-
 		}
 	}
 </script>

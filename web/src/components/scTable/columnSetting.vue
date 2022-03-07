@@ -19,7 +19,7 @@
 					</span>
 					<span class="name_b" :title="item.prop">{{ item.label }}</span>
 					<span class="width_b">
-						<el-input v-model="item.width" placeholder="auto" size="mini"></el-input>
+						<el-input v-model="item.width" placeholder="auto" size="small"></el-input>
 					</span>
 					<span class="sortable_b">
 						<el-switch v-model="item.sortable"></el-switch>
@@ -97,17 +97,17 @@
 	.setting-column__title span {display: inline-block;font-weight: bold;color: #909399;font-size: 12px;}
 	.setting-column__title span.move_b {width: 30px;margin-right:15px;}
 	.setting-column__title span.show_b {width: 60px;}
-	.setting-column__title span.name_b {width: 160px;}
+	.setting-column__title span.name_b {width: 140px;}
 	.setting-column__title span.width_b {width: 60px;margin-right:15px;}
 	.setting-column__title span.sortable_b {width: 60px;}
 	.setting-column__title span.fixed_b {width: 60px;}
 
-	.setting-column__list {max-height:312px;overflow: auto;}
-	.setting-column__list li {list-style: none;margin:10px 0;}
+	.setting-column__list {max-height:314px;overflow: auto;}
+	.setting-column__list li {list-style: none;margin:10px 0;display: flex;align-items: center;}
 	.setting-column__list li>span {display: inline-block;font-size: 12px;}
 	.setting-column__list li span.move_b {width: 30px;margin-right:15px;}
 	.setting-column__list li span.show_b {width: 60px;}
-	.setting-column__list li span.name_b {width: 160px;}
+	.setting-column__list li span.name_b {width: 140px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;cursor:default;}
 	.setting-column__list li span.width_b {width: 60px;margin-right:15px;}
 	.setting-column__list li span.sortable_b {width: 60px;}
 	.setting-column__list li span.fixed_b {width: 60px;}

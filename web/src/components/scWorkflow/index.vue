@@ -1,10 +1,10 @@
 <!--
  * @Descripttion: 仿钉钉流程设计器
- * @version: 1.1
+ * @version: 1.2
  * @Author: sakuya
  * @Date: 2021年9月14日08:38:35
  * @LastEditors: sakuya
- * @LastEditTime: 2021年10月28日23:07:06
+ * @LastEditTime: 2022年2月9日16:48:49
 -->
 
 <template>
@@ -46,6 +46,9 @@
 		watch:{
 			modelValue(val){
 				this.nodeConfig = val
+			},
+			nodeConfig(val){
+				this.$emit("update:modelValue", val)
 			}
 		},
 		mounted() {
@@ -124,7 +127,7 @@
 		.node-wrap-box:hover:after {border: 1px solid #3296fa;box-shadow: 0 0 6px 0 rgba(50,150,250,.3);}
 	}
 
-	.tags-list {margin-top: 15px;}
+	.tags-list {margin-top: 15px;width: 100%;}
 	.add-node-popover-body {}
 	.add-node-popover-body li {display: inline-block;width: 80px;text-align: center;padding:10px 0;}
 	.add-node-popover-body li i {border: 1px solid var(--el-border-color-light);width:40px;height:40px;border-radius: 50%;text-align: center;line-height: 38px;font-size: 18px;cursor: pointer;}

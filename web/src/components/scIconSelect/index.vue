@@ -1,10 +1,10 @@
 <!--
  * @Descripttion: 图标选择器组件
- * @version: 1.2
+ * @version: 1.3
  * @Author: sakuya
  * @Date: 2021年7月27日10:02:46
  * @LastEditors: sakuya
- * @LastEditTime: 2021年11月16日09:35:34
+ * @LastEditTime: 2022年2月8日15:47:13
 -->
 
 <template>
@@ -16,7 +16,7 @@
 			<el-tabs style="margin-top: -30px;">
 				<el-tab-pane  v-for="item in data" :key="item.name" lazy>
 					<template #label>
-						{{item.name}} <el-tag size="mini" type="info">{{item.icons.length}}</el-tag>
+						{{item.name}} <el-tag size="small" type="info">{{item.icons.length}}</el-tag>
 					</template>
 					<div class="sc-icon-select__list">
 						<el-scrollbar>

@@ -1,6 +1,5 @@
 <template>
 	<el-config-provider :locale="$i18n.messages[$i18n.locale].el" :button="{autoInsertSpace: false}">
-		<!--加载整个views-->
 		<router-view></router-view>
 	</el-config-provider>
 </template>

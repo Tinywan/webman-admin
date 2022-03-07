@@ -17,9 +17,10 @@ class UserModel extends BaseModel
     protected $table = 'resty_user';
 
     /**
-     * @desc: 分页查询
+     * @desc: 方法描述
      * @param $params
-     * @throws \support\exception\BadRequestHttpException
+     * @return array
+     * @author Tinywan(ShaoBo Wan)
      */
     public static function getPaginateList($params): array
     {
@@ -30,10 +31,10 @@ class UserModel extends BaseModel
         [$page, $count] = paginate();
         $total = $model->count();
         if (0 === $total) {
-            return ['total' => $total, 'list' => []];
+            return ['total' => $total, 'rows' => []];
         }
         $model = $model->page($page, $count);
-        $item = $model->order('create_time desc')->select();
-        return ['total' => $total, 'list' => $item];
+        $item = $model->order('create_time desc')->select()->toArray();
+        return ['total' => $total, 'rows' => $item];
     }
 }

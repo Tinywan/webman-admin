@@ -1,7 +1,7 @@
 <template>
 	<el-main>
 		<el-row :gutter="15">
-			<el-col :lg="8">
+			<el-col :lg="24">
 				<el-card shadow="never">
 					<div class="user-info">
 						<div class="user-info-top">
@@ -32,65 +32,6 @@
 							</el-space>
 						</div>
 					</div>
-				</el-card>
-			</el-col>
-			<el-col :lg="16">
-				<el-card shadow="never">
-					<el-tabs tab-position="top">
-						<el-tab-pane :label="$t('user.dynamic')">
-							<el-timeline style="margin-top:20px;padding-left:10px;">
-								<el-timeline-item v-for="(activity, index) in activities" :key="index" :timestamp="activity.timestamp" placement="top">
-									<div class="activity-item">
-										<el-avatar class="avatar" :size="24" src="img/avatar.jpg"></el-avatar>
-										<label>{{activity.operate}}</label><el-tag v-if="activity.mod" size="mini">{{activity.mod}}</el-tag>{{activity.describe}}
-									</div>
-								</el-timeline-item>
-							</el-timeline>
-						</el-tab-pane>
-						<el-tab-pane :label="$t('user.info')">
-							<el-form ref="form" :model="form" label-width="80px" style="width: 460px;margin-top:20px;">
-								<el-form-item label="账号">
-									<el-input v-model="form.user" disabled></el-input>
-									<div class="el-form-item-msg">账号信息用于登录，系统不允许修改</div>
-								</el-form-item>
-								<el-form-item label="姓名">
-									<el-input v-model="form.name"></el-input>
-								</el-form-item>
-								<el-form-item label="性别">
-									<el-select v-model="form.sex" placeholder="请选择">
-										<el-option label="保密" value="0"></el-option>
-										<el-option label="男" value="1"></el-option>
-										<el-option label="女" value="2"></el-option>
-									</el-select>
-								</el-form-item>
-								<el-form-item label="个性签名">
-									<el-input v-model="form.about" type="textarea"></el-input>
-								</el-form-item>
-								<el-form-item>
-									<el-button type="primary">保存</el-button>
-								</el-form-item>
-							</el-form>
-						</el-tab-pane>
-						<el-tab-pane :label="$t('user.settings')">
-							<el-form ref="form" :model="form" label-width="120px" style="margin-top:20px;">
-								<el-form-item :label="$t('user.nightmode')">
-									<el-switch v-model="config.theme" active-value="dark" inactive-value="default" inline-prompt active-icon="el-icon-moon" inactive-icon="el-icon-sunny"></el-switch>
-									<div class="el-form-item-msg">{{ $t('user.nightmode_msg') }}</div>
-								</el-form-item>
-								<el-form-item label="主题颜色">
-									<el-color-picker v-model="config.colorPrimary" :predefine="colorList">></el-color-picker>
-								</el-form-item>
-								<el-form-item :label="$t('user.language')">
-									<el-select v-model="config.lang">
-										<el-option label="简体中文" value="zh-cn"></el-option>
-										<el-option label="English" value="en"></el-option>
-										<el-option label="日本語" value="ja"></el-option>
-									</el-select>
-									<div class="el-form-item-msg">{{ $t('user.language_msg') }}</div>
-								</el-form-item>
-							</el-form>
-						</el-tab-pane>
-					</el-tabs>
 				</el-card>
 			</el-col>
 		</el-row>

@@ -1,15 +1,15 @@
 const DEFAULT_CONFIG = {
 	//标题
-	APP_NAME: "Webman前后端解决方案",
+	APP_NAME: "WebmanAdmin",
 
 	//首页地址
 	DASHBOARD_URL: "/dashboard",
 
 	//版本号
-	APP_VER: "1.4.1",
+	APP_VER: "1.5.0",
 
 	//内核版本号
-	CORE_VER: "1.4.1",
+	CORE_VER: "1.5.0",
 
 	//接口地址
 	// API_URL: "/api",
@@ -52,12 +52,13 @@ const DEFAULT_CONFIG = {
 	//控制台首页默认布局
 	DEFAULT_GRID: {
 		//默认分栏数量和宽度 例如 [24] [18,6] [8,8,8] [6,12,6]
-		layout: [12, 6, 6],
+		// layout: [12, 6, 6],
+		layout: [24],
 		//小组件分布，com取值:views/home/components 文件名
 		copmsList: [
 			['welcome'],
-			['about', 'ver'],
-			['time', 'progress']
+			// ['about', 'ver'],
+			// ['time', 'progress']
 		]
 	}
 }

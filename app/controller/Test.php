@@ -16,6 +16,7 @@ use support\exception\MethodNotAllowedException;
 use support\Request;
 use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 use Tinywan\Jwt\JwtToken;
+use Tinywan\Upload\UploaderFile;
 
 class Test
 {
@@ -58,6 +59,19 @@ class Test
         $param = $request->get();
         validate($param, UnauthorizedValidate::class . '.issue');
         return response_json(0,'success');
+    }
+
+    /**
+     * upload
+     * @param Request $request
+     */
+    public function upload(Request $request)
+    {
+        $res = UploaderFile::upload();
+        if (false === $res) {
+            return response_json(0,UploaderFile::getStaticMessage());
+        }
+        return response_json(0,'success',$res);
     }
 
 }

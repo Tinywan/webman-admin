@@ -49,6 +49,7 @@ Route::group('/test', function () {
     Route::get('/jwt', [Test::class, 'jwt']); // jwt
     Route::get('/refresh-token', [Test::class, 'refreshToken']); // jwt
     Route::get('/exception-handler', [Test::class, 'exceptionHandler']); // jwt
+    Route::post('/upload', [Test::class, 'upload']); // jwt
 });
 
 Route::fallback(function () {

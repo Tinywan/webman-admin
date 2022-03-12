@@ -16,6 +16,8 @@ use support\exception\MethodNotAllowedException;
 use support\Request;
 use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 use Tinywan\Jwt\JwtToken;
+use Tinywan\Storage\Exception\StorageException;
+use Tinywan\Storage\Storage;
 use Tinywan\Upload\UploaderFile;
 
 class Test
@@ -67,9 +69,11 @@ class Test
      */
     public function upload(Request $request)
     {
-        $res = UploaderFile::upload();
-        if (false === $res) {
-            return response_json(0,UploaderFile::getStaticMessage());
+        try {
+            Storage::config(); // 初始化。 默认为本地存储：local
+            $res = Storage::uploadFile();
+        }catch (StorageException $exception) {
+            return response_json(0,$exception->getMessage());
         }
         return response_json(0,'success',$res);
     }

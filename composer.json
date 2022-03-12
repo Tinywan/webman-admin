@@ -35,7 +35,8 @@
     "tinywan/validate": "^0.0.3",
     "tinywan/jwt": "^1.0",
     "tinywan/exception-handler": "^0.0.3",
-    "webman/channel": "^1.0"
+    "webman/channel": "^1.0",
+    "tinywan/storage": "^0.0.1"
   },
   "suggest": {
     "ext-event": "For better performance. "
@@ -55,13 +56,5 @@
     "pre-package-uninstall": [
       "support\\Plugin::uninstall"
     ]
-  },
-  "repositories": {
-    "packagist": {
-      "description": "阿里云镜像",
-      "type": "composer",
-      "url": "https://mirrors.aliyun.com/composer/",
-      "canonical": false
-    }
   }
 }

@@ -25,9 +25,9 @@ return [
             'accessKeyId' => 'xxxxxxxxxxxx',
             'accessKeySecret' => 'xxxxxxxxxxxx',
             'bucket' => 'test',
-            'dirname' => '/storage',
-            'domain' => 'xxxxxxxxxxxx',
-            'endpoint' => 'oss-cn.aliyuncs.com',
+            'dirname' => 'storage',
+            'domain' => 'http://webman.oss.tinywan.com',
+            'endpoint' => 'oss-cn-hangzhou.aliyuncs.com',
         ],
     ],
 ];

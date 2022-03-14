@@ -17,7 +17,7 @@ return [
     'transport'            => 'tcp',
     'context'              => [],
     'name'                 => 'webman-admin',
-    'count'                => cpu_count() * 2,
+    'count'                => 2,
     'user'                 => '',
     'group'                => '',
     'pid_file'             => runtime_path() . '/webman.pid',

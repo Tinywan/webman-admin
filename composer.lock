@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a4b2a4971efeb16b40737f7fe6eac12",
+    "content-hash": "5d39cdd9d8fdfa4405f0abe4d2dceb59",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2242,16 +2242,16 @@
         },
         {
             "name": "tinywan/storage",
-            "version": "v0.0.1",
+            "version": "v0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/storage.git",
-                "reference": "bb27f1d41a05c81669024bafcc9820f29a34faad"
+                "reference": "23bb69975d02b3a413443e435280b6fdd29f18e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/storage/zipball/bb27f1d41a05c81669024bafcc9820f29a34faad",
-                "reference": "bb27f1d41a05c81669024bafcc9820f29a34faad",
+                "url": "https://api.github.com/repos/Tinywan/storage/zipball/23bb69975d02b3a413443e435280b6fdd29f18e6",
+                "reference": "23bb69975d02b3a413443e435280b6fdd29f18e6",
                 "shasum": ""
             },
             "require": {
@@ -2278,9 +2278,9 @@
             "description": "webman storage plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/storage/issues",
-                "source": "https://github.com/Tinywan/storage/tree/v0.0.1"
+                "source": "https://github.com/Tinywan/storage/tree/v0.0.2"
             },
-            "time": "2022-03-12T02:19:51+00:00"
+            "time": "2022-03-13T03:37:07+00:00"
         },
         {
             "name": "tinywan/validate",

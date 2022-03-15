@@ -35,7 +35,6 @@
     "tinywan/validate": "^0.0.3",
     "tinywan/jwt": "^1.0",
     "tinywan/exception-handler": "^0.0.3",
-    "webman/channel": "^1.0",
     "tinywan/storage": "^0.0.2"
   },
   "suggest": {

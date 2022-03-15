@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d39cdd9d8fdfa4405f0abe4d2dceb59",
+    "content-hash": "805480829f174bc8fafdac366295a99a",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2466,40 +2466,6 @@
             "time": "2022-02-28T14:54:22+00:00"
         },
         {
-            "name": "webman/channel",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webman-php/channel.git",
-                "reference": "a569ce5e8ebded5d157145e11d27c79b3d6e4948"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/channel/zipball/a569ce5e8ebded5d157145e11d27c79b3d6e4948",
-                "reference": "a569ce5e8ebded5d157145e11d27c79b3d6e4948",
-                "shasum": ""
-            },
-            "require": {
-                "workerman/channel": "^1.1",
-                "workerman/webman-framework": "^1.2.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Webman\\Channel\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "support": {
-                "issues": "https://github.com/webman-php/channel/issues",
-                "source": "https://github.com/webman-php/channel/tree/v1.0.1"
-            },
-            "time": "2022-03-08T03:51:43+00:00"
-        },
-        {
             "name": "webman/console",
             "version": "v1.0.16",
             "source": {
@@ -2547,40 +2513,6 @@
                 "wiki": "http://www.workerman.net/doc/webman"
             },
             "time": "2022-03-11T16:47:30+00:00"
-        },
-        {
-            "name": "workerman/channel",
-            "version": "v1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/walkor/channel.git",
-                "reference": "3df772d0d20d4cebfcfd621c33d1a1ab732db523"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/walkor/channel/zipball/3df772d0d20d4cebfcfd621c33d1a1ab732db523",
-                "reference": "3df772d0d20d4cebfcfd621c33d1a1ab732db523",
-                "shasum": ""
-            },
-            "require": {
-                "workerman/workerman": ">=4.0.12"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Channel\\": "./src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "homepage": "http://www.workerman.net",
-            "support": {
-                "issues": "https://github.com/walkor/channel/issues",
-                "source": "https://github.com/walkor/channel/tree/v1.1.0"
-            },
-            "time": "2021-02-08T02:45:42+00:00"
         },
         {
             "name": "workerman/webman-framework",

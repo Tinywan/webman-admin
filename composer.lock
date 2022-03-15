@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "805480829f174bc8fafdac366295a99a",
+    "content-hash": "9352d615d89676f90c7ee8a94f6c55db",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2121,23 +2121,24 @@
         },
         {
             "name": "tinywan/casbin",
-            "version": "v0.0.5",
+            "version": "v0.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/casbin.git",
-                "reference": "03f8cc1ce6a6f31f29ce16d770c96a9238d44073"
+                "reference": "87b5bef84307fd5f85e1acdc2aa2f7441be8c8a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/casbin/zipball/03f8cc1ce6a6f31f29ce16d770c96a9238d44073",
-                "reference": "03f8cc1ce6a6f31f29ce16d770c96a9238d44073",
+                "url": "https://api.github.com/repos/Tinywan/casbin/zipball/87b5bef84307fd5f85e1acdc2aa2f7441be8c8a1",
+                "reference": "87b5bef84307fd5f85e1acdc2aa2f7441be8c8a1",
                 "shasum": ""
             },
             "require": {
                 "casbin/casbin": "~3.0",
-                "php": ">=7.2",
+                "php": ">=7.4",
                 "php-di/php-di": "^6.3",
-                "topthink/think-orm": "^2.0"
+                "topthink/think-orm": "^2.0",
+                "workerman/redis": "^1.0"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.1",
@@ -2154,28 +2155,29 @@
             "license": [
                 "MIT"
             ],
+            "description": "Webman Casbin Plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/casbin/issues",
-                "source": "https://github.com/Tinywan/casbin/tree/v0.0.5"
+                "source": "https://github.com/Tinywan/casbin/tree/v0.0.9"
             },
-            "time": "2022-01-11T08:31:17+00:00"
+            "time": "2022-03-05T15:50:01+00:00"
         },
         {
             "name": "tinywan/exception-handler",
-            "version": "v0.0.3",
+            "version": "v0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/exception-handler.git",
-                "reference": "c332cd764bedc5f2c43e5a42e3d57c3f31375ac5"
+                "reference": "8bb80d1c611e901f956ab641dfdb29f3f013688e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/exception-handler/zipball/c332cd764bedc5f2c43e5a42e3d57c3f31375ac5",
-                "reference": "c332cd764bedc5f2c43e5a42e3d57c3f31375ac5",
+                "url": "https://api.github.com/repos/Tinywan/exception-handler/zipball/8bb80d1c611e901f956ab641dfdb29f3f013688e",
+                "reference": "8bb80d1c611e901f956ab641dfdb29f3f013688e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4",
+                "php": ">=7.2",
                 "workerman/webman-framework": "^1.2.1"
             },
             "require-dev": {
@@ -2198,9 +2200,9 @@
             "description": "webman exception handler plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/exception-handler/issues",
-                "source": "https://github.com/Tinywan/exception-handler/tree/v0.0.3"
+                "source": "https://github.com/Tinywan/exception-handler/tree/v0.0.4"
             },
-            "time": "2022-03-07T06:07:01+00:00"
+            "time": "2022-03-09T08:31:26+00:00"
         },
         {
             "name": "tinywan/jwt",
@@ -2242,16 +2244,16 @@
         },
         {
             "name": "tinywan/storage",
-            "version": "v0.0.2",
+            "version": "v0.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/storage.git",
-                "reference": "23bb69975d02b3a413443e435280b6fdd29f18e6"
+                "reference": "977cc17478bd060c704240f394029ed1d441a8ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/storage/zipball/23bb69975d02b3a413443e435280b6fdd29f18e6",
-                "reference": "23bb69975d02b3a413443e435280b6fdd29f18e6",
+                "url": "https://api.github.com/repos/Tinywan/storage/zipball/977cc17478bd060c704240f394029ed1d441a8ff",
+                "reference": "977cc17478bd060c704240f394029ed1d441a8ff",
                 "shasum": ""
             },
             "require": {
@@ -2263,6 +2265,8 @@
                 "friendsofphp/php-cs-fixer": "^3.6",
                 "phpstan/phpstan": "^1.4",
                 "phpunit/phpunit": "^9.5",
+                "qcloud/cos-sdk-v5": "^2.5",
+                "qiniu/php-sdk": "^7.4",
                 "workerman/webman": "^1.0"
             },
             "type": "library",
@@ -2278,9 +2282,9 @@
             "description": "webman storage plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/storage/issues",
-                "source": "https://github.com/Tinywan/storage/tree/v0.0.2"
+                "source": "https://github.com/Tinywan/storage/tree/v0.0.3"
             },
-            "time": "2022-03-13T03:37:07+00:00"
+            "time": "2022-03-13T05:45:49+00:00"
         },
         {
             "name": "tinywan/validate",
@@ -2513,6 +2517,41 @@
                 "wiki": "http://www.workerman.net/doc/webman"
             },
             "time": "2022-03-11T16:47:30+00:00"
+        },
+        {
+            "name": "workerman/redis",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/redis.git",
+                "reference": "5e65740b72042130b9c928a2be7bebb8609a1f2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/redis/zipball/5e65740b72042130b9c928a2be7bebb8609a1f2e",
+                "reference": "5e65740b72042130b9c928a2be7bebb8609a1f2e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4",
+                "workerman/workerman": ">=3.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\Redis\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://www.workerman.net",
+            "support": {
+                "issues": "https://github.com/walkor/redis/issues",
+                "source": "https://github.com/walkor/redis/tree/v1.0.7"
+            },
+            "time": "2021-10-13T10:28:56+00:00"
         },
         {
             "name": "workerman/webman-framework",

@@ -31,8 +31,7 @@ if (is_phar()) {
 } else {
     define('BASE_PATH', realpath(__DIR__ . '/../'));
 }
-define('WEBMAN_VERSION', '1.2.5');
-
+define('WEBMAN_VERSION', '1.3.0');
 
 /**
  * @param $return_phar
@@ -283,6 +282,16 @@ function locale(string $locale = null)
         return Translation::getLocale();
     }
     Translation::setLocale($locale);
+}
+
+/**
+ * 404 not found
+ *
+ * @return Response
+ */
+function not_found()
+{
+    return new Response(404, [], file_get_contents(public_path() . '/404.html'));
 }
 
 /**

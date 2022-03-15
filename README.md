@@ -58,3 +58,10 @@ docker run --rm -it -p 8888:8888 -v d:/dnmp/www/webman-admin:/app tinywan/docker
 ![docker](docker.png)
 
 ## [开发文档](https://github.tinywan.com/webman-admin-document/)
+
+## Composer
+
+移除阿里云镜像
+```php
+composer config -g --unset repos.packagist
+```

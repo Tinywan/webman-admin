@@ -11,13 +11,15 @@
  * @link      http://www.workerman.net/
  * @license   http://www.opensource.org/licenses/mit-license.php MIT License
  */
-namespace support;
 
-/**
- * Class Response
- * @package support
- */
-class Response extends \Webman\Http\Response
-{
 
-}
+use Webman\Channel\Server;
+
+return [
+    'server' => [
+        'listen'  => 'frame://0.0.0.0:2206',
+        'handler' => Server::class,
+        'reloadable' => false,
+        'count' => 1, // 必须是1
+    ]
+];

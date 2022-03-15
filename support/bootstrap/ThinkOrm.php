@@ -1,8 +1,9 @@
 <?php
 /**
- * @desc ThinkOrm.php 描述信息
+ * @desc ThinkOrm
  * @author Tinywan(ShaoBo Wan)
- * @date 2022/1/11 15:44
+ * @email 756684177@qq.com
+ * @date 2022/3/14 20:41
  */
 
 declare(strict_types=1);
@@ -15,7 +16,6 @@ use Workerman\Timer;
 
 class ThinkOrm implements Bootstrap
 {
-    // 进程启动时调用
     public static function start($worker)
     {
         Db::setConfig(config('thinkorm'));
@@ -23,7 +23,7 @@ class ThinkOrm implements Bootstrap
             Timer::add(55, function () {
                 $connections = config('thinkorm.connections', []);
                 foreach ($connections as $key => $item) {
-                    if ('mysql' == $item['type']) {
+                    if ($item['type'] == 'mysql') {
                         Db::connect($key)->query('select 1');
                     }
                 }

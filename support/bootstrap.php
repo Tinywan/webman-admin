@@ -38,7 +38,7 @@ if ($worker) {
     }, time());
 }
 
-if (class_exists('Dotenv\Dotenv') && file_exists(base_path().'/.env')) {
+if (class_exists('Dotenv\Dotenv') && file_exists(base_path() . '/.env')) {
     if (method_exists('Dotenv\Dotenv', 'createUnsafeImmutable')) {
         Dotenv::createUnsafeImmutable(base_path())->load();
     } else {
@@ -56,7 +56,6 @@ $container = Container::instance();
 Route::container($container);
 Middleware::container($container);
 
-Route::load(config_path());
 Middleware::load(config('middleware', []));
 foreach (config('plugin', []) as $firm => $projects) {
     foreach ($projects as $name => $project) {
@@ -78,3 +77,5 @@ foreach (config('plugin', []) as $firm => $projects) {
         }
     }
 }
+
+Route::load(config_path());

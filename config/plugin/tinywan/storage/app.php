@@ -15,11 +15,13 @@ return [
         'nums' => 10, // 文件数量限制，默认10
         'include' => [], // 被允许的文件类型列表
         'exclude' => [], // 不被允许的文件类型列表
+        // 本地对象存储
         'local' => [
             'adapter' => \Tinywan\Storage\Adapter\LocalAdapter::class,
             'root' => runtime_path().'/storage',
             'dirname' => '/storage',
         ],
+        // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
             'accessKeyId' => 'xxxxxxxxxxxx',
@@ -28,6 +30,25 @@ return [
             'dirname' => 'storage',
             'domain' => 'http://webman.oss.tinywan.com',
             'endpoint' => 'oss-cn-hangzhou.aliyuncs.com',
+        ],
+        // 腾讯云对象存储
+        'cos' => [
+            'adapter' => \Tinywan\Storage\Adapter\CosAdapter::class,
+            'secretId' => 'xxxxxxxxxxxxx',
+            'secretKey' => 'xxxxxxxxxxxx',
+            'bucket' => 'resty-webman-xxxxxxxxx',
+            'dirname' => 'storage',
+            'domain' => 'http://webman.oss.tinywan.com',
+            'region' => 'ap-shanghai',
+        ],
+        // 七牛云对象存储
+        'qiniu' => [
+            'adapter' => \Tinywan\Storage\Adapter\QiniuAdapter::class,
+            'accessKey' => 'xxxxxxxxxxxxx',
+            'secretKey' => 'xxxxxxxxxxxxx',
+            'bucket' => 'resty-webman',
+            'dirname' => 'storage',
+            'domain' => 'http://webman.oss.tinywan.com',
         ],
     ],
 ];

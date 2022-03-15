@@ -11,14 +11,10 @@ namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
-use support\exception\BusinessException;
-use support\exception\MethodNotAllowedException;
 use support\Request;
-use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 use Tinywan\Jwt\JwtToken;
 use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
-use Tinywan\Upload\UploaderFile;
 
 class Test
 {
@@ -39,11 +35,14 @@ class Test
 
     public function jwt(Request $request)
     {
-        $uid = JwtToken::getCurrentId();
-        return response_json(0,'success',[
-            'uid'=>$uid,
-            'mobile'=>JwtToken::getExtendVal('mobile'),
-        ]);
+        echo 1;
+        echo 2;
+        echo 3;
+//        $uid = JwtToken::getCurrentId();
+//        return response_json(0,'success',[
+//            'uid'=>$uid,
+//            'mobile'=>JwtToken::getExtendVal('mobile'),
+//        ]);
     }
 
     public function refreshToken(Request $request)

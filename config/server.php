@@ -13,16 +13,19 @@
  */
 
 return [
-    'listen'               => 'http://0.0.0.0:8888',
-    'transport'            => 'tcp',
-    'context'              => [],
-    'name'                 => 'webman-admin',
-    'count'                => 2,
-    'user'                 => '',
-    'group'                => '',
-    'pid_file'             => runtime_path() . '/webman.pid',
-    'stdout_file'          => runtime_path() . '/logs/stdout.log',
-    'log_file'             => runtime_path() . '/logs/workerman.log',
-    'max_request'          => 1000000,
-    'max_package_size'     => 10*1024*1024
+    'listen' => 'http://0.0.0.0:8888',
+    'transport' => 'tcp',
+    'context' => [],
+    'name' => 'webman-admin',
+    'count' => cpu_count() * 2,
+    'user' => '',
+    'group' => '',
+    'reusePort' => false,
+    'event_loop' => '',
+    'request_class' => \support\Request::class,
+    'pid_file' => runtime_path() . '/webman.pid',
+    'status_file' => runtime_path() . '/webman.status',
+    'stdout_file' => runtime_path() . '/logs/stdout.log',
+    'log_file' => runtime_path() . '/logs/workerman.log',
+    'max_package_size' => 10 * 1024 * 1024
 ];

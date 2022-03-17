@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+use Webman\Console\Command;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
+    require_once __DIR__ . '/support/bootstrap.php';
+}
+
+$cli = new Command();
+$cli->setName('webman cli');
+$cli->installInternalCommands();
+if (is_dir($command_path = app_path(). '/command')) {
+    $cli->installCommands($command_path);
+}
+$cli->run();

@@ -50,6 +50,7 @@ Route::group('/test', function () {
     Route::get('/refresh-token', [Test::class, 'refreshToken']); // jwt
     Route::get('/exception-handler', [Test::class, 'exceptionHandler']); // jwt
     Route::post('/upload', [Test::class, 'upload']); // jwt
+    Route::get('/nacos', [Test::class, 'nacos']); // nacos
 });
 
 Route::fallback(function () {

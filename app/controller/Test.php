@@ -13,6 +13,8 @@ use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
 use support\Request;
 use Tinywan\Jwt\JwtToken;
+use Tinywan\Nacos\Exception\NacosAuthException;
+use Tinywan\Nacos\Nacos;
 use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
 
@@ -75,6 +77,33 @@ class Test
             return response_json(0,$exception->getMessage());
         }
         return response_json(0,'success',$res);
+    }
+
+    /**
+     * upload
+     * @param Request $request
+     */
+    public function nacos(Request $request)
+    {
+        $nacos = new Nacos();
+        $dataId = 'database';
+        $group = 'DEFAULT_GROUP';
+        $namespace = '188e48a6-6c98-4563-a76e-e1c70a91e650';
+
+        $content = $nacos->config->get($dataId, $group, $namespace);
+        if (false === $content) {
+            return response_json(0,$nacos->config->getMessage());
+        }
+        $contentMd5 = md5($content);
+        // 注册监听采用的是异步 Servlet 技术。注册监听本质就是带着配置和配置值的 MD5 值和后台对比。
+        // 如果 MD5 值不一致，就立即返回不一致的配置。如果值一致，就等待住 30 秒。返回值为空。
+
+        $response = $nacos->config->listen($dataId, $group, $contentMd5,$namespace);
+        if (false === $response) {
+            return response_json(0,$nacos->config->getMessage());
+        }
+        var_dump($response);
+        return response_json(0,'nacos');
     }
 
 }

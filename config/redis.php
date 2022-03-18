@@ -4,6 +4,6 @@
     'host' => 'dnmp-redis',
     'password' => 123456,
     'port' => 6379,
-    'database' => 12,
+    'database' => 0,
   ),
 );

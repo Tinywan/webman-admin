@@ -28,7 +28,7 @@ Route::group('/oauth', function () {
     Route::post('/issue-token', [Authentication::class, 'issueToken']); // 1.1 发行令牌
 });
 
-// 2.0 接口管理
+// 2.0 基础管理
 Route::group('/api', function () {
     // 2.1 用户管理
     Route::group('/users', function () {

@@ -16,6 +16,8 @@ return [
         'iss' => 'webman.tinywan.cn',
         // 令牌签发时间
         'iat' => time(),
+        // 时钟偏差冗余时间，单位秒。建议这个余地应该不大于几分钟。
+        'leeway' => 60,
 
         /**
          * access令牌 RS256 私钥

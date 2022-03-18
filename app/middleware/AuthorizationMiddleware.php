@@ -14,8 +14,8 @@ namespace app\middleware;
 namespace app\middleware;
 
 use Casbin\Exceptions\CasbinException;
-use support\exception\ForbiddenHttpException;
 use Tinywan\Casbin\Permission;
+use Tinywan\ExceptionHandler\Exception\ForbiddenHttpException;
 use Tinywan\Jwt\JwtToken;
 use Webman\Http\Request;
 use Webman\Http\Response;
@@ -37,20 +37,12 @@ class AuthorizationMiddleware implements MiddlewareInterface
         }
         try {
             $url = $request->path();
-            $uid = JwtToken::getCurrentId();
-            $superAdminMap = config('security')['super_admin_map'];
-            Permission::addFunction('isSuperAdmin', function (string $key) use ($superAdminMap) {
-                if (in_array($key, $superAdminMap, true)) {
-                    return true;
-                }
-                return false;
-            });
             $action = request()->method();
-            if (!Permission::enforce(strval($uid), $url, strtoupper($action))) {
-                return false;
+            if (!Permission::enforce(strval($request->uid), $url, strtoupper($action))) {
+                throw new ForbiddenHttpException();
             }
         } catch (CasbinException $exception) {
-            throw new ForbiddenHttpException('Cabin 授权异常' . $exception->getMessage());
+            throw new ForbiddenHttpException($exception->getMessage());
         }
         return $next($request);
     }

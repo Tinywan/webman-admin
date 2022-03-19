@@ -51,6 +51,7 @@ Route::group('/test', function () {
     Route::get('/exception-handler', [Test::class, 'exceptionHandler']); // jwt
     Route::post('/upload', [Test::class, 'upload']); // jwt
     Route::get('/nacos', [Test::class, 'nacos']); // nacos
+    Route::get('/observer', [Test::class, 'observer']); // observer
 });
 
 Route::fallback(function () {

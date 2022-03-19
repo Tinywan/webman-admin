@@ -37,7 +37,8 @@
     "webman/console": "^1.0",
     "tinywan/support": "dev-main",
     "illuminate/redis": "^8.83",
-    "tinywan/jwt": "^1.1"
+    "tinywan/jwt": "^1.1",
+    "tinywan/nacos": "^0.1.0"
   },
   "suggest": {
     "ext-event": "For better performance. "

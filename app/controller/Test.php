@@ -15,6 +15,9 @@ use support\Request;
 use Tinywan\Jwt\JwtToken;
 use Tinywan\Nacos\Exception\NacosAuthException;
 use Tinywan\Nacos\Nacos;
+use Tinywan\Nacos\Observer\ConcreteObserverA;
+use Tinywan\Nacos\Observer\ConcreteObserverB;
+use Tinywan\Nacos\Observer\ListenerSubject;
 use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
 
@@ -86,24 +89,48 @@ class Test
     public function nacos(Request $request)
     {
         $nacos = new Nacos();
-        $dataId = 'database';
+        $dataId = 'qiniu.php';
         $group = 'DEFAULT_GROUP';
-        $namespace = '188e48a6-6c98-4563-a76e-e1c70a91e650';
+        $namespace = 'f49ab8b3-5ca5-46f9-ae7b-9eafbc708129';
 
         $content = $nacos->config->get($dataId, $group, $namespace);
         if (false === $content) {
             return response_json(0,$nacos->config->getMessage());
         }
-        $contentMd5 = md5($content);
-        // 注册监听采用的是异步 Servlet 技术。注册监听本质就是带着配置和配置值的 MD5 值和后台对比。
-        // 如果 MD5 值不一致，就立即返回不一致的配置。如果值一致，就等待住 30 秒。返回值为空。
-
-        $response = $nacos->config->listen($dataId, $group, $contentMd5,$namespace);
-        if (false === $response) {
-            return response_json(0,$nacos->config->getMessage());
-        }
-        var_dump($response);
+        var_dump($content);
+//        $contentMd5 = md5($content);
+//        // 注册监听采用的是异步 Servlet 技术。注册监听本质就是带着配置和配置值的 MD5 值和后台对比。
+//        // 如果 MD5 值不一致，就立即返回不一致的配置。如果值一致，就等待住 30 秒。返回值为空。
+//
+//        $response = $nacos->config->listen($dataId, $group, $contentMd5,$namespace);
+//        if (false === $response) {
+//            return response_json(0,$nacos->config->getMessage());
+//        }
+//        var_dump($response);
         return response_json(0,'nacos');
     }
 
+    /**
+     * 观察者
+     * @param Request $request
+     */
+    public function observer(Request $request)
+    {
+        $subject = new ListenerSubject();
+        $o1 = new ConcreteObserverA();
+        $subject->attach($o1);;
+        $o2 = new ConcreteObserverB();
+        $subject->attach($o2);
+
+        $subject->state = rand(0, 10);
+        // 查询缓存本地缓存是否有更新
+        $subject->someBusinessLogic();
+        $subject->someBusinessLogic();
+        $snapshotFile = config_path() . DIRECTORY_SEPARATOR . 'redis.php';
+        $file = new \SplFileInfo($snapshotFile);
+        if (!is_dir($file->getPath())) {
+            mkdir($file->getPath(), 0777, true);
+        }
+        return response_json(0,'success');
+    }
 }

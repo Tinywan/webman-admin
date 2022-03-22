@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d6f46258d232e18f438aa18cf9c15a8",
+    "content-hash": "d9a5b59c6e1bbe6076a63e0b270a6c69",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2795,6 +2795,47 @@
             "time": "2022-03-05T15:50:01+00:00"
         },
         {
+            "name": "tinywan/curd",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-curd.git",
+                "reference": "0c0555443f05c8f722b11dd9bd73c3eba3c03bca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-curd/zipball/0c0555443f05c8f722b11dd9bd73c3eba3c03bca",
+                "reference": "0c0555443f05c8f722b11dd9bd73c3eba3c03bca",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "workerman/webman-framework": "^1.2.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "phpunit/phpunit": "^9.5",
+                "workerman/webman": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\Curd\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-curd/issues",
+                "source": "https://github.com/Tinywan/webman-curd/tree/main"
+            },
+            "time": "2022-03-22T10:10:54+00:00"
+        },
+        {
             "name": "tinywan/exception-handler",
             "version": "v0.0.5",
             "source": {
@@ -3244,16 +3285,16 @@
         },
         {
             "name": "webman/console",
-            "version": "v1.0.19",
+            "version": "v1.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-php/console.git",
-                "reference": "12451eae1dc373d8f87ac95bd6955e77f5ce2b41"
+                "reference": "fde99fc5d599af895e21668f1d89b17c9bc704d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/console/zipball/12451eae1dc373d8f87ac95bd6955e77f5ce2b41",
-                "reference": "12451eae1dc373d8f87ac95bd6955e77f5ce2b41",
+                "url": "https://api.github.com/repos/webman-php/console/zipball/fde99fc5d599af895e21668f1d89b17c9bc704d3",
+                "reference": "fde99fc5d599af895e21668f1d89b17c9bc704d3",
                 "shasum": ""
             },
             "require": {
@@ -3289,7 +3330,7 @@
                 "source": "https://github.com/webman-php/console",
                 "wiki": "http://www.workerman.net/doc/webman"
             },
-            "time": "2022-03-16T02:18:31+00:00"
+            "time": "2022-03-21T08:33:08+00:00"
         },
         {
             "name": "workerman/redis",
@@ -3465,7 +3506,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "tinywan/support": 20
+        "tinywan/support": 20,
+        "tinywan/curd": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

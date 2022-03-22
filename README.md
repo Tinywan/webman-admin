@@ -4,7 +4,7 @@
 [![Build status](https://github.com/Tinywan/dnmp/workflows/CI/badge.svg)]()
 [![webman-admin](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 
-基于 [webman](https://www.workerman.net/doc/webman/) + [vue3](https://v3.vuejs.org/) + [element-plus](https://element-plus.gitee.io/zh-CN/) 的前后端分离管理系统。
+基于 [webman](https://www.workerman.net/doc/webman/) + [vue3](https://v3.vuejs.org/) + [element-plus](https://element-plus.gitee.io/zh-CN/) 的前后端分离解决方案。
 
 ## 🚀 特性
 
@@ -75,6 +75,15 @@ docker run --rm -it -p 8888:8888 -v d:/dnmp/www/webman-admin:/app tinywan/docker
 ## Composer
 
 移除阿里云镜像
-```php
+
+```phpregexp
 composer config -g --unset repos.packagist
 ```
+
+## 命令行
+
+Make CURD
+```phpregexp
+./webman make:curd api/manual
+```
+> 生成控制器和Model

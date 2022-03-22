@@ -1,0 +1,34 @@
+<?php
+/**
+ * @desc YOU Success
+ * @author Tinywan(ShaoBo Wan)
+ * @date 2022/12/19 16:55
+ */
+
+declare(strict_types=1);
+
+namespace {%namespace%};
+
+use app\common\controller\{%module%};
+use app\common\traits\controller\Curd;
+use app\common\model\{%model%};
+
+class {%className%} extends {%module%}
+{
+
+    use Curd;
+
+    public function model()
+    {
+        return {%model%}::class;
+    }
+
+    public function init()
+    {
+        $this->route = '{%route%}';
+        $this->label = '{%label%}';
+        $this->translations = [
+            {%translations%}
+        ];
+    }
+}

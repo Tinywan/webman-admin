@@ -37,13 +37,15 @@
     "tinywan/support": "dev-main",
     "illuminate/redis": "^8.83",
     "tinywan/jwt": "^1.1",
-    "tinywan/exception-handler": "^0.0.5"
+    "tinywan/exception-handler": "^0.0.5",
+    "tinywan/curd": "dev-main"
   },
   "suggest": {
     "ext-event": "For better performance. "
   },
   "autoload": {
     "psr-4": {
+      "Tinywan\\Curd\\" : "vendor/tinywan/curd/src",
       "Tinywan\\Nacos\\" : "vendor/tinywan/nacos/src",
       "" : "./"
     },

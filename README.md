@@ -1,4 +1,4 @@
-# 众口难调，用爱发电。
+# ♨️ 众口难调，用爱发电。
 
 [![license](https://img.shields.io/github/license/Tinywan/webman-admin)]()
 [![Build status](https://github.com/Tinywan/dnmp/workflows/CI/badge.svg)]()
@@ -6,18 +6,22 @@
 
 基于 [webman](https://www.workerman.net/doc/webman/) + [vue3](https://v3.vuejs.org/) + [element-plus](https://element-plus.gitee.io/zh-CN/) 的前后端分离管理系统。
 
-## 组件介绍
+## 🚀 特性
 
+- 基于 [Webman](https://www.workerman.net/webman) 高性能HTTP服务框架
 - 遵循 RESTful API 设计规范
-- 基于Webman高性能HTTP服务框架
-- 基于Casbin的 RBAC 访问控制模型
-- JWT 认证插件
-- Validate 验证器插件
-- 简单多文件上传插件
-- 全局 Exception 异常插件（支持钉钉机器人接入）
-- 基于 ThinkORM 的数据库存储，可扩展多种类型数据库
+- [基于Casbin的 RBAC 访问控制模型](https://www.workerman.net/plugin/6)
+- [JWT 认证插件](https://www.workerman.net/plugin/10)
+- [Validate 验证器插件](https://www.workerman.net/plugin/7)
+- [简单多文件上传插件](https://www.workerman.net/plugin/21)
+- [全局 Exception 异常插件（支持钉钉机器人接入）](https://www.workerman.net/plugin/16)
+- 基于 [ThinkORM](https://github.com/top-think/think-orm) 的数据库存储，可扩展多种类型数据库
 
-## 快速开始
+## 🔰 组件介绍
+
+- 用户管理
+
+## 🚤 快速开始
 
 ### 后端安装
 

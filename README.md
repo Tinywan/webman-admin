@@ -6,6 +6,17 @@
 
 基于 [webman](https://www.workerman.net/doc/webman/) + [vue3](https://v3.vuejs.org/) + [element-plus](https://element-plus.gitee.io/zh-CN/) 的前后端分离管理系统。
 
+## 组件介绍
+
+- 遵循 RESTful API 设计规范
+- 基于Webman高性能HTTP服务框架
+- 基于Casbin的 RBAC 访问控制模型
+- JWT 认证插件
+- Validate 验证器插件
+- 简单多文件上传插件
+- 全局 Exception 异常插件（支持钉钉机器人接入）
+- 基于 ThinkORM 的数据库存储，可扩展多种类型数据库
+
 ## 快速开始
 
 ### 后端安装

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "049f75162dfacc421065f448591166d7",
+    "content-hash": "0d6f46258d232e18f438aa18cf9c15a8",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -2796,16 +2796,16 @@
         },
         {
             "name": "tinywan/exception-handler",
-            "version": "v0.0.4",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/exception-handler.git",
-                "reference": "8bb80d1c611e901f956ab641dfdb29f3f013688e"
+                "reference": "b8c1bf98412f9576d7b659b578bd5f955f9d972c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/exception-handler/zipball/8bb80d1c611e901f956ab641dfdb29f3f013688e",
-                "reference": "8bb80d1c611e901f956ab641dfdb29f3f013688e",
+                "url": "https://api.github.com/repos/Tinywan/exception-handler/zipball/b8c1bf98412f9576d7b659b578bd5f955f9d972c",
+                "reference": "b8c1bf98412f9576d7b659b578bd5f955f9d972c",
                 "shasum": ""
             },
             "require": {
@@ -2832,9 +2832,9 @@
             "description": "webman exception handler plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/exception-handler/issues",
-                "source": "https://github.com/Tinywan/exception-handler/tree/v0.0.4"
+                "source": "https://github.com/Tinywan/exception-handler/tree/v0.0.5"
             },
-            "time": "2022-03-09T08:31:26+00:00"
+            "time": "2022-03-21T06:30:04+00:00"
         },
         {
             "name": "tinywan/jwt",

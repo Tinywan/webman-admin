@@ -40,6 +40,7 @@ class Test
         echo 1;
         echo 2;
         echo 3;
+        $a = 1/0;
 //        $uid = JwtToken::getCurrentId();
 //        return response_json(0,'success',[
 //            'uid'=>$uid,

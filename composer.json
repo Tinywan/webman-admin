@@ -31,7 +31,7 @@
     "topthink/think-orm": "^2.0",
     "tinywan/webman-event": "^0.0.2",
     "tinywan/validate": "^0.0.3",
-    "tinywan/storage": "^0.0.3",
+    "tinywan/storage": "dev-main",
     "webman/console": "^1.0",
     "tinywan/support": "dev-main",
     "illuminate/redis": "^8.83",
@@ -61,5 +61,11 @@
     "pre-package-uninstall": [
       "support\\Plugin::uninstall"
     ]
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.cloud.tencent.com/composer/"
+    }
   }
 }

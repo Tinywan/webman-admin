@@ -1,26 +1,28 @@
 <?php
 /**
- * @desc ThinkOrm
+ * @desc ThinkOrm.php 描述信息
  * @author Tinywan(ShaoBo Wan)
- * @email 756684177@qq.com
- * @date 2022/3/14 20:41
+ * @date 2021/11/9 15:13
  */
+
 
 declare(strict_types=1);
 
 namespace support\bootstrap;
 
-use think\facade\Db;
+
+use \think\facade\Db;
 use Webman\Bootstrap;
 use Workerman\Timer;
 
 class ThinkOrm implements Bootstrap
 {
+    // 进程启动时调用
     public static function start($worker)
     {
         Db::setConfig(config('thinkorm'));
         if ($worker) {
-            Timer::add(55, function () {
+            Timer::add(10, function () {
                 $connections = config('thinkorm.connections', []);
                 foreach ($connections as $key => $item) {
                     if ($item['type'] == 'mysql') {

@@ -72,7 +72,7 @@ class Test
     public function upload(Request $request)
     {
         try {
-            Storage::config(); // 初始化。 默认为本地存储：local
+            Storage::config(Storage::MODE_OSS); // 初始化。 默认为本地存储：local
             $res = Storage::uploadFile();
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());

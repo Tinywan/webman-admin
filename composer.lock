@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9a5b59c6e1bbe6076a63e0b270a6c69",
+    "content-hash": "d3d536d3f8d77cd95ab8d17045242894",
     "packages": [
         {
             "name": "casbin/casbin",
@@ -68,6 +68,49 @@
                 }
             ],
             "time": "2022-02-17T07:57:54+00:00"
+        },
+        {
+            "name": "casbin/webman-permission",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-casbin/webman-permission.git",
+                "reference": "30f7b2ea9bc92b34afb7e261bf16959e735754f6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-casbin/webman-permission/zipball/30f7b2ea9bc92b34afb7e261bf16959e735754f6",
+                "reference": "30f7b2ea9bc92b34afb7e261bf16959e735754f6",
+                "shasum": ""
+            },
+            "require": {
+                "casbin/casbin": "^3.20",
+                "php": ">=7.4",
+                "php-di/php-di": "^6.3",
+                "topthink/think-orm": "^2.0",
+                "workerman/redis": "^1.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "~7.0|~8.0|~9.0",
+                "workerman/webman": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Casbin\\WebmanPermission\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "webman casbin permission Plugin",
+            "support": {
+                "issues": "https://github.com/php-casbin/webman-permission/issues",
+                "source": "https://github.com/php-casbin/webman-permission/tree/v1.0.0"
+            },
+            "time": "2022-03-23T06:18:52+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -2750,49 +2793,6 @@
                 }
             ],
             "time": "2022-03-02T12:42:23+00:00"
-        },
-        {
-            "name": "tinywan/casbin",
-            "version": "v0.0.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Tinywan/casbin.git",
-                "reference": "87b5bef84307fd5f85e1acdc2aa2f7441be8c8a1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/casbin/zipball/87b5bef84307fd5f85e1acdc2aa2f7441be8c8a1",
-                "reference": "87b5bef84307fd5f85e1acdc2aa2f7441be8c8a1",
-                "shasum": ""
-            },
-            "require": {
-                "casbin/casbin": "~3.0",
-                "php": ">=7.4",
-                "php-di/php-di": "^6.3",
-                "topthink/think-orm": "^2.0",
-                "workerman/redis": "^1.0"
-            },
-            "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "~7.0|~8.0|~9.0",
-                "workerman/webman": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Tinywan\\Casbin\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Webman Casbin Plugin",
-            "support": {
-                "issues": "https://github.com/Tinywan/casbin/issues",
-                "source": "https://github.com/Tinywan/casbin/tree/v0.0.9"
-            },
-            "time": "2022-03-05T15:50:01+00:00"
         },
         {
             "name": "tinywan/curd",

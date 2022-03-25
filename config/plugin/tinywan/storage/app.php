@@ -25,8 +25,8 @@ return [
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
-            'accessKeyId' => 'LTAI5tF4WWgi6g4Kk8KghM1X',
-            'accessKeySecret' => 'TWro4IIVkwNdhsNsr5PMnaQG85ovWK',
+            'accessKeyId' => 'xxxxxxxxxxxxx',
+            'accessKeySecret' => 'xxxxxxxxxxxxx',
             'bucket' => 'test',
             'dirname' => 'storage',
             'domain' => 'http://webman.oss.tinywan.com',

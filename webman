@@ -1,11 +1,15 @@
 #!/usr/bin/env php
 <?php
+
+use Webman\Config;
 use Webman\Console\Command;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 if (!in_array($argv[1] ?? '', ['start', 'restart', 'stop', 'status', 'reload', 'connections'])) {
     require_once __DIR__ . '/support/bootstrap.php';
+} else {
+    Config::reload(config_path(), ['route', 'container']);
 }
 
 $cli = new Command();
@@ -14,4 +18,13 @@ $cli->installInternalCommands();
 if (is_dir($command_path = app_path(). '/command')) {
     $cli->installCommands($command_path);
 }
+
+foreach (config('plugin', []) as $firm => $projects) {
+    foreach ($projects as $name => $project) {
+        foreach ($project['command'] ?? [] as $command) {
+            $cli->add(new $command);
+        }
+    }
+}
+
 $cli->run();

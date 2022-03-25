@@ -11,7 +11,10 @@ namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
+use support\Log;
 use support\Request;
+use Tinywan\Captcha\Captcha;
+use Tinywan\Captcha\Config;
 use Tinywan\Jwt\JwtToken;
 use Tinywan\Nacos\Exception\NacosAuthException;
 use Tinywan\Nacos\Nacos;
@@ -20,6 +23,8 @@ use Tinywan\Nacos\Observer\ConcreteObserverB;
 use Tinywan\Nacos\Observer\ListenerSubject;
 use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
+use Tinywan\Support\Logger;
+use Tinywan\Support\Str;
 
 class Test
 {
@@ -40,14 +45,13 @@ class Test
 
     public function jwt(Request $request)
     {
-        echo 1;
-        echo 2;
-        echo 3;
-//        $uid = JwtToken::getCurrentId();
-//        return response_json(0,'success',[
-//            'uid'=>$uid,
-//            'mobile'=>JwtToken::getExtendVal('mobile'),
-//        ]);
+        $uid = JwtToken::getCurrentId();
+        return response_json(0,'success',[
+            'uid'=>$uid,
+            'mobile'=>JwtToken::getExtendVal('mobile'),
+            'Extend'=>JwtToken::getExtend(),
+            'Exp'=>JwtToken::getTokenExp(),
+        ]);
     }
 
     public function refreshToken(Request $request)
@@ -74,12 +78,15 @@ class Test
     public function upload(Request $request)
     {
         try {
-            Storage::config(); // 初始化。 默认为本地存储：local
-            $res = Storage::uploadFile();
+            Storage::config(Storage::MODE_OSS); // 初始化。 默认为本地存储：local
+            $res['file_path'] = public_path().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR.'rbac-model.conf';
+            $res['extension'] = 'conf';
+            $r = Storage::uploadLocalFile($res);
+            var_dump($r);
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
         }
-        return response_json(0,'success',$res);
+        return response_json(0,'success');
     }
 
     /**
@@ -111,26 +118,20 @@ class Test
     }
 
     /**
-     * 观察者
+     * log
      * @param Request $request
      */
-    public function observer(Request $request)
+    public function log(Request $request)
     {
-        $subject = new ListenerSubject();
-        $o1 = new ConcreteObserverA();
-        $subject->attach($o1);;
-        $o2 = new ConcreteObserverB();
-        $subject->attach($o2);
+//        $code = $request->get('code');
+//        if(false === Captcha::check($code)){
+//            // 验证失败
+//        };
+        // 验证通过
+        echo Captcha::base64();
+//        return response_json(0, 'ok', ['captcha' => Captcha::base64()]);
+//        var_dump(Captcha::check('reck7'));
+//        return response_json(0, 'ok');
 
-        $subject->state = rand(0, 10);
-        // 查询缓存本地缓存是否有更新
-        $subject->someBusinessLogic();
-        $subject->someBusinessLogic();
-        $snapshotFile = config_path() . DIRECTORY_SEPARATOR . 'redis.php';
-        $file = new \SplFileInfo($snapshotFile);
-        if (!is_dir($file->getPath())) {
-            mkdir($file->getPath(), 0777, true);
-        }
-        return response_json(0,'success');
     }
 }

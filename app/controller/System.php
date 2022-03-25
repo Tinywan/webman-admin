@@ -13,6 +13,7 @@ namespace app\controller;
 use app\common\model\UserModel;
 use support\Request;
 use support\Response;
+use Tinywan\Captcha\Captcha;
 
 class System
 {
@@ -118,5 +119,27 @@ class System
             return response_json(200,'success');
         }
         return response_json(200,'success',$info->toArray());
+    }
+
+    /**
+     * @desc: 获取验证码
+     * @param Request $request
+     * @return Response
+     * @author Tinywan(ShaoBo Wan)
+     */
+    public function captcha(Request $request):Response
+    {
+        return response_json(200,'captcha',['captcha'=>Captcha::base64()]);
+    }
+
+    /**
+     * @desc: 获取验证码
+     * @param Request $request
+     * @return Response
+     * @author Tinywan(ShaoBo Wan)
+     */
+    public function checkCaptcha(Request $request):Response
+    {
+        return response_json(200,'captcha',['captcha'=>Captcha::base64()]);
     }
 }

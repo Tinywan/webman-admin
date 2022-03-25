@@ -17,4 +17,14 @@ return [
             Tinywan\Jwt\Exception\JwtTokenException::class
         ]
     ],
+    // 事件
+    'event' => [
+        'enable' => false,
+        // 钉钉机器人
+        'ding_talk' => [
+            'accessToken' => 'xxxxxxxxxxxxxxxx',
+            'secret' => 'xxxxxxxxxxxxxxxx',
+            'title' => '钉钉机器人异常通知',
+        ]
+    ],
 ];

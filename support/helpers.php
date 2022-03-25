@@ -31,7 +31,7 @@ if (is_phar()) {
 } else {
     define('BASE_PATH', realpath(__DIR__ . '/../'));
 }
-define('WEBMAN_VERSION', '1.3.0');
+define('WEBMAN_VERSION', '1.3.x');
 
 /**
  * @param $return_phar
@@ -424,7 +424,7 @@ function worker_start($process_name, $config)
  */
 function get_realpath(string $file_path): string
 {
-    if (is_phar()) {
+    if (strpos($file_path, 'phar://') === 0) {
         return $file_path;
     } else {
         return realpath($file_path);

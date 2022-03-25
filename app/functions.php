@@ -3,8 +3,8 @@
  * Here is your custom functions.
  */
 
-use support\exception\BadRequestHttpException;
 use support\Response;
+use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 
 /**
  * @desc: json 请求响应数据

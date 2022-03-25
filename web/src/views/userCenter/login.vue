@@ -57,6 +57,12 @@
 					<el-form-item prop="password">
 						<el-input v-model="ruleForm.password" prefix-icon="el-icon-lock" clearable show-password :placeholder="$t('login.PWPlaceholder')"></el-input>
 					</el-form-item>
+					<el-form-item prop="code">
+						<el-input v-model="ruleForm.code" style="width: 65%; float: left" class="login-code" prefix-icon="el-icon-help" clearable></el-input>
+						<div class="login-code" style="width: 35%; height: 38px; float: right;background-color: #f0f1f5;">
+							<img style="height: 38px; width: 100%; border-radius: 5px; border: 1px solid rgba(0, 0, 0, 0.1);" :src="captcha" prefix-icon="el-icon-lock"  @click="getCaptcha"/>
+						</div>
+					</el-form-item>
 					<el-form-item style="margin-bottom: 10px;">
 						<el-row>
 							<el-col :span="12">
@@ -90,6 +96,7 @@
 				ruleForm: {
 					user: "webman",
 					password: "webman",
+					code: "",
 					autologin: false
 				},
 				rules: {
@@ -98,6 +105,9 @@
 					],
 					password: [
 						{required: true, message: this.$t('login.PWError'), trigger: 'blur'}
+					],
+					code: [
+						{required: true, message: '验证码必填', trigger: 'blur'}
 					]
 				},
 				islogin: false,
@@ -118,7 +128,8 @@
 						name: '日本語',
 						value: 'ja',
 					}
-				]
+				],
+				captcha: ''
 			}
 		},
 		watch:{
@@ -126,9 +137,11 @@
 				if(val == 'admin'){
 					this.ruleForm.user = 'webman'
 					this.ruleForm.password = 'webman'
+					this.ruleForm.code = ''
 				}else if(val == 'user'){
 					this.ruleForm.user = 'user'
 					this.ruleForm.password = 'user'
+					this.ruleForm.code = ''
 				}
 			},
 			'config.theme'(val){
@@ -150,10 +163,20 @@
 			this.$store.commit("clearKeepLive")
 			this.$store.commit("clearIframeList")
 			console.log('%c SCUI %c Gitee: https://gitee.com/lolicode/scui', 'background:#666;color:#fff;border-radius:3px;', '')
+			this.getCaptcha()
 		},
 		methods: {
+			async getCaptcha(){
+				let $captcha = await this.$API.system.table.captcha.get()
+				if($captcha.code === 200){
+					this.captcha = $captcha.data.captcha;
+				}else{
+					this.islogin = false
+					this.$message.warning($captcha.msg)
+					return false
+				}
+			},
 			async login(){
-
 				var validate = await this.$refs.loginForm.validate().catch(()=>{})
 				if(!validate){ return false }
 
@@ -161,7 +184,8 @@
 				var data = {
 					username: this.ruleForm.user,
 					// password: this.$TOOL.crypto.MD5(this.ruleForm.password)
-					password: this.ruleForm.password
+					password: this.ruleForm.password,
+					code: this.ruleForm.code
 				}
 				//获取token
 				var user = await this.$API.auth.token.post(data)
@@ -246,5 +270,9 @@
 		.login_main {display: block;}
 		.login-form {width:100%;padding:20px 40px;}
 		.login_adv {display: none;}
+	}
+	.login-code .el-input {
+		width: 185px !important;
+		float: left;
 	}
 </style>

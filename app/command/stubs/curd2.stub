@@ -1,0 +1,21 @@
+<?php
+/**
+ * @desc {%className%}
+ * @author Tinywan(ShaoBo Wan)
+ * @date {%current_time%}
+ */
+
+declare(strict_types=1);
+
+namespace {%namespace%};
+
+use support\Request;
+use app\common\model\{%model%};
+
+class {%className%}
+{
+    public function index(Request $request)
+    {
+        return response("{%className%}");
+    }
+}

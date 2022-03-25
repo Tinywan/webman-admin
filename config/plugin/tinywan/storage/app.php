@@ -20,12 +20,13 @@ return [
             'adapter' => \Tinywan\Storage\Adapter\LocalAdapter::class,
             'root' => runtime_path().'/storage',
             'dirname' => '/storage',
+            'domain' => 'http://127.0.0.1:8787'
         ],
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
-            'accessKeyId' => 'xxxxxxxxxxxx',
-            'accessKeySecret' => 'xxxxxxxxxxxx',
+            'accessKeyId' => 'xxxxxxxxxxxxx',
+            'accessKeySecret' => 'xxxxxxxxxxxxx',
             'bucket' => 'test',
             'dirname' => 'storage',
             'domain' => 'http://webman.oss.tinywan.com',

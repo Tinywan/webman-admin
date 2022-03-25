@@ -9,6 +9,11 @@ declare(strict_types=1);
 
 namespace app\common\model;
 
+use think\db\exception\DataNotFoundException;
+use think\db\exception\DbException;
+use think\db\exception\ModelNotFoundException;
+use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
+
 class UserModel extends BaseModel
 {
     /**
@@ -20,6 +25,10 @@ class UserModel extends BaseModel
      * @desc: 方法描述
      * @param $params
      * @return array
+     * @throws BadRequestHttpException
+     * @throws DataNotFoundException
+     * @throws DbException
+     * @throws ModelNotFoundException
      * @author Tinywan(ShaoBo Wan)
      */
     public static function getPaginateList($params): array

@@ -36,9 +36,11 @@ axios.interceptors.response.use(
 		if (error.response) {
 			// console.log(error.response)
 			if (error.response.status == 400) {
+				console.log(error.response);
 				ElNotification.warning({
 					title: '业务错误',
-					message: "Status:400，语义有误，当前请求无法被服务器理解"
+					// message: "Status:400，语义有误，当前请求无法被服务器理解",
+					message: error.response.data.msg,
 				});
 			} else if (error.response.status == 401) {
 				ElMessageBox.confirm('当前用户已被登出或无权限访问当前资源，请尝试重新登录后再操作。', '无权限访问', {

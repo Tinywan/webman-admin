@@ -19,6 +19,7 @@ class UnauthorizedValidate extends BaseValidate
     protected $rule = [
         'username' => 'require',
         'password' => 'require',
+        'code' => 'require',
     ];
 
     /**
@@ -29,6 +30,7 @@ class UnauthorizedValidate extends BaseValidate
     protected $message = [
         'username.require' => 'username不允许为空',
         'password.require' => 'password不允许为空',
+        'code.require' => 'code不允许为空',
     ];
 
     /**
@@ -37,6 +39,6 @@ class UnauthorizedValidate extends BaseValidate
      * @var array
      */
     protected $scene = [
-        'issue' => ['username', 'password'],
+        'issue' => ['username', 'password','code'],
     ];
 }

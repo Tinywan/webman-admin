@@ -105,6 +105,9 @@
 					],
 					password: [
 						{required: true, message: this.$t('login.PWError'), trigger: 'blur'}
+					],
+					code: [
+						{required: true, message: '验证码必填', trigger: 'blur'}
 					]
 				},
 				islogin: false,
@@ -134,9 +137,11 @@
 				if(val == 'admin'){
 					this.ruleForm.user = 'webman'
 					this.ruleForm.password = 'webman'
+					this.ruleForm.code = ''
 				}else if(val == 'user'){
 					this.ruleForm.user = 'user'
 					this.ruleForm.password = 'user'
+					this.ruleForm.code = ''
 				}
 			},
 			'config.theme'(val){
@@ -179,7 +184,8 @@
 				var data = {
 					username: this.ruleForm.user,
 					// password: this.$TOOL.crypto.MD5(this.ruleForm.password)
-					password: this.ruleForm.password
+					password: this.ruleForm.password,
+					code: this.ruleForm.code
 				}
 				//获取token
 				var user = await this.$API.auth.token.post(data)

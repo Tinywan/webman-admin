@@ -15,6 +15,7 @@ use app\common\model\UserModel;
 use app\common\validate\UnauthorizedValidate;
 use support\Request;
 use support\Response;
+use Tinywan\Captcha\Captcha;
 use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
 use Tinywan\Jwt\JwtToken;
 
@@ -24,6 +25,9 @@ class Authentication extends BaseController
     {
         $params = $request->post();
         validate($params, UnauthorizedValidate::class . '.issue');
+        if (false === Captcha::check($params['code'])) {
+            throw new BadRequestHttpException('验证码错误');
+        }
         $model = UserModel::field('id,username,mobile,email,avatar,password,is_enabled,create_time');
         if (is_mobile((string) $params['username'])) {
             $model->where('mobile', $params['username']);

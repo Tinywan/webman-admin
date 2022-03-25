@@ -11,12 +11,17 @@ namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
+use support\Log;
 use support\Request;
+use Tinywan\Captcha\Captcha;
+use Tinywan\Captcha\Config;
 use Tinywan\Jwt\JwtToken;
 use Tinywan\Nacos\Exception\NacosAuthException;
 use Tinywan\Nacos\Nacos;
 use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
+use Tinywan\Support\Logger;
+use Tinywan\Support\Str;
 
 class Test
 {
@@ -37,15 +42,13 @@ class Test
 
     public function jwt(Request $request)
     {
-        echo 1;
-        echo 2;
-        echo 3;
-        $a = 1/0;
-//        $uid = JwtToken::getCurrentId();
-//        return response_json(0,'success',[
-//            'uid'=>$uid,
-//            'mobile'=>JwtToken::getExtendVal('mobile'),
-//        ]);
+        $uid = JwtToken::getCurrentId();
+        return response_json(0,'success',[
+            'uid'=>$uid,
+            'mobile'=>JwtToken::getExtendVal('mobile'),
+            'Extend'=>JwtToken::getExtend(),
+            'Exp'=>JwtToken::getTokenExp(),
+        ]);
     }
 
     public function refreshToken(Request $request)
@@ -73,11 +76,14 @@ class Test
     {
         try {
             Storage::config(Storage::MODE_OSS); // 初始化。 默认为本地存储：local
-            $res = Storage::uploadFile();
+            $res['file_path'] = public_path().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR.'rbac-model.conf';
+            $res['extension'] = 'conf';
+            $r = Storage::uploadLocalFile($res);
+            var_dump($r);
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
         }
-        return response_json(0,'success',$res);
+        return response_json(0,'success');
     }
 
     /**
@@ -105,6 +111,24 @@ class Test
         }
         var_dump($response);
         return response_json(0,'nacos');
+    }
+
+    /**
+     * log
+     * @param Request $request
+     */
+    public function log(Request $request)
+    {
+//        $code = $request->get('code');
+//        if(false === Captcha::check($code)){
+//            // 验证失败
+//        };
+        // 验证通过
+        echo Captcha::base64();
+//        return response_json(0, 'ok', ['captcha' => Captcha::base64()]);
+//        var_dump(Captcha::check('reck7'));
+//        return response_json(0, 'ok');
+
     }
 
 }

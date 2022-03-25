@@ -17,6 +17,7 @@ use app\controller\Authentication;
 use app\controller\System;
 use app\controller\Test;
 use \app\api\controller\User as ApiUser;
+use \app\api\controller\Tool as ApiTool;
 use Tinywan\ExceptionHandler\Exception\RouteNotFoundException;
 
 Route::options('[{path:.+}]', function (){
@@ -41,6 +42,8 @@ Route::group('/system', function () {
     Route::get('/menu', [System::class, 'menu']); // 菜单
     Route::get('/table/list', [System::class, 'tableList']); // 菜单
     Route::get('/table/info', [System::class, 'tableInfo']); // 菜单
+    Route::get('/table/captcha', [System::class, 'captcha']); // 获取验证码
+    Route::get('/table/check-captcha', [System::class, 'checkCaptcha']); // 获取验证码
 });
 
 // test
@@ -51,6 +54,7 @@ Route::group('/test', function () {
     Route::get('/exception-handler', [Test::class, 'exceptionHandler']); // jwt
     Route::post('/upload', [Test::class, 'upload']); // jwt
     Route::get('/nacos', [Test::class, 'nacos']); // nacos
+    Route::get('/log', [Test::class, 'log']); // log
 });
 
 Route::fallback(function () {

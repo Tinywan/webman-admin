@@ -82,7 +82,9 @@ export default {
 			url: `${config.API_URL}/system/table/list`,
 			name: "表格列管理列表",
 			get: async function(params){
-				return await http.get(this.url, params);
+				var $res = await http.get(this.url, params);
+				console.log($res)
+				return $res
 			}
 		},
 		info: {
@@ -90,6 +92,13 @@ export default {
 			name: "表格列管理详情",
 			get: async function(params){
 				return await http.get(this.url, params);
+			}
+		},
+		captcha: {
+			url: `${config.API_URL}/system/table/captcha`,
+			name: "验证码",
+			get: async function(){
+				return await http.get(this.url);
 			}
 		}
 	}

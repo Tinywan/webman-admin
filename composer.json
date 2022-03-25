@@ -31,20 +31,24 @@
     "topthink/think-orm": "^2.0",
     "tinywan/webman-event": "^0.0.2",
     "tinywan/validate": "^0.0.3",
-    "tinywan/storage": "dev-main",
-    "webman/console": "^1.0",
     "tinywan/support": "dev-main",
     "illuminate/redis": "^8.83",
-    "tinywan/jwt": "^1.1",
     "tinywan/exception-handler": "^0.0.5",
-    "tinywan/curd": "dev-main",
-    "casbin/webman-permission": "^1.0"
+    "casbin/webman-permission": "^1.0",
+    "tinywan/storage": "dev-main",
+    "tinywan/jwt": "^1.1",
+    "ext-gd": "*",
+    "webman/console": "^1.0",
+    "tinywan/captcha": "^0.0.1",
+    "tinywan/curd": "dev-main"
   },
   "suggest": {
     "ext-event": "For better performance. "
   },
   "autoload": {
     "psr-4": {
+      "Tinywan\\Captcha\\" : "vendor/tinywan/captcha/src",
+      "Tinywan\\Mailer\\" : "vendor/tinywan/mailer/src",
       "Casbin\\WebmanPermission\\" : "vendor/casbin/webman-permission/src",
       "Tinywan\\Curd\\" : "vendor/tinywan/curd/src",
       "Tinywan\\Nacos\\" : "vendor/tinywan/nacos/src",
@@ -61,11 +65,5 @@
     "pre-package-uninstall": [
       "support\\Plugin::uninstall"
     ]
-  },
-  "repositories": {
-    "packagist": {
-      "type": "composer",
-      "url": "https://mirrors.cloud.tencent.com/composer/"
-    }
   }
 }

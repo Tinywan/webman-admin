@@ -7,7 +7,7 @@ use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ConfigMySQLCommand extends Command
+class ConfigMysqlCommand extends Command
 {
     protected static $defaultName = 'config:mysql';
     protected static $defaultDescription = '显示当前MySQL服务器配置';

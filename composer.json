@@ -40,13 +40,15 @@
     "ext-gd": "*",
     "webman/console": "^1.0",
     "tinywan/captcha": "^0.0.1",
-    "tinywan/curd": "dev-main"
+    "tinywan/curd": "dev-main",
+    "tinywan/phinx": "dev-main"
   },
   "suggest": {
     "ext-event": "For better performance. "
   },
   "autoload": {
     "psr-4": {
+      "Tinywan\\Phinx\\" : "vendor/tinywan/phinx/src",
       "Tinywan\\Captcha\\" : "vendor/tinywan/captcha/src",
       "Tinywan\\Mailer\\" : "vendor/tinywan/mailer/src",
       "Casbin\\WebmanPermission\\" : "vendor/casbin/webman-permission/src",

@@ -24,11 +24,14 @@
 
 ## 🚤 快速开始
 
+### 数据库
+
+新建数据库`webman-admin`，导入 sql 文件地址：`db/webman-admin.sql`
+
 ### 后端安装
 
-#### 克隆项目
-
 ```sh
+# 克隆项目
 git clone git@github.com:Tinywan/webman-admin.git
 
 # 进入目录
@@ -58,6 +61,8 @@ npm run serve
 启动完成后浏览器访问 http://127.0.0.1:2800
 
 ## 使用 Docker 运行服务（可选）
+
+> 如果你本地没有PHP环境或者PHP扩展不方便安装，则可以选择使用Docker
 
 ```sh
 docker run --rm -it -p 8888:8888 -v d:/dnmp/www/webman-admin:/app tinywan/docker-php-webman

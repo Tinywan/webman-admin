@@ -38,7 +38,7 @@ axios.interceptors.response.use(
 			if (error.response.status == 400) {
 				console.log(error.response);
 				ElNotification.warning({
-					title: '业务错误',
+					title: '客户端业务错误',
 					// message: "Status:400，语义有误，当前请求无法被服务器理解",
 					message: error.response.data.msg,
 				});

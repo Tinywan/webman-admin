@@ -30,15 +30,14 @@
 
 ```sh
 git clone git@github.com:Tinywan/webman-admin.git
-```
 
-#### 安装依赖
+# 进入目录
+cd webman-admin
 
-```sh
-cd /d/dnmp/www/webman-admin
-
+# 安装依赖
 composer install
 
+# 启动项目(开发模式)
 php start.php start
 ```
 

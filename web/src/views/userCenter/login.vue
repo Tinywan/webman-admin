@@ -171,7 +171,6 @@
 				if($captcha.code === 200){
 					this.captcha = $captcha.data.captcha;
 				}else{
-					this.islogin = false
 					this.$message.warning($captcha.msg)
 					return false
 				}
@@ -180,7 +179,7 @@
 				var validate = await this.$refs.loginForm.validate().catch(()=>{})
 				if(!validate){ return false }
 
-				this.islogin = true
+				// this.islogin = true
 				var data = {
 					username: this.ruleForm.user,
 					// password: this.$TOOL.crypto.MD5(this.ruleForm.password)

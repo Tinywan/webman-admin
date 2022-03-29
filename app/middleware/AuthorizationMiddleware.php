@@ -14,7 +14,7 @@ namespace app\middleware;
 namespace app\middleware;
 
 use Casbin\Exceptions\CasbinException;
-use Tinywan\Casbin\Permission;
+use Casbin\WebmanPermission\Permission;
 use Tinywan\ExceptionHandler\Exception\ForbiddenHttpException;
 use Tinywan\Jwt\JwtToken;
 use Webman\Http\Request;

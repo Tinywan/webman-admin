@@ -78,10 +78,10 @@ class Test
     public function upload(Request $request)
     {
         try {
-            Storage::config(Storage::MODE_OSS); // 初始化。 默认为本地存储：local
+            Storage::config(); // 初始化。 默认为本地存储：local
             $res['file_path'] = public_path().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR.'rbac-model.conf';
             $res['extension'] = 'conf';
-            $r = Storage::uploadLocalFile($res);
+            $r = Storage::uploadFile($res);
             var_dump($r);
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
@@ -124,14 +124,12 @@ class Test
     public function log(Request $request)
     {
 //        $code = $request->get('code');
-//        if(false === Captcha::check($code)){
-//            // 验证失败
-//        };
         // 验证通过
-        echo Captcha::base64();
-//        return response_json(0, 'ok', ['captcha' => Captcha::base64()]);
-//        var_dump(Captcha::check('reck7'));
-//        return response_json(0, 'ok');
+//       return response_json(0, 'ok', Captcha::base64());
+//        $code = 'pfy3f';
+//        $key = '$2y$10$imbrFN5G8Piw6GEtcuUCMemjAbkuj2HAsObu7I46mo0F6G55OMR3K';
+//        var_dump(Captcha::check($code,$key));
+        return response_json(0, 'ok');
 
     }
 }

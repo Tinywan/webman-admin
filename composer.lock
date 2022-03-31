@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b90cff83a4dc4f9634a708fd23616af0",
+    "content-hash": "643b9fd5bfee22f0d82874d556f2b5c1",
     "packages": [
         {
             "name": "cakephp/core",
@@ -3404,16 +3404,16 @@
         },
         {
             "name": "tinywan/captcha",
-            "version": "v0.0.1",
+            "version": "v0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-captcha.git",
-                "reference": "d578299213f428f9beaddc6eb5772ef45bad7349"
+                "reference": "7e2bd97263790c22b010d7786954f82c8edbb63c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-captcha/zipball/d578299213f428f9beaddc6eb5772ef45bad7349",
-                "reference": "d578299213f428f9beaddc6eb5772ef45bad7349",
+                "url": "https://api.github.com/repos/Tinywan/webman-captcha/zipball/7e2bd97263790c22b010d7786954f82c8edbb63c",
+                "reference": "7e2bd97263790c22b010d7786954f82c8edbb63c",
                 "shasum": ""
             },
             "require": {
@@ -3435,11 +3435,24 @@
             "license": [
                 "MIT"
             ],
+            "authors": [
+                {
+                    "name": "Tinywan",
+                    "email": "756684177@qq.com"
+                }
+            ],
+            "description": "base64 image verification captcha library for webman plugin",
+            "keywords": [
+                "base64",
+                "captcha",
+                "plugin",
+                "webman"
+            ],
             "support": {
                 "issues": "https://github.com/Tinywan/webman-captcha/issues",
-                "source": "https://github.com/Tinywan/webman-captcha/tree/v0.0.1"
+                "source": "https://github.com/Tinywan/webman-captcha/tree/v0.0.2"
             },
-            "time": "2022-03-25T03:01:05+00:00"
+            "time": "2022-03-30T09:41:13+00:00"
         },
         {
             "name": "tinywan/curd",
@@ -3567,6 +3580,57 @@
                 "source": "https://github.com/Tinywan/webman-jwt/tree/v1.2.1"
             },
             "time": "2022-03-25T03:56:45+00:00"
+        },
+        {
+            "name": "tinywan/limit-traffic",
+            "version": "v0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-limit-traffic.git",
+                "reference": "8e9e59b886cc88d675b7ca7f5ec7347a6e8c247e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-limit-traffic/zipball/8e9e59b886cc88d675b7ca7f5ec7347a6e8c247e",
+                "reference": "8e9e59b886cc88d675b7ca7f5ec7347a6e8c247e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-redis": "*"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "workerman/webman": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\LimitTraffic\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tinywan",
+                    "email": "756684177@qq.com"
+                }
+            ],
+            "description": "limiting and controlling traffic for webman plugin",
+            "keywords": [
+                "limit",
+                "plugin",
+                "traffic",
+                "webman"
+            ],
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-limit-traffic/issues",
+                "source": "https://github.com/Tinywan/webman-limit-traffic/tree/v0.0.4"
+            },
+            "time": "2022-03-31T01:54:50+00:00"
         },
         {
             "name": "tinywan/phinx",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "643b9fd5bfee22f0d82874d556f2b5c1",
+    "content-hash": "1dce320596922962a7f9e1312f23c0b8",
     "packages": [
         {
             "name": "cakephp/core",
@@ -3455,6 +3455,57 @@
             "time": "2022-03-30T09:41:13+00:00"
         },
         {
+            "name": "tinywan/crontab",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-crontab.git",
+                "reference": "9fdf7f0275f644ee32602451535b83a58521826f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-crontab/zipball/9fdf7f0275f644ee32602451535b83a58521826f",
+                "reference": "9fdf7f0275f644ee32602451535b83a58521826f",
+                "shasum": ""
+            },
+            "require": {
+                "workerman/crontab": "^1.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "workerman/webman": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\Crontab\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tinywan",
+                    "email": "756684177@qq.com"
+                }
+            ],
+            "description": "A crontab written for webman plugin",
+            "keywords": [
+                "crontab",
+                "plugin",
+                "webman"
+            ],
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-crontab/issues",
+                "source": "https://github.com/Tinywan/webman-crontab/tree/main"
+            },
+            "time": "2022-03-31T07:38:12+00:00"
+        },
+        {
             "name": "tinywan/curd",
             "version": "dev-main",
             "source": {
@@ -3684,6 +3735,58 @@
                 "source": "https://github.com/Tinywan/webman-phinx/tree/main"
             },
             "time": "2022-03-26T05:34:19+00:00"
+        },
+        {
+            "name": "tinywan/rpc",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-rpc.git",
+                "reference": "40255fab80814ea7b6a2bbea8b25c13a42b1a32e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-rpc/zipball/40255fab80814ea7b6a2bbea8b25c13a42b1a32e",
+                "reference": "40255fab80814ea7b6a2bbea8b25c13a42b1a32e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "workerman/webman-framework": "^1.2.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "workerman/webman": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\Rpc\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tinywan",
+                    "email": "756684177@qq.com"
+                }
+            ],
+            "description": "simple rpc service for webman plugin",
+            "keywords": [
+                "plugin",
+                "rpc",
+                "webman"
+            ],
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-rpc/issues",
+                "source": "https://github.com/Tinywan/webman-rpc/tree/main"
+            },
+            "time": "2022-03-31T06:30:45+00:00"
         },
         {
             "name": "tinywan/storage",
@@ -4098,6 +4201,56 @@
             "time": "2022-03-24T12:27:36+00:00"
         },
         {
+            "name": "workerman/crontab",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/crontab.git",
+                "reference": "28106241415049ee340a8a7cd9b640165240a2fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/walkor/crontab/zipball/28106241415049ee340a8a7cd9b640165240a2fa",
+                "reference": "28106241415049ee340a8a7cd9b640165240a2fa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "workerman/workerman": ">=3.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\Crontab\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "walkor",
+                    "email": "walkor@workerman.net",
+                    "homepage": "http://www.workerman.net",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A crontab written in PHP based on workerman",
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "crontab"
+            ],
+            "support": {
+                "email": "walkor@workerman.net",
+                "forum": "http://wenda.workerman.net/",
+                "issues": "https://github.com/walkor/workerman/issues",
+                "source": "https://github.com/walkor/crontab",
+                "wiki": "http://doc.workerman.net/"
+            },
+            "time": "2021-10-06T14:18:14+00:00"
+        },
+        {
             "name": "workerman/redis",
             "version": "v1.0.7",
             "source": {
@@ -4319,7 +4472,9 @@
         "tinywan/support": 20,
         "tinywan/storage": 20,
         "tinywan/curd": 20,
-        "tinywan/phinx": 20
+        "tinywan/phinx": 20,
+        "tinywan/rpc": 20,
+        "tinywan/crontab": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

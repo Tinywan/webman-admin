@@ -25,6 +25,7 @@ use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
 use Tinywan\Support\Logger;
 use Tinywan\Support\Str;
+use Tinywan\Rpc\Client;
 
 class Test
 {
@@ -129,7 +130,13 @@ class Test
 //        $code = 'pfy3f';
 //        $key = '$2y$10$imbrFN5G8Piw6GEtcuUCMemjAbkuj2HAsObu7I46mo0F6G55OMR3K';
 //        var_dump(Captcha::check($code,$key));
-        return response_json(0, 'ok');
-
+        $request = [
+            'class'   => 'User',
+            'method'  => 'get',
+            'args'    => [2022], // 100 是 $uid
+        ];
+        $client = new Client('tcp://127.0.0.1:9512');
+        $res = $client->request($request);
+        return response_json(0, 'ok',$res);
     }
 }

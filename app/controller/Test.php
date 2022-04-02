@@ -79,10 +79,8 @@ class Test
     public function upload(Request $request)
     {
         try {
-            Storage::config(); // 初始化。 默认为本地存储：local
-            $res['file_path'] = public_path().DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR.'rbac-model.conf';
-            $res['extension'] = 'conf';
-            $r = Storage::uploadFile($res);
+            Storage::config(Storage::MODE_OSS);
+            $r = Storage::uploadFile();
             var_dump($r);
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
@@ -130,13 +128,34 @@ class Test
 //        $code = 'pfy3f';
 //        $key = '$2y$10$imbrFN5G8Piw6GEtcuUCMemjAbkuj2HAsObu7I46mo0F6G55OMR3K';
 //        var_dump(Captcha::check($code,$key));
+//        $request = [
+//            'class'   => 'User',
+//            'method'  => 'get',
+//            'args'    => [2022], // 100 是 $uid
+//        ];
+//        $client = new Client('tcp://127.0.0.1:9512');
+//        $res = $client->request($request);
+
+//        $client = stream_socket_client('tcp://127.0.0.1:9512');
+//        $request = [
+//            'class'   => 'User',
+//            'method'  => 'get',
+//            'args'    => [2022]
+//        ];
+//        fwrite($client, json_encode($request)."\n"); // text协议末尾有个换行符"\n"
+//        $result = fgets($client, 10240000);
+//        var_dump($result);
+
         $request = [
             'class'   => 'User',
             'method'  => 'get',
-            'args'    => [2022], // 100 是 $uid
+            'args'    => [2022]
         ];
-        $client = new Client('tcp://127.0.0.1:9512');
-        $res = $client->request($request);
-        return response_json(0, 'ok',$res);
+        $client = new \GuzzleHttp\Client(['base_uri' => 'http://127.0.0.1:9512']);
+        $options = ['form_params' => $request];
+        $resp = $client->get('/', $options);
+        $content = $resp->getBody()->getContents();
+        var_dump($content);
+        return response_json(0, 'ok');
     }
 }

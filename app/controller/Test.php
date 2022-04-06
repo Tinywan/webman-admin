@@ -78,10 +78,12 @@ class Test
      */
     public function upload(Request $request)
     {
+        $param = $request->post();
         try {
             Storage::config(Storage::MODE_OSS);
-            $r = Storage::uploadFile();
+            $r = Storage::uploadBase64($param);
             var_dump($r);
+            var_dump(Storage::getMessage());
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
         }

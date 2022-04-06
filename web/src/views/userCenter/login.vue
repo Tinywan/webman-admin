@@ -137,10 +137,12 @@
 				if(val == 'admin'){
 					this.ruleForm.user = 'webman'
 					this.ruleForm.password = 'webman'
+					this.ruleForm.key = ''
 					this.ruleForm.code = ''
 				}else if(val == 'user'){
 					this.ruleForm.user = 'user'
 					this.ruleForm.password = 'user'
+					this.ruleForm.key = ''
 					this.ruleForm.code = ''
 				}
 			},
@@ -169,7 +171,8 @@
 			async getCaptcha(){
 				let $captcha = await this.$API.system.table.captcha.get()
 				if($captcha.code === 200){
-					this.captcha = $captcha.data.captcha;
+					this.captcha = $captcha.data.captcha.base64;
+					this.ruleForm.key = $captcha.data.captcha.key;
 				}else{
 					this.$message.warning($captcha.msg)
 					return false
@@ -184,7 +187,8 @@
 					username: this.ruleForm.user,
 					// password: this.$TOOL.crypto.MD5(this.ruleForm.password)
 					password: this.ruleForm.password,
-					code: this.ruleForm.code
+					key: this.ruleForm.key,
+					code: this.ruleForm.code,
 				}
 				//获取token
 				var user = await this.$API.auth.token.post(data)

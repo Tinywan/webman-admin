@@ -25,7 +25,7 @@ class Authentication extends BaseController
     {
         $params = $request->post();
         validate($params, UnauthorizedValidate::class . '.issue');
-        if (false === Captcha::check($params['code'])) {
+        if (false === Captcha::check($params['code'], $params['key'])) {
             throw new BadRequestHttpException('验证码错误');
         }
         $model = UserModel::field('id,username,mobile,email,avatar,password,is_enabled,create_time');

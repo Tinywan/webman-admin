@@ -19,14 +19,18 @@ return [
         'local' => [
             'adapter' => \Tinywan\Storage\Adapter\LocalAdapter::class,
             'root' => runtime_path().'/storage',
-            'dirname' => '/storage',
-            'domain' => 'http://127.0.0.1:8787'
+            // 'dirname' => 'subdir',
+            'dirname' => function(){
+                return date('Y-m');
+            },
+            'domain' => 'http://127.0.0.1:8787',
+            'uri'=> '/runtime', // 如果 domain + uri 不在 public 目录下，请做好软链接，否则生成的url无法访问
         ],
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
-            'accessKeyId' => 'xxxxxxx',
-            'accessKeySecret' => 'xxxxxxxxxxxxxx',
+            'accessKeyId' => 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
+            'accessKeySecret' => 'xxxxxxxxxxxxxxxxxxxxxxxx',
             'bucket' => 'resty-webman',
             'dirname' => 'storage',
             'domain' => 'http://webman.oss.tinywan.com',

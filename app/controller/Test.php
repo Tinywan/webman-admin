@@ -27,7 +27,7 @@ use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
 use Tinywan\Support\Logger;
 use Tinywan\Support\Str;
-use Tinywan\Rpc\Client;
+use tinywan\Weather;
 
 class Test
 {
@@ -81,7 +81,7 @@ class Test
     public function upload(Request $request)
     {
         try {
-            Storage::config(Storage::MODE_OSS);
+            Storage::config();
             $res = Storage::uploadFile();
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
@@ -123,13 +123,35 @@ class Test
      */
     public function log(Request $request)
     {
-        $user = Db::table('train_user')->where('uid', 1)->select();
-        $sql = Db::table('train_user')->fetchSql()->select();
-        $soar = new Soar();
-        var_dump(public_path().'/soar.windows-amd64');
-        $soar->setSoarPath(public_path().'/soar.windows-amd64');
-        $soar->setOptions(public_path().'/soar.windows-amd64');
-        var_dump($soar);
-        return response_json(0, 'ok');
+        $response = Weather::liveWeather('北京');
+        return response_json(0, 'ok',$response);
+    }
+
+    public function json(Request $request)
+    {
+        static $pdo, $redis;
+        // return json(['code' => 0, 'msg' => 'ok']);
+        $host='127.0.0.1';
+        $user='xx';
+        $password='xxx';
+        $dbName='xx';
+        if (!$pdo) {
+            $pdo=new \PDO("mysql:host=$host;dbname=$dbName",$user,$password,[\PDO::ATTR_PERSISTENT => true]);
+        }
+
+        $sql="select * from tests";
+        $data=$pdo->query($sql)->fetch(\PDO::FETCH_ASSOC);
+
+        //连接本地的 Redis 服务
+        if (!$redis) {
+            $redis = new \Redis();
+            $redis->connect('127.0.0.1', 6379);
+        }
+        //设置 redis 字符串数据
+        $redis->set("tutorial-name", "Redis tests");
+        // 获取存储的数据并输出
+        $data2 = ['fromredis'=>$redis->get("tutorial-name")];
+
+        return json(array_merge($data2,$data));
     }
 }

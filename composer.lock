@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce4d996f9903f2dd165a9a2973460b1e",
+    "content-hash": "15b576b70a143b038b32aff0b161c75f",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -3609,20 +3609,20 @@
         },
         {
             "name": "tinywan/storage",
-            "version": "v0.0.5",
+            "version": "v0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-storage.git",
-                "reference": "f96647bacf718c52ca4af0ee6b5b06205bc7d4a9"
+                "reference": "f59895a1f1709098a964184c41fc8aac80e7dfc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-storage/zipball/f96647bacf718c52ca4af0ee6b5b06205bc7d4a9",
-                "reference": "f96647bacf718c52ca4af0ee6b5b06205bc7d4a9",
+                "url": "https://api.github.com/repos/Tinywan/webman-storage/zipball/f59895a1f1709098a964184c41fc8aac80e7dfc8",
+                "reference": "f59895a1f1709098a964184c41fc8aac80e7dfc8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4",
+                "php": ">=7.2",
                 "workerman/webman-framework": "^1.2.1"
             },
             "require-dev": {
@@ -3647,9 +3647,9 @@
             "description": "webman storage plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/webman-storage/issues",
-                "source": "https://github.com/Tinywan/webman-storage/tree/v0.0.5"
+                "source": "https://github.com/Tinywan/webman-storage/tree/v0.2.2"
             },
-            "time": "2022-04-02T09:26:29+00:00"
+            "time": "2022-04-06T13:19:29+00:00"
         },
         {
             "name": "tinywan/validate",
@@ -3687,6 +3687,58 @@
                 "source": "https://github.com/Tinywan/validate/tree/v0.03"
             },
             "time": "2022-02-19T14:33:52+00:00"
+        },
+        {
+            "name": "tinywan/weather",
+            "version": "v0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-weather.git",
+                "reference": "a9057a647b391b91a6a4378d5272a902d7338b81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-weather/zipball/a9057a647b391b91a6a4378d5272a902d7338b81",
+                "reference": "a9057a647b391b91a6a4378d5272a902d7338b81",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5|^7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~7.0|~8.0|~9.0",
+                "workerman/webman": "^1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "tinywan\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tinywan",
+                    "email": "756684177@qq.com"
+                }
+            ],
+            "description": "the GaoDe weather for webman plugin",
+            "keywords": [
+                "gaode",
+                "plugin",
+                "weather",
+                "webman"
+            ],
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-weather/issues",
+                "source": "https://github.com/Tinywan/webman-weather/tree/v0.0.1"
+            },
+            "time": "2022-04-12T12:27:30+00:00"
         },
         {
             "name": "tinywan/webman-event",

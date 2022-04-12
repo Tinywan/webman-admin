@@ -13,6 +13,7 @@ use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
 use support\Log;
 use support\Request;
+use think\facade\Db;
 use Tinywan\Captcha\Captcha;
 use Tinywan\Captcha\Config;
 use Tinywan\Jwt\JwtToken;
@@ -21,6 +22,7 @@ use Tinywan\Nacos\Nacos;
 use Tinywan\Nacos\Observer\ConcreteObserverA;
 use Tinywan\Nacos\Observer\ConcreteObserverB;
 use Tinywan\Nacos\Observer\ListenerSubject;
+use Tinywan\Soar\Soar;
 use Tinywan\Storage\Exception\StorageException;
 use Tinywan\Storage\Storage;
 use Tinywan\Support\Logger;
@@ -78,16 +80,13 @@ class Test
      */
     public function upload(Request $request)
     {
-        $param = $request->post();
         try {
             Storage::config(Storage::MODE_OSS);
-            $r = Storage::uploadBase64($param);
-            var_dump($r);
-            var_dump(Storage::getMessage());
+            $res = Storage::uploadFile();
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
         }
-        return response_json(0,'success');
+        return response_json(0,'success',$res);
     }
 
     /**
@@ -124,40 +123,13 @@ class Test
      */
     public function log(Request $request)
     {
-//        $code = $request->get('code');
-        // 验证通过
-//       return response_json(0, 'ok', Captcha::base64());
-//        $code = 'pfy3f';
-//        $key = '$2y$10$imbrFN5G8Piw6GEtcuUCMemjAbkuj2HAsObu7I46mo0F6G55OMR3K';
-//        var_dump(Captcha::check($code,$key));
-//        $request = [
-//            'class'   => 'User',
-//            'method'  => 'get',
-//            'args'    => [2022], // 100 是 $uid
-//        ];
-//        $client = new Client('tcp://127.0.0.1:9512');
-//        $res = $client->request($request);
-
-//        $client = stream_socket_client('tcp://127.0.0.1:9512');
-//        $request = [
-//            'class'   => 'User',
-//            'method'  => 'get',
-//            'args'    => [2022]
-//        ];
-//        fwrite($client, json_encode($request)."\n"); // text协议末尾有个换行符"\n"
-//        $result = fgets($client, 10240000);
-//        var_dump($result);
-
-        $request = [
-            'class'   => 'User',
-            'method'  => 'get',
-            'args'    => [2022]
-        ];
-        $client = new \GuzzleHttp\Client(['base_uri' => 'http://127.0.0.1:9512']);
-        $options = ['form_params' => $request];
-        $resp = $client->get('/', $options);
-        $content = $resp->getBody()->getContents();
-        var_dump($content);
+        $user = Db::table('train_user')->where('uid', 1)->select();
+        $sql = Db::table('train_user')->fetchSql()->select();
+        $soar = new Soar();
+        var_dump(public_path().'/soar.windows-amd64');
+        $soar->setSoarPath(public_path().'/soar.windows-amd64');
+        $soar->setOptions(public_path().'/soar.windows-amd64');
+        var_dump($soar);
         return response_json(0, 'ok');
     }
 }

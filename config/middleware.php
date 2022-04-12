@@ -15,7 +15,7 @@
 return [
     '' => [
         \app\middleware\AccessControlMiddleware::class,
-        \Tinywan\LimitTraffic\Middleware\LimitTrafficMiddleware::class
+        // \Tinywan\LimitTraffic\Middleware\LimitTrafficMiddleware::class
     ],
     'api' => [
         \app\middleware\AuthorizationMiddleware::class,

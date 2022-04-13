@@ -16,6 +16,7 @@ use support\Request;
 use think\facade\Db;
 use Tinywan\Captcha\Captcha;
 use Tinywan\Captcha\Config;
+use Tinywan\Facade\MeiliSearch;
 use Tinywan\Jwt\JwtToken;
 use Tinywan\Nacos\Exception\NacosAuthException;
 use Tinywan\Nacos\Nacos;
@@ -123,8 +124,18 @@ class Test
      */
     public function log(Request $request)
     {
-        $response = Weather::liveWeather('北京');
-        return response_json(0, 'ok',$response);
+//        $documents = Db::table('mall_goods')
+//            ->field('goods_id as id,goods_name,store_id,gc_id,brand,default_image,goods_image_more')
+//            ->limit(50000)
+//            ->order('goods_id desc')
+//            ->select()->toArray();
+//        $index = MeiliSearch::index('mall_goods_50000');
+//        $result = MeiliSearch::index('mall_goods_100000')->search('风衣女')->getRaw();
+        $result = MeiliSearch::index('mall_goods_100000')
+            ->query('风衣女')
+            ->order('gc_id','desc')
+            ->select();
+        return response_json(0, 'ok',$result);
     }
 
     public function json(Request $request)

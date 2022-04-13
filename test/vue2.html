@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/templates/basic_search.css" />
+</head>
+
+<body>
+<div id="app" class="wrapper">
+    <ais-instant-search :search-client="searchClient" index-name="mall_goods_50000">
+        <ais-configure :hits-per-page.camel="10" />
+        <ais-search-box placeholder="点击这里搜索商品" class="searchbox"></ais-search-box>
+        <ais-hits>
+            <div slot="item" slot-scope="{ item }">
+                <ais-highlight :hit="item" attribute="goods_name" />
+            </div>
+        </ais-hits>
+    </ais-instant-search>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-instantsearch/vue2/umd/index.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/@meilisearch/instant-meilisearch/dist/instant-meilisearch.umd.min.js"></script>
+<script>
+    Vue.use(VueInstantSearch)
+    var app = new Vue({
+        el: '#app',
+        data: {
+            indexName: "mall_goods_50000",
+            searchClient: instantMeiliSearch('http://127.0.0.1:7700')
+        }
+    })
+</script>
+
+</html>

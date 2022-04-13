@@ -43,13 +43,15 @@
     "guzzlehttp/guzzle": "^7.4",
     "aliyuncs/oss-sdk-php": "^2.4",
     "tinywan/storage": "^0.2.2",
-    "tinywan/weather": "^0.0.1"
+    "tinywan/weather": "^0.0.1",
+    "tinywan/meilisearch": "^0.0.1"
   },
   "suggest": {
     "ext-event": "For better performance. "
   },
   "autoload": {
     "psr-4": {
+      "Tinywan\\Meilisearch\\" : "vendor/tinywan/meilisearch/src",
       "Tinywan\\Weather\\" : "vendor/tinywan/weather/src",
       "Tinywan\\Crontab\\" : "vendor/tinywan/crontab/src",
       "Tinywan\\Rpc\\" : "vendor/tinywan/rpc/src",

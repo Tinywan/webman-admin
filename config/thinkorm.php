@@ -6,7 +6,7 @@
  */
 
 return [
-    'default' => 'company',
+    'default' => 'mysql',
     'connections' => [
         'mysql' => [
             'type' => 'mysql',
@@ -18,15 +18,5 @@ return [
             'params' => [],
             'charset' => 'utf8mb4',
         ],
-        'company' => [
-            'type' => 'mysql',
-            'hostname' => 'rm-bp1b476e1uxk2uo8goo.mysql.rds.aliyuncs.com',
-            'database' => 'new_shop_busionline_com',
-            'username' => 'www',
-            'password' => 'Hnf8QGIJxomVbiRH',
-            'hostport' => '3306',
-            'params' => [],
-            'charset' => 'utf8mb4',
-        ]
     ]
 ];

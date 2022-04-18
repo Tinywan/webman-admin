@@ -4,7 +4,6 @@
  * @author Tinywan(ShaoBo Wan)
  * @date 2021/12/19 16:55
  */
-
 declare(strict_types=1);
 
 namespace app\controller;
@@ -17,10 +16,19 @@ use support\Request;
 use support\Response;
 use Tinywan\Captcha\Captcha;
 use Tinywan\ExceptionHandler\Exception\BadRequestHttpException;
+use Tinywan\ExceptionHandler\Exception\UnauthorizedHttpException;
 use Tinywan\Jwt\JwtToken;
 
 class Authentication extends BaseController
 {
+    /**
+     * @desc: 令牌
+     * @param Request $request
+     * @return Response
+     * @throws BadRequestHttpException
+     * @throws UnauthorizedHttpException
+     * @author Tinywan(ShaoBo Wan)
+     */
     public function issueToken(Request $request): Response
     {
         $params = $request->post();
@@ -38,11 +46,11 @@ class Authentication extends BaseController
         }
         $userInfo = $model->findOrEmpty();
         if ($userInfo->isEmpty()) {
-            throw new BadRequestHttpException('账号或密码错误');
+            throw new UnauthorizedHttpException('账号或密码错误');
         }
         
         if (!password_verify(trim($params['password']), $userInfo->password)) {
-            throw new BadRequestHttpException('账号或密码错误');
+            throw new UnauthorizedHttpException('账号或密码错误');
         }
 
         $user = [

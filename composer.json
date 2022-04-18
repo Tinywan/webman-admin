@@ -44,13 +44,15 @@
     "aliyuncs/oss-sdk-php": "^2.4",
     "tinywan/weather": "^0.0.1",
     "tinywan/storage": "^0.3.1",
-    "tinywan/meilisearch": "dev-main"
+    "tinywan/meilisearch": "dev-main",
+    "tinywan/event": "^0.0.1"
   },
   "suggest": {
     "ext-event": "For better performance. "
   },
   "autoload": {
     "psr-4": {
+      "Tinywan\\Event\\" : "vendor/tinywan/event/src",
       "Tinywan\\Meilisearch\\" : "vendor/tinywan/meilisearch/src",
       "Tinywan\\Weather\\" : "vendor/tinywan/weather/src",
       "Tinywan\\Crontab\\" : "vendor/tinywan/crontab/src",

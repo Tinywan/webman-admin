@@ -11,6 +11,7 @@ namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
+use app\listener\LoggerListener;
 use support\Request;
 
 use think\facade\Db;
@@ -129,22 +130,26 @@ class Test
 //            ->limit(200)
 //            ->select()
 //            ->toArray();
-            $config = [
-                'url' => 'https://meilisearch.busionline.com/',
-                'key' => '',
-                'guzzle' => [
-                    'headers' => [
-                        'charset' => 'UTF-8',
-                    ],
-                    'timeout' => 20
-                ],
-            ];
-            MeiliSearch::config($config);
+//            $config = [
+//                'url' => 'https://meilisearch.busionline.com/',
+//                'key' => '',
+//                'guzzle' => [
+//                    'headers' => [
+//                        'charset' => 'UTF-8',
+//                    ],
+//                    'timeout' => 20
+//                ],
+//            ];
+//            MeiliSearch::config($config);
 //            $obj = MeiliSearch::search()->index('good_index_200')->search('蛋')->getRaw();
 //            var_dump($obj);
-         var_dump(MeiliSearch::getContainer()); // class DI\Container#101 (8) {}
+//         var_dump(MeiliSearch::getContainer()); // class DI\Container#101 (8) {}
         // Meili::getContainer() class DI\Container#101 (8)
-
+        $error = [
+            'errorMessage' => '错误消息',
+            'errorCode' => 500
+        ];
+        event(new LoggerListener($error),LoggerListener::NAME);
 
 //        $builder = new ContainerBuilder();
 //        $container = $builder->build();

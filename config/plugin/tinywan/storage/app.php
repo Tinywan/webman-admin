@@ -28,8 +28,8 @@ return [
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
-            'accessKeyId' => 'LTAI5tD6kDWxTcd6M8SEnaE2',
-            'accessKeySecret' => 'QzIBUeKcMoruQrDEYlb6mIdJmcfI2b',
+            'accessKeyId' => 'xxxxxxxxxxxxxxxx',
+            'accessKeySecret' => 'xxxxxxxxxxxxxxxxxxxx',
             'bucket' => 'resty-webman',
             'dirname' => function () {
                  return date('Y-m-d');

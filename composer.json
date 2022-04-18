@@ -42,9 +42,9 @@
     "tinywan/rpc": "dev-main",
     "guzzlehttp/guzzle": "^7.4",
     "aliyuncs/oss-sdk-php": "^2.4",
-    "tinywan/storage": "^0.2.2",
     "tinywan/weather": "^0.0.1",
-    "tinywan/meilisearch": "^0.0.1"
+    "tinywan/storage": "^0.3.1",
+    "tinywan/meilisearch": "dev-main"
   },
   "suggest": {
     "ext-event": "For better performance. "

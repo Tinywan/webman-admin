@@ -11,13 +11,12 @@ namespace app\controller;
 
 use app\common\validate\UnauthorizedValidate;
 use app\common\validate\UserValidate;
-use support\Log;
 use support\Request;
+
 use think\facade\Db;
-use Tinywan\Captcha\Captcha;
 use Tinywan\Captcha\Config;
-use Tinywan\Facade\MeiliSearch;
 use Tinywan\Jwt\JwtToken;
+use Tinywan\MeiliSearch;
 use Tinywan\Nacos\Exception\NacosAuthException;
 use Tinywan\Nacos\Nacos;
 use Tinywan\Nacos\Observer\ConcreteObserverA;
@@ -29,6 +28,7 @@ use Tinywan\Storage\Storage;
 use Tinywan\Support\Logger;
 use Tinywan\Support\Str;
 use tinywan\Weather;
+use function DI\create;
 
 class Test
 {
@@ -82,7 +82,7 @@ class Test
     public function upload(Request $request)
     {
         try {
-            Storage::config();
+            Storage::config(Storage::MODE_OSS);
             $res = Storage::uploadFile();
         }catch (StorageException $exception) {
             return response_json(0,$exception->getMessage());
@@ -125,17 +125,48 @@ class Test
     public function log(Request $request)
     {
 //        $documents = Db::table('mall_goods')
-//            ->field('goods_id as id,goods_name,store_id,gc_id,brand,default_image,goods_image_more')
-//            ->limit(50000)
-//            ->order('goods_id desc')
-//            ->select()->toArray();
-//        $index = MeiliSearch::index('mall_goods_50000');
-//        $result = MeiliSearch::index('mall_goods_100000')->search('风衣女')->getRaw();
-        $result = MeiliSearch::index('mall_goods_100000')
-            ->query('风衣女')
-            ->order('gc_id','desc')
-            ->select();
-        return response_json(0, 'ok',$result);
+//            ->field('goods_id id,goods_name,default_image')
+//            ->limit(200)
+//            ->select()
+//            ->toArray();
+            $config = [
+                'url' => 'https://meilisearch.busionline.com/',
+                'key' => '',
+                'guzzle' => [
+                    'headers' => [
+                        'charset' => 'UTF-8',
+                    ],
+                    'timeout' => 20
+                ],
+            ];
+            MeiliSearch::config($config);
+//            $obj = MeiliSearch::search()->index('good_index_200')->search('蛋')->getRaw();
+//            var_dump($obj);
+         var_dump(MeiliSearch::getContainer()); // class DI\Container#101 (8) {}
+        // Meili::getContainer() class DI\Container#101 (8)
+
+
+//        $builder = new ContainerBuilder();
+//        $container = $builder->build();
+//        var_dump($container->has('conn'));
+//        if (!$container->has('conn')) {
+//            $container->set('conn',\DI\create(Connection::class));
+//        }
+//        $obj = $container->get('conn');
+//        var_dump($obj->test());
+
+//        $builder = new ContainerBuilder();
+//        $container = $builder->build();
+//        $container->set(\extend\map\MapInterface::class, $container);
+//        var_dump($container);
+
+        // 配置哪个 MapInterface PHP-DI 应该通过配置自动注入到 StoreService 中
+//        $container->set(\extend\map\MapInterface::class, \DI\create(\extend\map\GoogleMap::class));
+//        $storeService = $container->get(\extend\map\StoreService::class);
+//        $res = $storeService->getStoreCoordinates(1);
+//        var_dump($res);
+
+        return response_json(0, 'ok');
     }
 
     public function json(Request $request)

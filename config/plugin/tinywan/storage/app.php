@@ -19,20 +19,21 @@ return [
         'local' => [
             'adapter' => \Tinywan\Storage\Adapter\LocalAdapter::class,
             'root' => runtime_path().'/storage',
-            // 'dirname' => 'subdir',
-            'dirname' => function(){
-                return date('Y-m');
+            'dirname' => function () {
+                return DIRECTORY_SEPARATOR.date('Y-m-d');
             },
             'domain' => 'http://127.0.0.1:8787',
-            'uri'=> '/runtime', // 如果 domain + uri 不在 public 目录下，请做好软链接，否则生成的url无法访问
+            'uri' => '/runtime', // 如果 domain + uri 不在 public 目录下，请做好软链接，否则生成的url无法访问
         ],
         // 阿里云对象存储
         'oss' => [
             'adapter' => \Tinywan\Storage\Adapter\OssAdapter::class,
-            'accessKeyId' => 'xxxxxxxxxxxxxxxxxxxxxxxxxx',
-            'accessKeySecret' => 'xxxxxxxxxxxxxxxxxxxxxxxx',
+            'accessKeyId' => 'LTAI5tD6kDWxTcd6M8SEnaE2',
+            'accessKeySecret' => 'QzIBUeKcMoruQrDEYlb6mIdJmcfI2b',
             'bucket' => 'resty-webman',
-            'dirname' => 'storage',
+            'dirname' => function () {
+                 return date('Y-m-d');
+            },
             'domain' => 'http://webman.oss.tinywan.com',
             'endpoint' => 'oss-cn-hangzhou.aliyuncs.com',
         ],

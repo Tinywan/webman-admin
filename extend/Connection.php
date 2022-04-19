@@ -6,10 +6,6 @@
  */
 declare(strict_types=1);
 
-
-namespace extend;
-
-
 class Connection
 {
     public function test()

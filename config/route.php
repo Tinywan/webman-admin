@@ -48,13 +48,7 @@ Route::group('/system', function () {
 
 // test
 Route::group('/test', function () {
-    Route::get('/validate', [Test::class, 'validate']); // validate
-    Route::get('/jwt', [Test::class, 'jwt']); // jwt
-    Route::get('/refresh-token', [Test::class, 'refreshToken']); // jwt
-    Route::get('/exception-handler', [Test::class, 'exceptionHandler']); // jwt
-    Route::post('/upload', [Test::class, 'upload']); // jwt
-    Route::get('/nacos', [Test::class, 'nacos']); // nacos
-    Route::get('/log', [Test::class, 'log']); // log
+    Route::get('/validate', [Test::class, 'validate']);
 });
 
 Route::fallback(function () {

@@ -65,6 +65,9 @@
       "Tinywan\\Nacos\\" : "vendor/tinywan/nacos/src",
       "" : "./"
     },
+    "psr-0": {
+      "": "extend/"
+    },
     "files": [
       "./support/helpers.php"
     ]

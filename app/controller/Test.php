@@ -10,8 +10,10 @@ declare(strict_types=1);
 namespace app\controller;
 
 use app\common\validate\UserValidate;
+use support\Log;
 use support\Request;
-use function DI\create;
+use Webman\Config;
+use Yansongda\Pay\Pay;
 
 class Test
 {
@@ -20,13 +22,28 @@ class Test
         $data = [
             'name'  => 'Tinywan',
             'age'  => 24,
-//            'email' => 'Tinywan@163.com'
+            'email' => 'Tinywan@163.com'
         ];
         validate($data, UserValidate::class . '.issue');
-//        $validate = new UserValidate();
-//        if (false === $validate->check($data)) {
-//            return 'fail, '.$validate->getError();
-//        }
         return 'success';
+    }
+
+    public function payment(Request $request)
+    {
+        // 1. 获取配置文件 config/payment.php
+        $config = Config::get('payment');
+
+        // 2. 初始化配置
+        Pay::config($config);
+
+        // 3. 网页支付
+        $order = [
+            'out_trade_no' => time(),
+            'total_amount' => '88.88',
+            'subject' => '沙箱支付测试',
+            '_method' => 'get' // 使用get方式跳转
+        ];
+        Log::info('『支付宝』： '.json_encode($order));
+        return Pay::alipay()->web($order)->getBody()->getContents();
     }
 }

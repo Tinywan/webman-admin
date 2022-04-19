@@ -17,7 +17,6 @@ use app\controller\Authentication;
 use app\controller\System;
 use app\controller\Test;
 use \app\api\controller\User as ApiUser;
-use \app\api\controller\Tool as ApiTool;
 use Tinywan\ExceptionHandler\Exception\RouteNotFoundException;
 
 Route::options('[{path:.+}]', function (){
@@ -27,6 +26,15 @@ Route::options('[{path:.+}]', function (){
 // 1.0 身份认证
 Route::group('/oauth', function () {
     Route::post('/issue-token', [Authentication::class, 'issueToken']); // 1.1 发行令牌
+});
+
+// 2.0 网关
+Route::group('/gateway', function () {
+    // 2.1 支付网关
+    Route::group('/payment', function () {
+        Route::post('/alipay-notify', [\app\gateway\controller\PaymentGateway::class, 'alipayNotify']); // 授权码登录地址
+        Route::get('/alipay-return', [\app\gateway\controller\PaymentGateway::class, 'alipayReturn']); // 授权码登录地址
+    });
 });
 
 // 2.0 基础管理
@@ -49,6 +57,7 @@ Route::group('/system', function () {
 // test
 Route::group('/test', function () {
     Route::get('/validate', [Test::class, 'validate']);
+    Route::get('/payment', [Test::class, 'payment']);
 });
 
 Route::fallback(function () {

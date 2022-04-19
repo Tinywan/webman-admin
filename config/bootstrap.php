@@ -14,5 +14,4 @@
 
 return [
     support\bootstrap\ThinkOrm::class,
-    \webman\event\EventManager::class,
 ];

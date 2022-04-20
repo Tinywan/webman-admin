@@ -20,6 +20,7 @@ class UnauthorizedValidate extends BaseValidate
         'username' => 'require',
         'password' => 'require',
         'code' => 'require',
+        'key' => 'require',
     ];
 
     /**
@@ -31,6 +32,7 @@ class UnauthorizedValidate extends BaseValidate
         'username.require' => 'username不允许为空',
         'password.require' => 'password不允许为空',
         'code.require' => 'code不允许为空',
+        'key.require' => 'key不允许为空',
     ];
 
     /**
@@ -39,6 +41,6 @@ class UnauthorizedValidate extends BaseValidate
      * @var array
      */
     protected $scene = [
-        'issue' => ['username', 'password','code'],
+        'issue' => ['username', 'password','code','key'],
     ];
 }

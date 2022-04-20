@@ -35,7 +35,6 @@
     "casbin/webman-permission": "^1.0",
     "tinywan/validate": "^0.0.3",
     "tinywan/exception-handler": "^0.0.5",
-    "tinywan/jwt": "^1.1",
     "tinywan/captcha": "^0.0.2",
     "tinywan/limit-traffic": "^0.0.4",
     "tinywan/rpc": "dev-main",
@@ -45,24 +44,17 @@
     "tinywan/storage": "^0.3.1",
     "tinywan/meilisearch": "dev-main",
     "tinywan/event": "^0.0.1",
-    "yansongda/pay": "~3.1.0"
+    "yansongda/pay": "~3.1.0",
+    "illuminate/database": "^8.83",
+    "illuminate/pagination": "^8.83",
+    "illuminate/events": "^8.83",
+    "tinywan/jwt": "dev-main"
   },
   "suggest": {
     "ext-event": "For better performance. "
   },
   "autoload": {
     "psr-4": {
-      "Tinywan\\Event\\" : "vendor/tinywan/event/src",
-      "Tinywan\\Meilisearch\\" : "vendor/tinywan/meilisearch/src",
-      "Tinywan\\Weather\\" : "vendor/tinywan/weather/src",
-      "Tinywan\\Crontab\\" : "vendor/tinywan/crontab/src",
-      "Tinywan\\Rpc\\" : "vendor/tinywan/rpc/src",
-      "Tinywan\\Phinx\\" : "vendor/tinywan/phinx/src",
-      "Tinywan\\Captcha\\" : "vendor/tinywan/captcha/src",
-      "Tinywan\\Mailer\\" : "vendor/tinywan/mailer/src",
-      "Casbin\\WebmanPermission\\" : "vendor/casbin/webman-permission/src",
-      "Tinywan\\Curd\\" : "vendor/tinywan/curd/src",
-      "Tinywan\\Nacos\\" : "vendor/tinywan/nacos/src",
       "" : "./"
     },
     "psr-0": {

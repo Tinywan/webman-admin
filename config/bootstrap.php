@@ -14,4 +14,5 @@
 
 return [
     support\bootstrap\ThinkOrm::class,
+    support\bootstrap\LaravelDb::class,
 ];

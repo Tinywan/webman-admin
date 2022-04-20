@@ -32,10 +32,10 @@ class Authentication extends BaseController
     public function issueToken(Request $request): Response
     {
         $params = $request->post();
-        validate($params, UnauthorizedValidate::class . '.issue');
-        if (false === Captcha::check($params['code'], $params['key'])) {
-            throw new BadRequestHttpException('验证码错误');
-        }
+//        validate($params, UnauthorizedValidate::class . '.issue');
+//        if (false === Captcha::check($params['code'], $params['key'])) {
+//            throw new BadRequestHttpException('验证码错误');
+//        }
         $model = UserModel::field('id,username,mobile,email,avatar,password,is_enabled,create_time');
         if (is_mobile((string) $params['username'])) {
             $model->where('mobile', $params['username']);

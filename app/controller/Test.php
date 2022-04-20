@@ -12,6 +12,7 @@ namespace app\controller;
 use app\common\validate\UserValidate;
 use support\Log;
 use support\Request;
+use Tinywan\Jwt\JwtToken;
 use Webman\Config;
 use Yansongda\Pay\Pay;
 
@@ -25,7 +26,8 @@ class Test
             'email' => 'Tinywan@163.com'
         ];
         validate($data, UserValidate::class . '.issue');
-        return 'success';
+        var_dump(JwtToken::getUser()['id']);
+        return 'suss';
     }
 
     public function payment(Request $request)

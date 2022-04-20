@@ -7,12 +7,14 @@ return [
         'algorithms' => 'HS256',
         // access令牌秘钥
         'access_secret_key' => '2022d3d3LmJq',
-        // access令牌过期时间，单位秒。默认 2 小时
-        'access_exp' => 120,
+        // access令牌过期时间，单位：秒。默认 2 小时
+        'access_exp' => 7200,
         // refresh令牌秘钥
         'refresh_secret_key' => '2022KTxigxc9o50c',
-        // refresh令牌过期时间，单位秒。默认 7 天
-        'refresh_exp' => 72000,
+        // refresh令牌过期时间，单位：秒。默认 7 天
+        'refresh_exp' => 604800,
+        // refresh 令牌是否禁用，默认不禁用 false
+        'refresh_disable' => false,
         // 令牌签发者
         'iss' => 'webman.tinywan.cn',
         // 令牌签发时间
@@ -21,10 +23,24 @@ return [
         'leeway' => 60,
         // 单设备登录
         'is_single_device' => false,
-        // 缓存令牌时间，单位：秒
-        'cache_token_ttl' => 72000,
+        // 缓存令牌时间，单位：秒。默认 7 天
+        'cache_token_ttl' => 604800,
         // 缓存令牌前缀
         'cache_token_pre' => 'JWT:TOKEN:',
+        // 用户信息模型
+        'user_model' => function($uid){
+            // ThinkORM
+             return \think\facade\Db::table('resty_user')
+                ->field('id,username,create_time')
+                ->where('id',$uid)
+                ->find();
+
+            // LaravelORM
+//             return \support\Db::table('resty_user')
+//                ->where('id', $uid)
+//                ->select('id','email','mobile','create_time')
+//                ->first();
+        },
 
         /**
          * access令牌私钥

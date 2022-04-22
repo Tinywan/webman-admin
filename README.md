@@ -15,6 +15,7 @@
 - [Validate 验证器插件](https://www.workerman.net/plugin/7)
 - [简单多文件上传插件](https://www.workerman.net/plugin/21)
 - [全局 Exception 异常插件（支持钉钉机器人接入）](https://www.workerman.net/plugin/16)
+- [基于 Lua 脚本接口限流插件](https://www.workerman.net/plugin/37)
 - 基于 [ThinkORM](https://github.com/top-think/think-orm) 的数据库存储
 - 采用PHP7强类型 [（严格模式）](https://www.php.net/manual/zh/language.types.declarations.php#language.types.declarations.strict)
 

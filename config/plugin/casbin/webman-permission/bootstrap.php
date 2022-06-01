@@ -1,4 +1,4 @@
 <?php
 return [
-//    Casbin\WebmanPermission\Permission::class
+    Casbin\WebmanPermission\Permission::class
 ];

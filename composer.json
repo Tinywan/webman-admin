@@ -32,7 +32,6 @@
     "illuminate/redis": "^8.83",
     "webman/console": "^1.0",
     "topthink/think-orm": "^2.0",
-    "casbin/webman-permission": "^1.0",
     "tinywan/validate": "^0.0.3",
     "tinywan/exception-handler": "^0.0.5",
     "tinywan/captcha": "^0.0.2",
@@ -48,7 +47,8 @@
     "illuminate/database": "^8.83",
     "illuminate/pagination": "^8.83",
     "illuminate/events": "^8.83",
-    "tinywan/jwt": "dev-main"
+    "tinywan/jwt": "dev-main",
+    "casbin/webman-permission": "^1.0"
   },
   "suggest": {
     "ext-event": "For better performance. "

@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace support\bootstrap;
 
 
+use support\Cache;
 use \think\facade\Db;
 use Webman\Bootstrap;
 use Workerman\Timer;
@@ -21,6 +22,8 @@ class ThinkOrm implements Bootstrap
     public static function start($worker)
     {
         Db::setConfig(config('thinkorm'));
+        // 开启字段缓存
+        Db::setCache(Cache::instance());
         if ($worker) {
             Timer::add(10, function () {
                 $connections = config('thinkorm.connections', []);

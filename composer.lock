@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d44a2a8f21980199fba89b3e9e58f7a1",
+    "content-hash": "e80f15803ca1b0701399b81d56340c29",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4455,16 +4455,16 @@
         },
         {
             "name": "tinywan/jwt",
-            "version": "dev-main",
+            "version": "v1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-jwt.git",
-                "reference": "93405a6badfd71645aa4c17e3b4e78fb6e55e438"
+                "reference": "b7c08998cef75949a4fa3be7e7718cd7634bede7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-jwt/zipball/93405a6badfd71645aa4c17e3b4e78fb6e55e438",
-                "reference": "93405a6badfd71645aa4c17e3b4e78fb6e55e438",
+                "url": "https://api.github.com/repos/Tinywan/webman-jwt/zipball/b7c08998cef75949a4fa3be7e7718cd7634bede7",
+                "reference": "b7c08998cef75949a4fa3be7e7718cd7634bede7",
                 "shasum": ""
             },
             "require": {
@@ -4483,7 +4483,6 @@
                 "vimeo/psalm": "^4.22",
                 "workerman/webman": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4497,9 +4496,9 @@
             "description": "JSON Web Token (JWT) for webman plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/webman-jwt/issues",
-                "source": "https://github.com/Tinywan/webman-jwt/tree/main"
+                "source": "https://github.com/Tinywan/webman-jwt/tree/v1.2.5"
             },
-            "time": "2022-05-30T05:04:07+00:00"
+            "time": "2022-05-05T09:30:40+00:00"
         },
         {
             "name": "tinywan/limit-traffic",
@@ -4610,20 +4609,21 @@
         },
         {
             "name": "tinywan/rpc",
-            "version": "dev-main",
+            "version": "v0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-rpc.git",
-                "reference": "7bd781726bfdd0cc1582f725df2ea47a20697e1d"
+                "reference": "00073d30477d8124d66ffad8ebf4faac69f9f829"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-rpc/zipball/7bd781726bfdd0cc1582f725df2ea47a20697e1d",
-                "reference": "7bd781726bfdd0cc1582f725df2ea47a20697e1d",
+                "url": "https://api.github.com/repos/Tinywan/webman-rpc/zipball/00073d30477d8124d66ffad8ebf4faac69f9f829",
+                "reference": "00073d30477d8124d66ffad8ebf4faac69f9f829",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
+                "php": ">=7.2",
                 "workerman/webman-framework": "^1.2.1"
             },
             "require-dev": {
@@ -4631,7 +4631,6 @@
                 "phpstan/phpstan": "^1.4",
                 "workerman/webman": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -4656,9 +4655,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Tinywan/webman-rpc/issues",
-                "source": "https://github.com/Tinywan/webman-rpc/tree/v0.0.1"
+                "source": "https://github.com/Tinywan/webman-rpc/tree/v0.0.2"
             },
-            "time": "2022-03-31T06:49:33+00:00"
+            "time": "2022-06-07T06:23:16+00:00"
         },
         {
             "name": "tinywan/storage",
@@ -4792,6 +4791,46 @@
                 "source": "https://github.com/Tinywan/webman-weather/tree/v0.0.1"
             },
             "time": "2022-04-12T12:27:30+00:00"
+        },
+        {
+            "name": "tinywan/webman-lock",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tinywan/webman-lock.git",
+                "reference": "e4095b41c51ecb3363b06f7415827300db195218"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tinywan/webman-lock/zipball/e4095b41c51ecb3363b06f7415827300db195218",
+                "reference": "e4095b41c51ecb3363b06f7415827300db195218",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.6",
+                "phpstan/phpstan": "^1.4",
+                "workerman/webman": "^1.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tinywan\\Lock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman plugin tinywan/webman-lock",
+            "support": {
+                "issues": "https://github.com/Tinywan/webman-lock/issues",
+                "source": "https://github.com/Tinywan/webman-lock/tree/main"
+            },
+            "time": "2022-06-07T09:10:15+00:00"
         },
         {
             "name": "topthink/think-helper",
@@ -5332,9 +5371,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "tinywan/rpc": 20,
         "tinywan/meilisearch": 20,
-        "tinywan/jwt": 20
+        "tinywan/webman-lock": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

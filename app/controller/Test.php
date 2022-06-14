@@ -9,10 +9,13 @@ declare(strict_types=1);
 
 namespace app\controller;
 
+use app\common\model\UserModel;
 use app\common\validate\UserValidate;
 use support\Log;
 use support\Request;
 use Tinywan\Jwt\JwtToken;
+use Tinywan\Lock\RedisLock;
+use Tinywan\Rpc\Client;
 use Webman\Config;
 use Yansongda\Pay\Pay;
 
@@ -20,13 +23,10 @@ class Test
 {
     public function validate(Request $request)
     {
-        $data = [
-            'name'  => 'Tinywan',
-            'age'  => 24,
-            'email' => 'Tinywan@163.com'
-        ];
-        validate($data, UserValidate::class . '.issue');
-        var_dump(JwtToken::getUser()['id']);
+        $res = UserModel::where('id',20220005)
+            ->cache('RestyRedis:'.UserModel::getTable())
+            ->select();
+        var_dump($res->toArray());
         return 'suss';
     }
 

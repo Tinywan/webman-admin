@@ -17,29 +17,17 @@ return [
         'refresh_disable' => false,
         // 令牌签发者
         'iss' => 'webman.tinywan.cn',
-        // 令牌签发时间
-        'iat' => time(),
         // 时钟偏差冗余时间，单位秒。建议这个余地应该不大于几分钟。
         'leeway' => 60,
         // 单设备登录
-        'is_single_device' => false,
+        'is_single_device' => true,
         // 缓存令牌时间，单位：秒。默认 7 天
         'cache_token_ttl' => 604800,
         // 缓存令牌前缀
         'cache_token_pre' => 'JWT:TOKEN:',
         // 用户信息模型
         'user_model' => function($uid){
-            // ThinkORM
-             return \think\facade\Db::table('resty_user')
-                ->field('id,username,create_time')
-                ->where('id',$uid)
-                ->find();
-
-            // LaravelORM
-//             return \support\Db::table('resty_user')
-//                ->where('id', $uid)
-//                ->select('id','email','mobile','create_time')
-//                ->first();
+            return [];
         },
 
         /**

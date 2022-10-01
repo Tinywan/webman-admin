@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e80f15803ca1b0701399b81d56340c29",
+    "content-hash": "767378fc5584128b1c952c9ea5f35cea",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -335,16 +335,16 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v6.2.0",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "d28e6df83830252650da4623c78aaaf98fb385f3"
+                "reference": "018dfc4e1da92ad8a1b90adc4893f476a3b41cb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/d28e6df83830252650da4623c78aaaf98fb385f3",
-                "reference": "d28e6df83830252650da4623c78aaaf98fb385f3",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/018dfc4e1da92ad8a1b90adc4893f476a3b41cb8",
+                "reference": "018dfc4e1da92ad8a1b90adc4893f476a3b41cb8",
                 "shasum": ""
             },
             "require": {
@@ -391,9 +391,9 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v6.2.0"
+                "source": "https://github.com/firebase/php-jwt/tree/v6.3.0"
             },
-            "time": "2022-05-13T20:54:50+00:00"
+            "time": "2022-07-15T16:48:45+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -3102,170 +3102,6 @@
             "time": "2022-01-02T09:53:40+00:00"
         },
         {
-            "name": "symfony/event-dispatcher",
-            "version": "v5.4.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "8e6ce1cc0279e3ff3c8ff0f43813bc88d21ca1bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/8e6ce1cc0279e3ff3c8ff0f43813bc88d21ca1bc",
-                "reference": "8e6ce1cc0279e3ff3c8ff0f43813bc88d21ca1bc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "symfony/deprecation-contracts": "^2.1|^3",
-                "symfony/event-dispatcher-contracts": "^2|^3",
-                "symfony/polyfill-php80": "^1.16"
-            },
-            "conflict": {
-                "symfony/dependency-injection": "<4.4"
-            },
-            "provide": {
-                "psr/event-dispatcher-implementation": "1.0",
-                "symfony/event-dispatcher-implementation": "2.0"
-            },
-            "require-dev": {
-                "psr/log": "^1|^2|^3",
-                "symfony/config": "^4.4|^5.0|^6.0",
-                "symfony/dependency-injection": "^4.4|^5.0|^6.0",
-                "symfony/error-handler": "^4.4|^5.0|^6.0",
-                "symfony/expression-language": "^4.4|^5.0|^6.0",
-                "symfony/http-foundation": "^4.4|^5.0|^6.0",
-                "symfony/service-contracts": "^1.1|^2|^3",
-                "symfony/stopwatch": "^4.4|^5.0|^6.0"
-            },
-            "suggest": {
-                "symfony/dependency-injection": "",
-                "symfony/http-kernel": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\EventDispatcher\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
-            "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v5.4.9"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-05-05T16:45:39+00:00"
-        },
-        {
-            "name": "symfony/event-dispatcher-contracts",
-            "version": "v2.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/event-dispatcher-contracts.git",
-                "reference": "f98b54df6ad059855739db6fcbc2d36995283fe1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher-contracts/zipball/f98b54df6ad059855739db6fcbc2d36995283fe1",
-                "reference": "f98b54df6ad059855739db6fcbc2d36995283fe1",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2.5",
-                "psr/event-dispatcher": "^1"
-            },
-            "suggest": {
-                "symfony/event-dispatcher-implementation": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "2.5-dev"
-                },
-                "thanks": {
-                    "name": "symfony/contracts",
-                    "url": "https://github.com/symfony/contracts"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Contracts\\EventDispatcher\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Generic abstractions related to dispatching event",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "abstractions",
-                "contracts",
-                "decoupling",
-                "interfaces",
-                "interoperability",
-                "standards"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v2.5.1"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-01-02T09:53:40+00:00"
-        },
-        {
             "name": "symfony/expression-language",
             "version": "v5.4.8",
             "source": {
@@ -4359,81 +4195,30 @@
             "time": "2022-03-30T09:41:13+00:00"
         },
         {
-            "name": "tinywan/event",
-            "version": "v0.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Tinywan/webman-event.git",
-                "reference": "43b673e50dd09d041fd4b39f8a93ada4a5ac1ab6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-event/zipball/43b673e50dd09d041fd4b39f8a93ada4a5ac1ab6",
-                "reference": "43b673e50dd09d041fd4b39f8a93ada4a5ac1ab6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2",
-                "symfony/event-dispatcher": "^5.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~7.0|~8.0|~9.0",
-                "workerman/webman": "^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/helper.php"
-                ],
-                "psr-4": {
-                    "Tinywan\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Tinywan",
-                    "email": "756684177@qq.com"
-                }
-            ],
-            "description": "the event for webman plugin",
-            "keywords": [
-                "event",
-                "plugin",
-                "webman"
-            ],
-            "support": {
-                "issues": "https://github.com/Tinywan/webman-event/issues",
-                "source": "https://github.com/Tinywan/webman-event/tree/v0.0.1"
-            },
-            "time": "2022-04-18T09:02:36+00:00"
-        },
-        {
             "name": "tinywan/exception-handler",
-            "version": "v0.0.5",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Tinywan/exception-handler.git",
-                "reference": "b8c1bf98412f9576d7b659b578bd5f955f9d972c"
+                "url": "https://github.com/Tinywan/webman-exception-handler.git",
+                "reference": "5d11318466e065a3c24a9f9e726a003893f300fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/exception-handler/zipball/b8c1bf98412f9576d7b659b578bd5f955f9d972c",
-                "reference": "b8c1bf98412f9576d7b659b578bd5f955f9d972c",
+                "url": "https://api.github.com/repos/Tinywan/webman-exception-handler/zipball/5d11318466e065a3c24a9f9e726a003893f300fc",
+                "reference": "5d11318466e065a3c24a9f9e726a003893f300fc",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "php": ">=7.2",
                 "workerman/webman-framework": "^1.2.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.6",
                 "phpstan/phpstan": "^1.4",
-                "tinywan/jwt": "^1.0",
-                "tinywan/validate": "^0.0.3",
+                "tinywan/jwt": "^1.2",
+                "tinywan/storage": "^0.2.2",
+                "tinywan/validate": "^0.0.6",
                 "workerman/webman": "^1.0"
             },
             "type": "library",
@@ -4448,23 +4233,23 @@
             ],
             "description": "webman exception handler plugin",
             "support": {
-                "issues": "https://github.com/Tinywan/exception-handler/issues",
-                "source": "https://github.com/Tinywan/exception-handler/tree/v0.0.5"
+                "issues": "https://github.com/Tinywan/webman-exception-handler/issues",
+                "source": "https://github.com/Tinywan/webman-exception-handler/tree/v1.0.0"
             },
-            "time": "2022-03-21T06:30:04+00:00"
+            "time": "2022-08-17T07:36:53+00:00"
         },
         {
             "name": "tinywan/jwt",
-            "version": "v1.2.5",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-jwt.git",
-                "reference": "b7c08998cef75949a4fa3be7e7718cd7634bede7"
+                "reference": "f916b004c08bf0ad242c34ad5eb06be932d2b614"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-jwt/zipball/b7c08998cef75949a4fa3be7e7718cd7634bede7",
-                "reference": "b7c08998cef75949a4fa3be7e7718cd7634bede7",
+                "url": "https://api.github.com/repos/Tinywan/webman-jwt/zipball/f916b004c08bf0ad242c34ad5eb06be932d2b614",
+                "reference": "f916b004c08bf0ad242c34ad5eb06be932d2b614",
                 "shasum": ""
             },
             "require": {
@@ -4496,9 +4281,9 @@
             "description": "JSON Web Token (JWT) for webman plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/webman-jwt/issues",
-                "source": "https://github.com/Tinywan/webman-jwt/tree/v1.2.5"
+                "source": "https://github.com/Tinywan/webman-jwt/tree/v1.3.1"
             },
-            "time": "2022-05-05T09:30:40+00:00"
+            "time": "2022-08-03T11:46:32+00:00"
         },
         {
             "name": "tinywan/limit-traffic",
@@ -5009,19 +4794,20 @@
         },
         {
             "name": "webman/console",
-            "version": "v1.0.26",
+            "version": "v1.2.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webman-php/console.git",
-                "reference": "f5dd9b67ae37d48d480397877118a3df25dde59b"
+                "reference": "71932aa62427fbd95ef06178704576bc3274102d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webman-php/console/zipball/f5dd9b67ae37d48d480397877118a3df25dde59b",
-                "reference": "f5dd9b67ae37d48d480397877118a3df25dde59b",
+                "url": "https://api.github.com/repos/webman-php/console/zipball/71932aa62427fbd95ef06178704576bc3274102d",
+                "reference": "71932aa62427fbd95ef06178704576bc3274102d",
                 "shasum": ""
             },
             "require": {
+                "doctrine/inflector": "^2.0",
                 "symfony/console": ">=5.0"
             },
             "require-dev": {
@@ -5057,7 +4843,38 @@
                 "source": "https://github.com/webman-php/console",
                 "wiki": "http://www.workerman.net/doc/webman"
             },
-            "time": "2022-05-04T00:44:25+00:00"
+            "time": "2022-09-28T07:16:22+00:00"
+        },
+        {
+            "name": "webman/event",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-php/event.git",
+                "reference": "db17d2fd6a5a8799f97f587b17a26b814901e01a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-php/event/zipball/db17d2fd6a5a8799f97f587b17a26b814901e01a",
+                "reference": "db17d2fd6a5a8799f97f587b17a26b814901e01a",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webman\\Event\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Webman event plugin",
+            "support": {
+                "issues": "https://github.com/webman-php/event/issues",
+                "source": "https://github.com/webman-php/event/tree/v1.0.2"
+            },
+            "time": "2022-06-16T06:25:20+00:00"
         },
         {
             "name": "workerman/redis",
@@ -5096,16 +4913,16 @@
         },
         {
             "name": "workerman/webman-framework",
-            "version": "v1.3.14",
+            "version": "v1.4.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/webman-framework.git",
-                "reference": "f5f523cf8bd8e9b2b812b4c8a102da709b3f502b"
+                "reference": "e9815557f08dffd3a41b54f709a98619aab84f16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/f5f523cf8bd8e9b2b812b4c8a102da709b3f502b",
-                "reference": "f5f523cf8bd8e9b2b812b4c8a102da709b3f502b",
+                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/e9815557f08dffd3a41b54f709a98619aab84f16",
+                "reference": "e9815557f08dffd3a41b54f709a98619aab84f16",
                 "shasum": ""
             },
             "require": {
@@ -5136,22 +4953,22 @@
                 {
                     "name": "walkor",
                     "email": "walkor@workerman.net",
-                    "homepage": "http://www.workerman.net",
+                    "homepage": "https://www.workerman.net",
                     "role": "Developer"
                 }
             ],
             "description": "High performance HTTP Service Framework.",
-            "homepage": "http://www.workerman.net",
+            "homepage": "https://www.workerman.net",
             "keywords": [
                 "High Performance",
                 "http service"
             ],
             "support": {
                 "email": "walkor@workerman.net",
-                "forum": "http://wenda.workerman.net/",
+                "forum": "https://wenda.workerman.net/",
                 "issues": "https://github.com/walkor/webman/issues",
                 "source": "https://github.com/walkor/webman-framework",
-                "wiki": "http://doc.workerman.net/"
+                "wiki": "https://doc.workerman.net/"
             },
             "funding": [
                 {
@@ -5163,7 +4980,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-05-17T03:54:31+00:00"
+            "time": "2022-09-19T08:03:06+00:00"
         },
         {
             "name": "workerman/workerman",
@@ -5382,5 +5199,5 @@
         "ext-gd": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }

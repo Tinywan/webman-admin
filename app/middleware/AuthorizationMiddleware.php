@@ -16,6 +16,7 @@ namespace app\middleware;
 use Casbin\Exceptions\CasbinException;
 use Casbin\WebmanPermission\Permission;
 use Tinywan\ExceptionHandler\Exception\ForbiddenHttpException;
+use Tinywan\ExceptionHandler\Exception\UnauthorizedHttpException;
 use Tinywan\Jwt\JwtToken;
 use Webman\Http\Request;
 use Webman\Http\Response;
@@ -25,15 +26,15 @@ class AuthorizationMiddleware implements MiddlewareInterface
 {
     /**
      * @param Request $request
-     * @param callable $next
+     * @param callable $handler
      * @return Response
-     * @throws ForbiddenHttpException
+     * @throws ForbiddenHttpException|UnauthorizedHttpException
      */
-    public function process(Request $request, callable $next): Response
+    public function process(Request $request, callable $handler): Response
     {
         $request->uid = JwtToken::getCurrentId();
         if (0 === $request->uid) {
-            throw new ForbiddenHttpException();
+            throw new UnauthorizedHttpException();
         }
         try {
             $url = $request->path();
@@ -44,6 +45,6 @@ class AuthorizationMiddleware implements MiddlewareInterface
         } catch (CasbinException $exception) {
             throw new ForbiddenHttpException($exception->getMessage());
         }
-        return $next($request);
+        return $handler($request);
     }
 }

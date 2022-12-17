@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "767378fc5584128b1c952c9ea5f35cea",
+    "content-hash": "ae76ee07654966be7877c9d83749297e",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4240,17 +4240,23 @@
         },
         {
             "name": "tinywan/jwt",
-            "version": "v1.3.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-jwt.git",
-                "reference": "f916b004c08bf0ad242c34ad5eb06be932d2b614"
+                "reference": "a738ed375826e5c40c398e501f76478d1f633b6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-jwt/zipball/f916b004c08bf0ad242c34ad5eb06be932d2b614",
-                "reference": "f916b004c08bf0ad242c34ad5eb06be932d2b614",
-                "shasum": ""
+                "url": "https://api.github.com/repos/Tinywan/webman-jwt/zipball/a738ed375826e5c40c398e501f76478d1f633b6c",
+                "reference": "a738ed375826e5c40c398e501f76478d1f633b6c",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "ext-json": "*",
@@ -4281,9 +4287,9 @@
             "description": "JSON Web Token (JWT) for webman plugin",
             "support": {
                 "issues": "https://github.com/Tinywan/webman-jwt/issues",
-                "source": "https://github.com/Tinywan/webman-jwt/tree/v1.3.1"
+                "source": "https://github.com/Tinywan/webman-jwt/tree/v1.6.0"
             },
-            "time": "2022-08-03T11:46:32+00:00"
+            "time": "2022-12-17T05:41:39+00:00"
         },
         {
             "name": "tinywan/limit-traffic",

@@ -5,6 +5,7 @@ namespace app\controller;
 
 use support\Request;
 use support\Response;
+use Tinywan\Jwt\JwtToken;
 
 class Index
 {
@@ -14,10 +15,17 @@ class Index
      */
     public function issueToken(Request $request):Response
     {
-        $data = [
-            'access_token' => time()
+        $user = [
+            'user_info' => [
+                'userId' => 10086,
+                'userName' => 'A20021',
+                'dashboard' => 0,
+                'role' => ["SA","admin","Auditor"],
+            ]
         ];
-        return json(['code' => 0, 'msg' => 'success','data'=>$data]);
+        $res = JwtToken::generateToken($user);
+        $res = JwtToken::refreshToken();
+        return response_json(0,'success',$res);
     }
 
     public function event(Request $request)

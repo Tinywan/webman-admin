@@ -13,6 +13,7 @@ use app\common\model\UserModel;
 use app\common\validate\UserValidate;
 use support\Log;
 use support\Request;
+use support\Response;
 use Tinywan\Jwt\JwtToken;
 use Tinywan\Lock\RedisLock;
 use Tinywan\Rpc\Client;
@@ -47,5 +48,32 @@ class Test
         ];
         Log::info('『支付宝』： '.json_encode($order));
         return Pay::alipay()->web($order)->getBody()->getContents();
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function issueToken(Request $request):Response
+    {
+        $user = [
+            'id' => 10086,
+            'userName' => 'A20021',
+            'dashboard' => 0,
+            'role' => ["SA","admin","Auditor"],
+        ];
+        $res = JwtToken::generateToken($user);
+//        $res = JwtToken::refreshToken();
+        return response_json(0,'success',$res);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    public function refreshToken(Request $request):Response
+    {
+        $res = JwtToken::refreshToken();
+        return response_json(0,'success',$res);
     }
 }

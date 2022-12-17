@@ -58,6 +58,8 @@ Route::group('/system', function () {
 Route::group('/test', function () {
     Route::get('/validate', [Test::class, 'validate']);
     Route::get('/payment', [Test::class, 'payment']);
+    Route::post('/issue-token', [Test::class, 'issueToken']);
+    Route::get('/refresh-token', [Test::class, 'refreshToken']);
 });
 
 Route::fallback(function () {

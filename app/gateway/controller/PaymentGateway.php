@@ -13,6 +13,8 @@ use support\Log;
 use support\Request;
 use support\Response;
 use Webman\Config;
+use Yansongda\Pay\Exception\ContainerException;
+use Yansongda\Pay\Exception\InvalidParamsException;
 use Yansongda\Pay\Pay;
 
 
@@ -22,6 +24,7 @@ class PaymentGateway
      * @desc:『支付宝』异步通知
      * @param Request $request
      * @return Response
+     * @throws ContainerException|InvalidParamsException
      */
     public function alipayNotify(Request $request): Response
     {
@@ -37,6 +40,7 @@ class PaymentGateway
     /**
      * @desc: 『支付宝』同步通知
      * @param Request $request
+     * @return Response
      * @author Tinywan(ShaoBo Wan)
      */
     public function alipayReturn(Request $request): Response

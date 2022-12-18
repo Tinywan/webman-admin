@@ -27,10 +27,10 @@
     "php": ">=7.4",
     "ext-json": "*",
     "ext-gd": "*",
-    "workerman/webman-framework": "^1.4.7",
+    "workerman/webman-framework": "1.4.7",
     "monolog/monolog": "^2.0",
     "illuminate/redis": "^8.83",
-    "webman/console": "^1.2.12",
+    "webman/console": "1.2.12",
     "topthink/think-orm": "^2.0",
     "tinywan/validate": "^0.0.3",
     "tinywan/captcha": "^0.0.2",
@@ -40,7 +40,6 @@
     "aliyuncs/oss-sdk-php": "^2.4",
     "tinywan/weather": "^0.0.1",
     "tinywan/storage": "^0.3.1",
-    "tinywan/meilisearch": "dev-main",
     "yansongda/pay": "~3.1.0",
     "illuminate/database": "^8.83",
     "illuminate/pagination": "^8.83",
@@ -49,7 +48,8 @@
     "tinywan/webman-lock": "dev-main",
     "webman/event": "^1.0",
     "tinywan/exception-handler": "^1.0",
-    "tinywan/jwt": "^1.6"
+    "tinywan/jwt": "^1.6",
+    "workbunny/webman-nacos": "^1.1"
   },
   "suggest": {
     "ext-event": "For better performance. "

@@ -11,6 +11,7 @@ namespace app\controller;
 
 use app\common\model\UserModel;
 use app\common\validate\UserValidate;
+use process\workbunny\rqueue\live\QueueBuilder;
 use support\Log;
 use support\Request;
 use support\Response;
@@ -19,6 +20,7 @@ use Tinywan\Lock\RedisLock;
 use Tinywan\Rpc\Client;
 use Webman\Config;
 use Yansongda\Pay\Pay;
+use function Workbunny\WebmanRqueue\sync_publish;
 
 class Test
 {
@@ -28,6 +30,7 @@ class Test
             ->cache('RestyRedis:'.UserModel::getTable())
             ->select();
         var_dump($res->toArray());
+        sync_publish(QueueBuilder::instance(),'Hello!');
         return 'suss';
     }
 

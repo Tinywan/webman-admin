@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f59e1013e52b804697f11607909bb07",
+    "content-hash": "3d7f0e14dcc130133940d36856b63a6b",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4638,17 +4638,17 @@
             "time": "2022-06-16T06:25:20+00:00"
         },
         {
-            "name": "workbunny/webman-nacos",
-            "version": "1.1.3",
+            "name": "workbunny/webman-rqueue",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/workbunny/webman-nacos.git",
-                "reference": "84a492514ba75ad2c54a9aa1ba7f45c523bae40e"
+                "url": "https://github.com/workbunny/webman-rqueue.git",
+                "reference": "15920ee7f2261530fbf06777cc56de7c58ac08ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/workbunny/webman-nacos/zipball/84a492514ba75ad2c54a9aa1ba7f45c523bae40e",
-                "reference": "84a492514ba75ad2c54a9aa1ba7f45c523bae40e",
+                "url": "https://api.github.com/repos/workbunny/webman-rqueue/zipball/15920ee7f2261530fbf06777cc56de7c58ac08ae",
+                "reference": "15920ee7f2261530fbf06777cc56de7c58ac08ae",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4658,15 +4658,14 @@
                 ]
             },
             "require": {
-                "ext-json": "*",
-                "guzzlehttp/guzzle": "^7.4",
-                "guzzlehttp/promises": "^1.5",
-                "monolog/monolog": "^2.8",
+                "illuminate/events": "^8.83",
+                "illuminate/redis": "^8.83",
                 "php": ">=7.4",
-                "workerman/http-client": "^1.0"
+                "psr/container": "^1.1.1",
+                "webman/console": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^9.0",
+                "symfony/var-dumper": "^5.4",
                 "workerman/webman-framework": "^1.3.0"
             },
             "type": "library",
@@ -4675,7 +4674,7 @@
                     "./src/helpers.php"
                 ],
                 "psr-4": {
-                    "Workbunny\\WebmanNacos\\": "src"
+                    "Workbunny\\WebmanRqueue\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4686,130 +4685,15 @@
                 {
                     "name": "chaz6chez",
                     "email": "250220719@qq.com",
-                    "homepage": "http://chaz6chez.cn"
+                    "homepage": "https://chaz6chez.cn"
                 }
             ],
-            "description": "Webman plugin workbunny/webman-nacos",
+            "description": "Webman plugin workbunny/webman-rqueue",
             "support": {
-                "issues": "https://github.com/workbunny/webman-nacos/issues",
-                "source": "https://github.com/workbunny/webman-nacos"
+                "issues": "https://github.com/workbunny/webman-rqueue/issues",
+                "source": "https://github.com/workbunny/webman-rqueue"
             },
-            "time": "2022-09-01T09:02:43+00:00"
-        },
-        {
-            "name": "workerman/http-client",
-            "version": "v1.0.11",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/walkor/http-client.git",
-                "reference": "c8376b59b304ada0314708617a536c64922042d1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/walkor/http-client/zipball/c8376b59b304ada0314708617a536c64922042d1",
-                "reference": "c8376b59b304ada0314708617a536c64922042d1",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "workerman/psr7": ">=1.4.3",
-                "workerman/workerman": "^4.0.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Workerman\\Http\\": "./src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "homepage": "http://www.workerman.net",
-            "support": {
-                "issues": "https://github.com/walkor/http-client/issues",
-                "source": "https://github.com/walkor/http-client/tree/v1.0.11"
-            },
-            "time": "2022-12-16T09:45:06+00:00"
-        },
-        {
-            "name": "workerman/psr7",
-            "version": "v1.4.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/walkor/psr7.git",
-                "reference": "c1a2ccbc2d8f30a64f2df65b22dc74f02bd39a8c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/walkor/psr7/zipball/c1a2ccbc2d8f30a64f2df65b22dc74f02bd39a8c",
-                "reference": "c1a2ccbc2d8f30a64f2df65b22dc74f02bd39a8c",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
-                "psr-4": {
-                    "Workerman\\Psr7\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Tobias Schultze",
-                    "homepage": "https://github.com/Tobion"
-                }
-            ],
-            "description": "PSR-7 message implementation that also provides common utility methods",
-            "keywords": [
-                "http",
-                "message",
-                "request",
-                "response",
-                "stream",
-                "uri",
-                "url"
-            ],
-            "support": {
-                "source": "https://github.com/walkor/psr7/tree/v1.4.5"
-            },
-            "time": "2022-09-01T08:41:21+00:00"
+            "time": "2022-07-19T02:30:37+00:00"
         },
         {
             "name": "workerman/redis",

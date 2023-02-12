@@ -33,6 +33,6 @@ class BaseModel extends Model
     public function __construct(array $data = [])
     {
         parent::__construct($data);
-        $this->connection = request()->website;
+        $this->connection = request()->website ?? '';
     }
 }

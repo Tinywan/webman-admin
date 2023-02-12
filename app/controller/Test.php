@@ -79,4 +79,25 @@ class Test
         $res = JwtToken::refreshToken();
         return response_json(0,'success',$res);
     }
+
+    /**
+     * @return Response
+     */
+    public function rpc():Response
+    {
+        $request = [
+            'class'   => 'live',
+            'method'  => 'create',
+            'args'    => [
+                [
+                    'uid' => 2025,
+                    'username' => 'Tinywan',
+               ]
+            ]
+        ];
+        $client = new Client('tcp://127.0.0.1:8889');
+        $res = $client->request($request);
+
+        return response_json(0,'success',$res);
+    }
 }

@@ -60,6 +60,7 @@ Route::group('/test', function () {
     Route::get('/payment', [Test::class, 'payment']);
     Route::post('/issue-token', [Test::class, 'issueToken']);
     Route::get('/refresh-token', [Test::class, 'refreshToken']);
+    Route::get('/rpc', [Test::class, 'rpc']);
 });
 
 Route::fallback(function () {

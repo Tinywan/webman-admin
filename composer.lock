@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d7f0e14dcc130133940d36856b63a6b",
+    "content-hash": "1197db03463a4bbc7421fbb67baaf437",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4095,16 +4095,16 @@
         },
         {
             "name": "tinywan/rpc",
-            "version": "v0.0.2",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-rpc.git",
-                "reference": "00073d30477d8124d66ffad8ebf4faac69f9f829"
+                "reference": "7928c4100caac171095a59e803a2b9afa8d9e542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tinywan/webman-rpc/zipball/00073d30477d8124d66ffad8ebf4faac69f9f829",
-                "reference": "00073d30477d8124d66ffad8ebf4faac69f9f829",
+                "url": "https://api.github.com/repos/Tinywan/webman-rpc/zipball/7928c4100caac171095a59e803a2b9afa8d9e542",
+                "reference": "7928c4100caac171095a59e803a2b9afa8d9e542",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -4125,6 +4125,9 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "src/function.php"
+                ],
                 "psr-4": {
                     "Tinywan\\Rpc\\": "src"
                 }
@@ -4147,9 +4150,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Tinywan/webman-rpc/issues",
-                "source": "https://github.com/Tinywan/webman-rpc/tree/v0.0.2"
+                "source": "https://github.com/Tinywan/webman-rpc/tree/v1.2.2"
             },
-            "time": "2022-06-07T06:23:16+00:00"
+            "time": "2023-02-12T13:13:02+00:00"
         },
         {
             "name": "tinywan/storage",
@@ -4638,64 +4641,6 @@
             "time": "2022-06-16T06:25:20+00:00"
         },
         {
-            "name": "workbunny/webman-rqueue",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/workbunny/webman-rqueue.git",
-                "reference": "15920ee7f2261530fbf06777cc56de7c58ac08ae"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/workbunny/webman-rqueue/zipball/15920ee7f2261530fbf06777cc56de7c58ac08ae",
-                "reference": "15920ee7f2261530fbf06777cc56de7c58ac08ae",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
-            },
-            "require": {
-                "illuminate/events": "^8.83",
-                "illuminate/redis": "^8.83",
-                "php": ">=7.4",
-                "psr/container": "^1.1.1",
-                "webman/console": "^1.0"
-            },
-            "require-dev": {
-                "symfony/var-dumper": "^5.4",
-                "workerman/webman-framework": "^1.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "./src/helpers.php"
-                ],
-                "psr-4": {
-                    "Workbunny\\WebmanRqueue\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "chaz6chez",
-                    "email": "250220719@qq.com",
-                    "homepage": "https://chaz6chez.cn"
-                }
-            ],
-            "description": "Webman plugin workbunny/webman-rqueue",
-            "support": {
-                "issues": "https://github.com/workbunny/webman-rqueue/issues",
-                "source": "https://github.com/workbunny/webman-rqueue"
-            },
-            "time": "2022-07-19T02:30:37+00:00"
-        },
-        {
             "name": "workerman/redis",
             "version": "v1.0.11",
             "source": {
@@ -5047,5 +4992,5 @@
         "ext-gd": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }

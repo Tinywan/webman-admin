@@ -61,6 +61,8 @@ Route::group('/test', function () {
     Route::post('/issue-token', [Test::class, 'issueToken']);
     Route::get('/refresh-token', [Test::class, 'refreshToken']);
     Route::get('/rpc', [Test::class, 'rpc']);
+    Route::get('/permission', [Test::class, 'permission']);
+    Route::get('/permission2', [Test::class, 'permission2']);
 });
 
 Route::fallback(function () {

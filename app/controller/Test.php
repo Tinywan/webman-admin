@@ -11,6 +11,7 @@ namespace app\controller;
 
 use app\common\model\UserModel;
 use app\common\validate\UserValidate;
+use Casbin\WebmanPermission\Permission;
 use process\workbunny\rqueue\live\QueueBuilder;
 use support\Log;
 use support\Request;
@@ -99,5 +100,30 @@ class Test
         $res = $client->request($request);
 
         return response_json(0,'success',$res);
+    }
+
+    /**
+     */
+    public function permission(Request $request)
+    {
+        $edit =$request->get('edit','edit');
+        Permission::addRoleForUser('eve', 'writer');
+        if (Permission::enforce("eve", "articles", $edit)) {
+            return '恭喜你！通过权限认证';
+        } else {
+            return '对不起，您没有该资源访问权限';
+        }
+    }
+
+    public function permission2(Request $request)
+    {
+        $param = $request->get('edit','edit');
+        // adds permissions to a user
+//        Permission::addPermissionForUser('eve', 'articles', 'read1');
+//        // adds a role for a user.
+//        Permission::addRoleForUser('eve', 'writer');
+        // adds permissions to a rule
+        Permission::addPolicy('writer', 'articles',$param);
+        return 'success';
     }
 }

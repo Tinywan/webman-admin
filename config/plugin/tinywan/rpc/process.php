@@ -4,6 +4,6 @@ return [
     'text.protocol' => [
         'handler'=> \Tinywan\Rpc\Protocol\RpcTextProtocol::class,
         'listen' => config('plugin.tinywan.rpc.app.server.listen_text_address'),
-        'count'  => 10, // 根据配置文件调整
+        'count'  => 1, // 根据配置文件调整
     ]
 ];

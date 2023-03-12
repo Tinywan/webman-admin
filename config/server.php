@@ -17,7 +17,7 @@ return [
     'transport' => 'tcp',
     'context' => [],
     'name' => 'webman-admin',
-    'count' => 1,
+    'count' => 10,
     'user' => '',
     'group' => '',
     'reusePort' => false,

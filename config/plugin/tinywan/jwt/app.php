@@ -17,10 +17,12 @@ return [
         'refresh_disable' => false,
         // 令牌签发者
         'iss' => 'webman.tinywan.cn',
+        // 某个时间点后才能访问，单位秒。（如：30 表示当前时间30秒后才能使用）
+        'nbf' => 0,
         // 时钟偏差冗余时间，单位秒。建议这个余地应该不大于几分钟。
         'leeway' => 60,
         // 单设备登录
-        'is_single_device' => true,
+        'is_single_device' => false,
         // 缓存令牌时间，单位：秒。默认 7 天
         'cache_token_ttl' => 604800,
         // 缓存令牌前缀

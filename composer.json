@@ -46,9 +46,9 @@
     "tinywan/webman-lock": "dev-main",
     "webman/event": "^1.0",
     "tinywan/exception-handler": "^1.0",
-    "tinywan/jwt": "^1.6",
     "tinywan/rpc": "^1.2",
-    "casbin/webman-permission": "^1.1"
+    "casbin/webman-permission": "^1.1",
+    "tinywan/jwt": "^1.6"
   },
   "suggest": {
     "ext-event": "For better performance. "

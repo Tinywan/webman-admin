@@ -17,8 +17,8 @@ use app\controller\Authentication;
 use app\controller\System;
 use app\controller\Test;
 use \app\api\controller\User as ApiUser;
-use Tinywan\ExceptionHandler\Exception\RouteNotFoundException;
 
+// 匹配所有options路由
 Route::options('[{path:.+}]', function (){
     return response('');
 });
@@ -66,7 +66,7 @@ Route::group('/test', function () {
 });
 
 Route::fallback(function () {
-    throw new RouteNotFoundException();
+    throw new \Tinywan\ExceptionHandler\Exception\RouteNotFoundException();
 });
 
 Route::disableDefaultRoute();

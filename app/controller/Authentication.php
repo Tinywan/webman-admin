@@ -53,6 +53,9 @@ class Authentication extends BaseController
             throw new UnauthorizedHttpException('账号或密码错误');
         }
 
+        $token = array_merge($userInfo->toArray(),
+            ['client' => 'MOBILE'] // 指定客户端key
+        );
         $user = [
             'user_info' => [
                 'userId' => $userInfo['id'],
@@ -61,7 +64,8 @@ class Authentication extends BaseController
                 'role' => ["SA","admin","Auditor"],
             ]
         ];
-        $res = array_merge(JwtToken::generateToken($userInfo->toArray()),$user);
+        var_dump($token);
+        $res = array_merge(JwtToken::generateToken($token),$user);
         return response_json(0,'success',$res);
     }
 }

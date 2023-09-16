@@ -27,7 +27,7 @@
     "php": ">=7.4",
     "ext-json": "*",
     "ext-gd": "*",
-    "workerman/webman-framework": "1.4.7",
+    "workerman/webman-framework": "^1.5",
     "monolog/monolog": "^2.0",
     "illuminate/redis": "^8.83",
     "webman/console": "1.2.12",
@@ -45,10 +45,10 @@
     "illuminate/events": "^8.83",
     "tinywan/webman-lock": "dev-main",
     "webman/event": "^1.0",
-    "tinywan/exception-handler": "^1.0",
+    "tinywan/exception-handler": "^1.1",
     "tinywan/rpc": "^1.2",
     "casbin/webman-permission": "^1.1",
-    "tinywan/jwt": "^1.6"
+    "tinywan/jwt": "^1.8"
   },
   "suggest": {
     "ext-event": "For better performance. "
@@ -77,7 +77,7 @@
   "repositories": {
     "packagist": {
       "type": "composer",
-      "url": "https://mirrors.aliyun.com/composer/"
+      "url": "https://repo.huaweicloud.com/repository/php/"
     }
   }
 }

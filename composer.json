@@ -48,7 +48,8 @@
     "tinywan/exception-handler": "^1.1",
     "tinywan/rpc": "^1.2",
     "casbin/webman-permission": "^1.1",
-    "tinywan/jwt": "^1.8"
+    "tinywan/jwt": "^1.8",
+    "workbunny/webman-nacos": "^1.1"
   },
   "suggest": {
     "ext-event": "For better performance. "

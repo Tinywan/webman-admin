@@ -53,9 +53,10 @@ class Authentication extends BaseController
             throw new UnauthorizedHttpException('账号或密码错误');
         }
 
-        $token = array_merge($userInfo->toArray(),
-            ['client' => 'MOBILE'] // 指定客户端key
-        );
+        $token = $userInfo->toArray();
+//        $token = array_merge($userInfo->toArray(),
+//            ['client' => 'MOBILE'] // 指定客户端key
+//        );
         $user = [
             'user_info' => [
                 'userId' => $userInfo['id'],
@@ -67,5 +68,17 @@ class Authentication extends BaseController
         var_dump($token);
         $res = array_merge(JwtToken::generateToken($token),$user);
         return response_json(0,'success',$res);
+    }
+
+    /**
+     * @desc: 令牌
+     * @param Request $request
+     * @return Response
+     * @author Tinywan(ShaoBo Wan)
+     */
+    public function clearToken(Request $request): Response
+    {
+        $res = JwtToken::clear();
+        return response_json(0,'success');
     }
 }

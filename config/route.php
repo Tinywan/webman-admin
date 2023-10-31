@@ -26,6 +26,7 @@ Route::options('[{path:.+}]', function (){
 // 1.0 身份认证
 Route::group('/oauth', function () {
     Route::post('/issue-token', [Authentication::class, 'issueToken']); // 1.1 发行令牌
+    Route::post('/clear-token', [Authentication::class, 'clearToken']); // 1.1 发行令牌
 });
 
 // 2.0 网关

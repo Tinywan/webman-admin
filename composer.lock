@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7766aa4ce8078b0fd10c74d924f6a97",
+    "content-hash": "63abdd98644eb5f949d8b7742fb8c907",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4175,16 +4175,16 @@
         },
         {
             "name": "tinywan/jwt",
-            "version": "v1.8.1",
+            "version": "v1.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tinywan/webman-jwt.git",
-                "reference": "09a09380d1a10c4feea46d1bc105950a980cec7d"
+                "reference": "38c6889f38f79d042f6a0b9aa1aac716a1779b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://repo.huaweicloud.com/repository/php/tinywan/jwt/v1.8.1/tinywan-jwt-v1.8.1.zip",
-                "reference": "09a09380d1a10c4feea46d1bc105950a980cec7d",
+                "url": "https://repo.huaweicloud.com/repository/php/tinywan/jwt/v1.8.2/tinywan-jwt-v1.8.2.zip",
+                "reference": "38c6889f38f79d042f6a0b9aa1aac716a1779b35",
                 "shasum": ""
             },
             "require": {
@@ -4213,7 +4213,7 @@
                 "MIT"
             ],
             "description": "JSON Web Token (JWT) for webman plugin",
-            "time": "2023-09-09T15:14:58+00:00"
+            "time": "2023-09-16T03:25:47+00:00"
         },
         {
             "name": "tinywan/limit-traffic",
@@ -4818,6 +4818,148 @@
                 "source": "https://github.com/webman-php/event/tree/v1.0.3"
             },
             "time": "2023-03-06T03:37:17+00:00"
+        },
+        {
+            "name": "workbunny/webman-nacos",
+            "version": "1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/workbunny/webman-nacos.git",
+                "reference": "36bba26cc478bb5bc6d5b295f79f4952acb6cd55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.huaweicloud.com/repository/php/workbunny/webman-nacos/1.1.7/workbunny-webman-nacos-1.1.7.zip",
+                "reference": "36bba26cc478bb5bc6d5b295f79f4952acb6cd55",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^7.4",
+                "guzzlehttp/promises": "^1.5",
+                "monolog/monolog": "^2.8",
+                "php": ">=7.4",
+                "workerman/http-client": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0",
+                "workerman/webman-framework": "^1.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "./src/helpers.php"
+                ],
+                "psr-4": {
+                    "Workbunny\\WebmanNacos\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "chaz6chez",
+                    "email": "chaz6chez1993@outlook.com",
+                    "homepage": "http://chaz6chez.cn"
+                }
+            ],
+            "description": "Webman plugin workbunny/webman-nacos",
+            "time": "2023-08-24T06:09:59+00:00"
+        },
+        {
+            "name": "workerman/http-client",
+            "version": "v1.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/http-client.git",
+                "reference": "c8376b59b304ada0314708617a536c64922042d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.huaweicloud.com/repository/php/workerman/http-client/v1.0.11/workerman-http-client-v1.0.11.zip",
+                "reference": "c8376b59b304ada0314708617a536c64922042d1",
+                "shasum": ""
+            },
+            "require": {
+                "workerman/psr7": ">=1.4.3",
+                "workerman/workerman": "^4.0.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Workerman\\Http\\": "./src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://www.workerman.net",
+            "time": "2022-12-16T09:45:06+00:00"
+        },
+        {
+            "name": "workerman/psr7",
+            "version": "v1.4.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/psr7.git",
+                "reference": "e21521b72b5a891bd1a7a51376da12801863ce5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.huaweicloud.com/repository/php/workerman/psr7/v1.4.6/workerman-psr7-v1.4.6.zip",
+                "reference": "e21521b72b5a891bd1a7a51376da12801863ce5b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "Workerman\\Psr7\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2023-02-03T11:50:14+00:00"
         },
         {
             "name": "workerman/redis",

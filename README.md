@@ -92,3 +92,38 @@ Make CURD
 ./webman make:curd api/manual
 ```
 > 生成控制器和Model
+
+/** nacos 服务端地址 */
+'host' => '192.168.1.2', 
+
+/** nacos 服务端端口 */
+'port' => 8848,
+
+/** nacos 认证用户名 */
+'username' => 'nacos',
+
+/** nacos 认证用户密码 */
+'password' => 'nacos',
+
+'config_listeners' => [
+    [
+        /** DataID */
+        'payment.php',
+        /** groupName */
+        'DEFAULT_GROUP',
+        /** namespaceId */
+        '',
+        /** filePath @desc 配置文件本地保存的地址 */
+        config_path() . '/nacos/payment.php',
+    ],
+    [
+        /** DataID */
+        'application-dev.yml',
+        /** groupName */
+        'DEFAULT_GROUP',
+        /** namespaceId */
+        'b34ea59f-e240-413b-ba3d-bb040981d773',
+        /** filePath @desc 配置文件本地保存的地址 */
+        config_path() . '/nacos/application-dev.yml',
+    ],
+],

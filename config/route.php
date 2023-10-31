@@ -57,13 +57,7 @@ Route::group('/system', function () {
 
 // test
 Route::group('/test', function () {
-    Route::get('/validate', [Test::class, 'validate']);
-    Route::get('/payment', [Test::class, 'payment']);
-    Route::post('/issue-token', [Test::class, 'issueToken']);
-    Route::get('/refresh-token', [Test::class, 'refreshToken']);
-    Route::get('/rpc', [Test::class, 'rpc']);
-    Route::get('/permission', [Test::class, 'permission']);
-    Route::get('/permission2', [Test::class, 'permission2']);
+    Route::get('/nacos', [Test::class, 'nacos']);
 });
 
 Route::fallback(function () {

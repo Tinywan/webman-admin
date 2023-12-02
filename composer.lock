@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "63abdd98644eb5f949d8b7742fb8c907",
+    "content-hash": "365485f874c9fedc5684ac061b73e7eb",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -4820,6 +4820,34 @@
             "time": "2023-03-06T03:37:17+00:00"
         },
         {
+            "name": "webman/gateway-worker",
+            "version": "v1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-php/gateway-worker.git",
+                "reference": "0fc07316a755557128a30acca3507b42ec428c14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.huaweicloud.com/repository/php/webman/gateway-worker/v1.0.8/webman-gateway-worker-v1.0.8.zip",
+                "reference": "0fc07316a755557128a30acca3507b42ec428c14",
+                "shasum": ""
+            },
+            "require": {
+                "workerman/gateway-worker": ">=3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webman\\GatewayWorker\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "time": "2023-07-20T09:10:10+00:00"
+        },
+        {
             "name": "workbunny/webman-nacos",
             "version": "1.1.7",
             "source": {
@@ -4866,6 +4894,50 @@
             ],
             "description": "Webman plugin workbunny/webman-nacos",
             "time": "2023-08-24T06:09:59+00:00"
+        },
+        {
+            "name": "workerman/gateway-worker",
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/GatewayWorker.git",
+                "reference": "3abb497ce2a79c4c4b2addd3263deb08ffeec772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.huaweicloud.com/repository/php/workerman/gateway-worker/v3.1.1/workerman-gateway-worker-v3.1.1.zip",
+                "reference": "3abb497ce2a79c4c4b2addd3263deb08ffeec772",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "workerman/workerman": "^4.0.30"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GatewayWorker\\": "./src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://www.workerman.net",
+            "keywords": [
+                "communication",
+                "distributed"
+            ],
+            "funding": [
+                {
+                    "url": "https://opencollective.com/walkor",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/walkor",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2023-10-13T07:39:35+00:00"
         },
         {
             "name": "workerman/http-client",
@@ -5287,7 +5359,8 @@
     "platform": {
         "php": ">=7.4",
         "ext-json": "*",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-openssl": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

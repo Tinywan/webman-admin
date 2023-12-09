@@ -22,7 +22,7 @@ return [
         // 时钟偏差冗余时间，单位秒。建议这个余地应该不大于几分钟。
         'leeway' => 60,
         // 单设备登录
-        'is_single_device' => false,
+        'is_single_device' => true,
         // 缓存令牌时间，单位：秒。默认 7 天
         'cache_token_ttl' => 604800,
         // 缓存令牌前缀

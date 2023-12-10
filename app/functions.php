@@ -98,3 +98,20 @@ function broadcast_json(int $code = 0, string $msg = 'success', array $data = []
 {
     return json_encode(['code' => $code, 'msg' => $msg, 'data' => $data], JSON_UNESCAPED_UNICODE);
 }
+
+/**
+ * @desc: 获取websocket连接签名
+ * @return array
+ * @author Tinywan(ShaoBo Wan)
+ */
+function get_wss_sign(): array
+{
+    // ts = 生成链接的时间+有效时间
+    $ts = time() + 360;
+    $secret = 'Tinywan2024';
+    return [
+        'sign' => sha1($ts.'|'.$secret),
+        'ts' => $ts
+    ];
+}
+

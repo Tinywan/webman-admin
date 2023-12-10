@@ -100,18 +100,86 @@ function broadcast_json(int $code = 0, string $msg = 'success', array $data = []
 }
 
 /**
- * @desc: 获取websocket连接签名
- * @return array
+ * @desc: 获取客户端真实ip
+ * @param string $ip
+ * @return mixed|string
  * @author Tinywan(ShaoBo Wan)
  */
-function get_wss_sign(): array
+function get_client_real_ip(string $ip)
 {
-    // ts = 生成链接的时间+有效时间
-    $ts = time() + 360;
-    $secret = 'Tinywan2024';
-    return [
-        'sign' => sha1($ts.'|'.$secret),
-        'ts' => $ts
-    ];
+    $isValid = filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE);
+    if ($isValid) {
+        return $isValid;
+    }
+    return explode(',', $ip)[0] ?? '127.0.0.1';
 }
 
+/**
+ * @desc: 获取客户端浏览器以及版本号
+ * @param string $agent
+ * @return string
+ * @author Tinywan(ShaoBo Wan)
+ */
+function get_client_browser(string $agent = ''): string
+{
+    $browser = '';
+    $browser_ver = '';
+    if (preg_match('/OmniWeb\/(v*)([^\s|;]+)/i', $agent, $regs)) {
+        $browser = 'OmniWeb';
+        $browser_ver = $regs[2];
+    }
+    if (preg_match('/Netscape([\d]*)\/([^\s]+)/i', $agent, $regs)) {
+        $browser = 'Netscape';
+        $browser_ver = $regs[2];
+    }
+    if (preg_match('/safari\/([^\s]+)/i', $agent, $regs)) {
+        $browser = 'Safari';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/MSIE\s([^\s|;]+)/i', $agent, $regs)) {
+        $browser = 'Internet Explorer';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/Opera[\s|\/]([^\s]+)/i', $agent, $regs)) {
+        $browser = 'Opera';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/NetCaptor\s([^\s|;]+)/i', $agent, $regs)) {
+        $browser = '(Internet Explorer ' . $browser_ver . ') NetCaptor';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/Maxthon/i', $agent, $regs)) {
+        $browser = '(Internet Explorer ' . $browser_ver . ') Maxthon';
+        $browser_ver = '';
+    }
+    if (preg_match('/360SE/i', $agent, $regs)) {
+        $browser = '(Internet Explorer ' . $browser_ver . ') 360SE';
+        $browser_ver = '';
+    }
+    if (preg_match('/SE 2.x/i', $agent, $regs)) {
+        $browser = '(Internet Explorer ' . $browser_ver . ') 搜狗';
+        $browser_ver = '';
+    }
+    if (preg_match('/FireFox\/([^\s]+)/i', $agent, $regs)) {
+        $browser = 'FireFox';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/Lynx\/([^\s]+)/i', $agent, $regs)) {
+        $browser = 'Lynx';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/Chrome\/([^\s]+)/i', $agent, $regs)) {
+        $browser = 'Chrome';
+        $browser_ver = $regs[1];
+    }
+    if (preg_match('/MicroMessenger\/([^\s]+)/i', $agent, $regs)) {
+        $browser = '微信浏览器';
+        $browser_ver = $regs[1];
+    }
+    if ($browser != '') {
+        $res = ['browser' => $browser, 'browser_ver' => $browser_ver];
+    } else {
+        $res = ['browser' => '未知', 'browser_ver' => ''];
+    }
+    return implode('|', $res);
+}

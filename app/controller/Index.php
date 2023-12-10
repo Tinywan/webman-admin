@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace app\controller;
 
+use app\common\model\MessageModel;
 use support\Request;
 use support\Response;
 use Tinywan\Jwt\JwtToken;

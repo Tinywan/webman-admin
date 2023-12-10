@@ -13,6 +13,6 @@
  */
 
 return [
-    support\bootstrap\ThinkOrm::class,
     support\bootstrap\LaravelDb::class,
+    Webman\ThinkOrm\ThinkOrm::class,
 ];

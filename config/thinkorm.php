@@ -7,7 +7,7 @@ return [
             // 数据库类型
             'type' => 'mysql',
             // 服务器地址
-            'hostname' => '192.168.3.88',
+            'hostname' => 'dnmp-mysql',
             // 数据库名
             'database' => 'webman-admin',
             // 数据库用户名
@@ -15,7 +15,7 @@ return [
             // 数据库密码
             'password' => '123456',
             // 数据库连接端口
-            'hostport' => '3308',
+            'hostport' => '3306',
             // 数据库连接参数
             'params' => [
                 // 连接超时3秒

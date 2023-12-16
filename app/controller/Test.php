@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace app\controller;
 
 use app\common\model\MessageModel;
+use Redislabs\Module\ReJSON\ReJSON;
 
 class Test
 {
@@ -25,5 +26,11 @@ class Test
 //        /** 读取命名空间为 java 的配置文件 application-dev.yml */
 //        $application = $client->config->get('application-dev.yml', 'DEFAULT_GROUP', 'b34ea59f-e240-413b-ba3d-bb040981d773');
 //        var_dump($application);
+
+$redisClient = new \Redis();
+$redisClient->connect('192.168.13.168',63789);
+$reJSON = \Redislabs\Module\ReJSON\ReJSON::createWithPhpRedis($redisClient);
+$res = $reJSON->set('Tinywan', '.', ['username'=>'Tinywan','age'=>25], 'NX');
+        var_dump($res);
     }
 }

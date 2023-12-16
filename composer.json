@@ -54,7 +54,9 @@
     "webman/think-orm": "^1.1",
     "casbin/webman-permission": "^1.2",
     "psr/container": "^1.1",
-    "php-di/php-di": "^6.4"
+    "php-di/php-di": "^6.4",
+    "mkorkmaz/redislabs-rejson": "^2.0",
+    "ext-redis": "*"
   },
   "suggest": {
     "ext-event": "For better performance. "

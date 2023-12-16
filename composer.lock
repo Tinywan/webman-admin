@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "365485f874c9fedc5684ac061b73e7eb",
+    "content-hash": "c36705bce693c2c3d919848094c31427",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -1635,6 +1635,127 @@
                 "source": "https://github.com/laravel/serializable-closure"
             },
             "time": "2022-09-08T13:45:54+00:00"
+        },
+        {
+            "name": "mkorkmaz/redislabs-common",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mkorkmaz/redislabs-common.git",
+                "reference": "df0af8e84e3b9f6743abc7cf6d5858c646165c9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mkorkmaz/redislabs-common/zipball/df0af8e84e3b9f6743abc7cf6d5858c646165c9c",
+                "reference": "df0af8e84e3b9f6743abc7cf6d5858c646165c9c",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.3 | ^8.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.1",
+                "codeception/module-asserts": "^1.3",
+                "ext-redis": "*",
+                "predis/predis": "^1.1",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "suggest": {
+                "ext-redis": "If your application depends of redis extention.",
+                "predis/predis": "If your application depends on predis."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Redislabs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehmet Korkmaz",
+                    "email": "mehmet@mkorkmaz.com"
+                }
+            ],
+            "description": "Common library for Redislabs Modules. Contains Interfaces, General Exceptions, Abstracts and Traits",
+            "support": {
+                "issues": "https://github.com/mkorkmaz/redislabs-common/issues",
+                "source": "https://github.com/mkorkmaz/redislabs-common/tree/1.0.1"
+            },
+            "time": "2021-07-16T10:17:59+00:00"
+        },
+        {
+            "name": "mkorkmaz/redislabs-rejson",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mkorkmaz/redislabs-rejson.git",
+                "reference": "f6a001341ba826b1ab4ed061a3d90fef0164ce4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mkorkmaz/redislabs-rejson/zipball/f6a001341ba826b1ab4ed061a3d90fef0164ce4b",
+                "reference": "f6a001341ba826b1ab4ed061a3d90fef0164ce4b",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-json": "*",
+                "mkorkmaz/redislabs-common": "^1.0",
+                "php": "^7.3 | ^8.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "^4.0",
+                "codeception/module-asserts": "^1.3",
+                "ext-redis": "*",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpstan/phpstan": "^0.12",
+                "predis/predis": "^1.1",
+                "roave/security-advisories": "dev-master",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "suggest": {
+                "ext-redis": "If your application depends of redis extention.",
+                "predis/predis": "If your application depends on predis."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Redislabs\\Module\\ReJSON\\": "src/ReJSON",
+                    "Redislabs\\Module\\RedisJson\\": "src/RedisJson"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mehmet Korkmaz",
+                    "email": "mehmet@mkorkmaz.com"
+                }
+            ],
+            "description": "Redislabs RedisJSON aka ReJSON Module Client for PHP that supports Predis and PhpRedis",
+            "support": {
+                "issues": "https://github.com/mkorkmaz/redislabs-rejson/issues",
+                "source": "https://github.com/mkorkmaz/redislabs-rejson/tree/2.0.0"
+            },
+            "time": "2021-11-28T21:55:36+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4848,6 +4969,46 @@
             "time": "2023-07-20T09:10:10+00:00"
         },
         {
+            "name": "webman/think-orm",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webman-php/think-orm.git",
+                "reference": "9f1e525c5c4b5a2e1eee6a4f82ef5d23c69139a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webman-php/think-orm/zipball/9f1e525c5c4b5a2e1eee6a4f82ef5d23c69139a2",
+                "reference": "9f1e525c5c4b5a2e1eee6a4f82ef5d23c69139a2",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "topthink/think-orm": "^2.0.53 || ^3.0.0",
+                "workerman/webman-framework": "^1.2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Webman\\ThinkOrm\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/webman-php/think-orm/issues",
+                "source": "https://github.com/webman-php/think-orm/tree/v1.1.1"
+            },
+            "time": "2023-04-23T14:40:18+00:00"
+        },
+        {
             "name": "workbunny/webman-nacos",
             "version": "1.1.7",
             "source": {
@@ -5360,7 +5521,8 @@
         "php": ">=7.4",
         "ext-json": "*",
         "ext-gd": "*",
-        "ext-openssl": "*"
+        "ext-openssl": "*",
+        "ext-pdo": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"

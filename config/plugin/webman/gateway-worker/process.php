@@ -51,6 +51,7 @@ return [
 //                    echo ' [x] [签名认证] 验证通过啦！！！！！！！！', "\n";
 //                    return true;
 //                };
+                return true;
             },
         ]]
     ],

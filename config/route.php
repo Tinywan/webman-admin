@@ -57,7 +57,8 @@ Route::group('/system', function () {
 
 // test
 Route::group('/test', function () {
-    Route::get('/nacos', [Test::class, 'nacos']);
+    Route::get('/redis-json', [Test::class, 'redisJson']);
+    Route::get('/redis-search', [Test::class, 'rediSearch']);
 });
 
 Route::fallback(function () {

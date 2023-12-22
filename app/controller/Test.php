@@ -3,34 +3,57 @@ declare(strict_types=1);
 
 namespace app\controller;
 
-use app\common\model\MessageModel;
-use Redislabs\Module\ReJSON\ReJSON;
 
 class Test
 {
     /**
-     * @desc nacos 配置中心
+     * @desc redisJson
      * @author Tinywan(ShaoBo Wan)
      */
-    public function nacos()
+    public function redisJson()
     {
-        var_dump(MessageModel::where('1=1')->select());
-//        $client = \Workbunny\WebmanNacos\Client::channel();
-//
-//        /** 读取命名空间为 public 的配置文件 payment.php */
-//        $payment = $client->config->get('payment.php', 'DEFAULT_GROUP');
-//        var_dump($payment);
-//
-//        echo '读取命名空间配置文件' . PHP_EOL;
-//
-//        /** 读取命名空间为 java 的配置文件 application-dev.yml */
-//        $application = $client->config->get('application-dev.yml', 'DEFAULT_GROUP', 'b34ea59f-e240-413b-ba3d-bb040981d773');
-//        var_dump($application);
-
-$redisClient = new \Redis();
-$redisClient->connect('192.168.13.168',63789);
-$reJSON = \Redislabs\Module\ReJSON\ReJSON::createWithPhpRedis($redisClient);
-$res = $reJSON->set('Tinywan', '.', ['username'=>'Tinywan','age'=>25], 'NX');
+        $redisClient = new \Redis();
+        $redisClient->connect('192.168.13.168',63789);
+        $reJSON = \Redislabs\Module\ReJSON\ReJSON::createWithPhpRedis($redisClient);
+        $res = $reJSON->set('Tinywan', '.', ['username'=>'Tinywan','age'=>25], 'NX');
         var_dump($res);
+    }
+
+    /**
+     * @desc rediSearch
+     * @author Tinywan(ShaoBo Wan)
+     */
+    public function rediSearch()
+    {
+        /** 创建Redis客户端 */
+        $redis = (new \Ehann\RedisRaw\PhpRedisAdapter())->connect('192.168.13.168',63789);
+
+        /** 创建数据模型与索引 */
+        $bookIndex = new \Ehann\RediSearch\Index($redis);
+//        $bookIndex->addTextField('title')
+//            ->addTextField('author')
+//            ->addNumericField('price')
+//            ->addNumericField('stock')
+//            ->addTextField('description')
+//            ->create();
+//
+//        /** 添加文档 */
+//        $bookIndex->add([
+//            new \Ehann\RediSearch\Fields\TextField('title', '开源技术小栈RedisSearch系列教程'),
+//            new \Ehann\RediSearch\Fields\TextField('author', 'Tinywan'),
+//            new \Ehann\RediSearch\Fields\NumericField('price', 9.99),
+//            new \Ehann\RediSearch\Fields\NumericField('stock', 2024),
+//            new \Ehann\RediSearch\Fields\TextField('description', 'RedisSearch 是一个基于 Redis 的搜索引擎模块，它提供了全文搜索、索引和聚合功能。'),
+//        ]);
+
+        /** 搜索索引 */
+        $result = $bookIndex->search('开源技术小栈RedisSearch系列教程');
+        var_dump($result);
+//        $result->count();     // Number of documents.
+//        $result->documents(); // Array of matches.
+//        // Documents are returned as objects by default.
+        $firstResult = $result->documents()[0];
+//        $firstResult->title;
+//        $firstResult->author;
     }
 }

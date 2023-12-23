@@ -60,6 +60,7 @@ Route::group('/test', function () {
     Route::get('/redis-json', [Test::class, 'redisJson']);
     Route::get('/redis-search', [Test::class, 'rediSearch']);
     Route::get('/openai', [Test::class, 'openai']);
+    Route::get('/openai-search', [Test::class, 'openaiSearch']);
 });
 
 Route::fallback(function () {

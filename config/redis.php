@@ -1,9 +1,11 @@
-<?php	return array (
-  'default' => 
-  array (
-    'host' => 'dnmp-redis',
-    'password' => 123456,
-    'port' => 6379,
-    'database' => 0,
-  ),
+<?php
+
+return array(
+    'default' =>
+        array(
+            'host' => '192.168.13.168',
+            'password' => null,
+            'port' => 63789,
+            'database' => 0,
+        ),
 );

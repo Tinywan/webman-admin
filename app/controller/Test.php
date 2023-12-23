@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace app\controller;
 
 
+use support\Redis;
+
 class Test
 {
     /**
@@ -55,5 +57,64 @@ class Test
         $firstResult = $result->documents()[0];
 //        $firstResult->title;
 //        $firstResult->author;
+    }
+
+    public function openai()
+    {
+        try {
+            $yourApiKey = 'sb-0847b15ab5b63416f63aa8a4b99003dfad9f1516c0e2dabb';
+            $client = \OpenAI::factory()
+                ->withApiKey($yourApiKey)
+//            ->withBaseUri('api.openai.com/v1')
+                ->withBaseUri('api.openai-sb.com/v1')
+                ->withHttpClient($client = new \GuzzleHttp\Client([]))
+                ->withStreamHandler(fn (\Psr\Http\Message\RequestInterface $request): \Psr\Http\Message\ResponseInterface => $client->send($request, [
+                    'stream' => true // Allows to provide a custom stream handler for the http client.
+                ]))->make();
+//        $result = $client->chat()->create([
+//            'model' => 'gpt-3.5-turbo-0613',
+//            'messages' => [
+//                ['role' => 'user', 'content' => 'PHP语言是什么？'],
+//            ],
+//        ]);
+//
+//        var_dump($result->choices[0]->message->content); // Hello! How can I assist you today?
+
+
+            $response = $client->embeddings()->create([
+                'model' => 'text-embedding-ada-002',
+                'input' => 'The food was delicious and the waiter...',
+                'encodding_format' => 'float'
+            ]);
+
+//            var_dump($response->object);
+        foreach ($response->embeddings as $embedding) {
+//            var_dump($embedding->object); // 'embedding'
+            var_dump($embedding->embedding); // [0.018990106880664825, -0.0073809814639389515, ...]
+//            echo $embedding->index . '\r\n'; // 0
+        }
+
+//        $response->usage->promptTokens; // 8,
+//        $response->usage->totalTokens; // 8
+//
+//        $response->toArray(); // ['data' => [...], ...]
+//        var_dump(111111111);
+//        $index = "gtp-embedding-2024";
+//        Redis::rawCommand('FT.INFO', $index);
+//
+//        Redis::rawCommand('FT.CREATE', $index, 'on', 'JSON', 'PREFIX', '1', "$index:",
+//            'SCHEMA','$.text_embedding', 'AS', 'text_embedding', 'VECTOR', 'FLAT', '6', 'DIM', '1536', 'DISTANCE_METRIC', 'COSINE', 'TYPE', 'FLOAT32');
+//        $result = $client->chat()->create([
+//            'model' => 'gpt-3.5',
+//            'messages' => [
+//                ['role' => 'user', 'content' => 'Hello!'],
+//            ],
+//        ]);
+//
+//        echo $result->choices[0]->message->content; // Hello! How can I assist you today?
+        }catch (\Throwable $throwable) {
+            var_dump('异常错误 '.$throwable->getMessage());
+        }
+
     }
 }

@@ -91,6 +91,7 @@ class Test
         foreach ($response->embeddings as $embedding) {
 //            var_dump($embedding->object); // 'embedding'
             var_dump($embedding->embedding); // [0.018990106880664825, -0.0073809814639389515, ...]
+            // TODO 存储在Redis向量数据库
 //            echo $embedding->index . '\r\n'; // 0
         }
 

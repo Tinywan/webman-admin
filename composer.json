@@ -58,7 +58,7 @@
     "mkorkmaz/redislabs-rejson": "^2.0",
     "ext-redis": "*",
     "ethanhann/redisearch-php": "^1.9",
-    "openai-php/client": "^0.4.1"
+    "webman/push": "^1.0"
   },
   "suggest": {
     "ext-event": "For better performance. "

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>开源技术小栈文档SheetJSTable</title>
+    <script src="./xlsx.full.min.js"></script>
+</head>
+<body>
+<table id="TableToExport"></table>
+<button id="sheetjsexport"><b>Export as XLSX</b></button>
+<script>
+    document.getElementById("sheetjsexport").addEventListener('click', function() {
+        // const url = "https://sheetjs.com/data/executive.json";
+        // const raw_data = await (await fetch(url)).json();
+        // console.log(raw_data)
+        /* Create worksheet from HTML DOM TABLE */
+        const wb = XLSX.utils.table_to_book(document.getElementById("TableToExport"));
+        /* Export to file (start a download) */
+        XLSX.writeFile(wb, "SheetJSTable.xlsx");
+    });
+
+</script>
+</body>
+</html>

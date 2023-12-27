@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>开源技术小栈</title>
+    <script src="./xlsx.full.min.js"></script>
+</head>
+<body>
+<table id="TableToExport"></table>
+<button id="sheetjsexport"><b>Export as XLSX</b></button>
+<script>
+    document.getElementById("sheetjsexport").addEventListener('click', function () {
+        /** 导出数据 */
+        let json = [
+            {
+                "姓名": "开源技术小栈",
+                "年龄": 1,
+            },
+            {
+                "姓名": "Tinywan",
+                "年龄": 24,
+            },
+            {
+                "姓名": "阿克苏",
+                "年龄": 26,
+            }
+        ]
+        /** 实例化一个工作簿 */
+        let book = XLSX.utils.book_new();
+
+        /** 实例化一个Sheet */
+        let sheet = XLSX.utils.json_to_sheet(json, {
+            header: ['姓名', '年龄']
+        })
+
+        /** 将Sheet写入Sheet 工作簿 */
+        XLSX.utils.book_append_sheet(book, sheet, 'Sheet1')
+
+        /** 写入文件，直接触发浏览器的下载 */
+        XLSX.writeFile(book, 'SheetJS数据导出.xlsx')
+    });
+</script>
+</body>
+</html>

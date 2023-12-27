@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>开源技术小栈ImportSheetJS  JavaScript电子表格处理神器 SheetJS</title>
+</head>
+<body>
+<table>
+    <thead><tr><th>Fiscal Year</th><th>Quarter</th><th>Total (in $B)</th></tr></thead>
+    <tbody id="tbody"></tbody>
+</table>
+<script src="./xlsx.full.min.js"></script>
+<script>
+    (async() => {
+        /* parse workbook */
+        const url = "https://sheetjs.com/data/PortfolioSummary.xls";
+        const workbook = XLSX.read(await (await fetch(url)).arrayBuffer());
+
+        /* get first worksheet */
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const raw_data = XLSX.utils.sheet_to_json(worksheet, {header:1});
+
+        /* fill years */
+        let last_year = 0;
+        raw_data.forEach(r => last_year = r[0] = (r[0] != null ? r[0] : last_year));
+
+        /* select data rows */
+        const rows = raw_data.filter(r => r[0] >= 2007 && r[0] <= 2023);
+
+        /* generate row objects */
+        const objects = rows.map(r => ({FY: r[0], FQ: r[1], total: r[8]}));
+
+        /* add rows to table body */
+        objects.forEach(o => {
+            const row = document.createElement("TR");
+            row.innerHTML = `<td>${o.FY}</td><td>${o.FQ||""}</td><td>${o.total}</td>`;
+            tbody.appendChild(row);
+        });
+    })();
+</script>
+</body>
+</html>

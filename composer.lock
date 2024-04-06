@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2260f7d6f7b8f0ac850c463e4572023",
+    "content-hash": "4ac4c1862d9a51d77ea454a4ea84e62c",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -5617,16 +5617,16 @@
         },
         {
             "name": "workerman/webman-framework",
-            "version": "v1.5.13",
+            "version": "v1.5.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/webman-framework.git",
-                "reference": "699c9c9509d472679fa1d8461b9a9bb58fbe79a7"
+                "reference": "84335520a340ee60adf7cf17aeb0edb9536c24e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/699c9c9509d472679fa1d8461b9a9bb58fbe79a7",
-                "reference": "699c9c9509d472679fa1d8461b9a9bb58fbe79a7",
+                "url": "https://api.github.com/repos/walkor/webman-framework/zipball/84335520a340ee60adf7cf17aeb0edb9536c24e8",
+                "reference": "84335520a340ee60adf7cf17aeb0edb9536c24e8",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -5681,7 +5681,7 @@
                 "source": "https://github.com/walkor/webman-framework",
                 "wiki": "https://doc.workerman.net/"
             },
-            "time": "2023-11-16T04:06:19+00:00"
+            "time": "2024-01-15T12:11:49+00:00"
         },
         {
             "name": "workerman/workerman",

@@ -179,9 +179,8 @@
 				}
 			},
 			async login(){
-				var validate = await this.$refs.loginForm.validate().catch(()=>{})
-				if(!validate){ return false }
-
+				// var validate = await this.$refs.loginForm.validate().catch(()=>{})
+				// if(!validate){ return false }
 				// this.islogin = true
 				var data = {
 					username: this.ruleForm.user,

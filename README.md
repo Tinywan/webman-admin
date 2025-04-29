@@ -1,6 +1,5 @@
 # ♨️ 众口难调，用爱发电。
 
-[![license](https://img.shields.io/github/license/Tinywan/webman-admin)]()
 [![Build status](https://github.com/Tinywan/dnmp/workflows/CI/badge.svg)]()
 [![webman-admin](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 

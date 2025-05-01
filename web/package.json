@@ -10,7 +10,7 @@
 	"dependencies": {
 		"@element-plus/icons": "0.0.11",
 		"@tinymce/tinymce-vue": "4.0.5",
-		"axios": "0.25.0",
+		"axios": "1.8.2",
 		"core-js": "3.21.0",
 		"cropperjs": "1.5.12",
 		"crypto-js": "4.1.1",
